@@ -1,0 +1,10 @@
+---
+export const prerender = true;
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PrivacyView from '../components/page-views/privacy/PrivacyView';
+import { buildStaticMetadata } from '../lib/page-metadata/static-pages';
+const metadata = buildStaticMetadata('/privacy');
+---
+<BaseLayout metadata={metadata} path="/privacy">
+  <PrivacyView />
+</BaseLayout>

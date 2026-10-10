@@ -1,0 +1,59 @@
+{
+  "currency": "USD",
+  "purchaseType": "one-time",
+  "creditsExpire": false,
+  "oneTimePlans": [
+    {
+      "key": "PL268S776YXSUQOJ",
+      "priceId": "PL268S776YXSUQOJ",
+      "title": "200 Credits",
+      "price": "$9.90",
+      "priceAmount": 9.9,
+      "credits": 200,
+      "popular": false,
+      "buttonText": "Get 200 Credits",
+      "features": [
+        "200 credits",
+        "One-time payment",
+        "Credits never expire"
+      ]
+    },
+    {
+      "key": "PL26UEUS1XSQXFTJ",
+      "priceId": "PL26UEUS1XSQXFTJ",
+      "title": "650 Credits",
+      "price": "$29.90",
+      "priceAmount": 29.9,
+      "credits": 650,
+      "popular": false,
+      "buttonText": "Get 650 Credits",
+      "features": [
+        "650 credits",
+        "One-time payment",
+        "Credits never expire"
+      ]
+    },
+    {
+      "key": "PL26V2ZGW8DQEUZJ",
+      "priceId": "PL26V2ZGW8DQEUZJ",
+      "title": "1,200 Credits",
+      "price": "$49.90",
+      "priceAmount": 49.9,
+      "credits": 1200,
+      "popular": false,
+      "buttonText": "Get 1,200 Credits",
+      "features": [
+        "1,200 credits",
+        "One-time payment",
+        "Credits never expire"
+      ]
+    }
+  ],
+  "provenance": {
+    "schema_version": "1.0.0",
+    "project_slug": "website-template",
+    "source": "configs/pricing/default.json",
+    "source_sha256": "4852423dcc857ec4dce502f27777b59456abbeaa6e38fe97d11acf4c4e20f73b",
+    "resolution": "shared-default"
+  }
+}

@@ -1,0 +1,9 @@
+---
+export const prerender = false;
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SsoCallbackEntry from '../entries/sso-callback';
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+---
+<BaseLayout metadata={{ robots: { index: false, follow: false } }} path="/sso-callback" noShell>
+  <SsoCallbackEntry client:load />
+</BaseLayout>

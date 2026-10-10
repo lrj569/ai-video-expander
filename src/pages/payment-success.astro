@@ -1,0 +1,11 @@
+---
+export const prerender = false;
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PaymentSuccessView from '../components/page-views/payment-success/PaymentSuccessView';
+import { buildStaticMetadata } from '../lib/page-metadata/static-pages';
+const metadata = buildStaticMetadata('/payment-success');
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+---
+<BaseLayout metadata={metadata} path="/payment-success">
+  <PaymentSuccessView client:load />
+</BaseLayout>

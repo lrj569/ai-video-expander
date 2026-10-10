@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "generatedAt": "2026-10-10T06:10:04.966Z",
+  "pages": {
+    "/": {
+      "fingerprint": "0eae276dd3b2be08077e2972b1648499e6f57be952700577d436eee64e1af10d",
+      "lastModified": "2026-10-10T06:10:04.966Z"
+    },
+    "/pricing": {
+      "fingerprint": "de98e1a8fb0b290f44e450fd8225751391028cee91de253dfd82de056cbf00d4",
+      "lastModified": "2026-10-10T06:10:04.966Z"
+    },
+    "/blog": {
+      "fingerprint": "9610a249e33c92d7cd87afa3e246d802dcea6b39e5ed759c47c6fe97b6147784",
+      "lastModified": "2026-09-20T08:08:16.873Z"
+    }
+  }
+}

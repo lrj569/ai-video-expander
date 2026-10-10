@@ -1,0 +1,10 @@
+{
+  "name": "Website Template",
+  "description": "A configurable website template.",
+  "slug": "website-template",
+  "canonicalUrl": "https://example.com",
+  "toolPath": "/#tool",
+  "implementationStatus": "template-unconfigured",
+  "pages": [],
+  "capabilities": []
+}

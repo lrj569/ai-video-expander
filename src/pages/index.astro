@@ -1,0 +1,26 @@
+---
+export const prerender = true;
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '@/components/home/Hero';
+import PricingSection from '@/components/PricingSection';
+import { Footer } from '@/components/Footer';
+import GoogleOneTapAuth from '@/components/auth/google-one-tap';
+import { metadata, websiteJsonLd } from '../components/page-views/home/HomeView';
+---
+<BaseLayout metadata={metadata} path="/">
+  <script type="application/ld+json" set:html={JSON.stringify(websiteJsonLd)} />
+  {import.meta.env.PROD && (
+    <GoogleOneTapAuth
+      client:idle
+      cancelOnTapOutside={true}
+      fedCmSupport={false}
+      signInForceRedirectUrl="/"
+      signUpForceRedirectUrl="/"
+    />
+  )}
+  <Hero />
+  <div class="below-fold-content">
+    <PricingSection client:visible />
+  </div>
+  <Footer />
+</BaseLayout>

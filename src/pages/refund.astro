@@ -1,0 +1,10 @@
+---
+export const prerender = true;
+import BaseLayout from '../layouts/BaseLayout.astro';
+import RefundView from '../components/page-views/refund/RefundView';
+import { buildStaticMetadata } from '../lib/page-metadata/static-pages';
+const metadata = buildStaticMetadata('/refund');
+---
+<BaseLayout metadata={metadata} path="/refund">
+  <RefundView />
+</BaseLayout>

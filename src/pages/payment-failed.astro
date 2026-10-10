@@ -1,0 +1,9 @@
+---
+export const prerender = false;
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PaymentFailedView, { metadata } from '../components/page-views/payment-failed/PaymentFailedView';
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+---
+<BaseLayout metadata={metadata} path="/payment-failed">
+  <PaymentFailedView />
+</BaseLayout>

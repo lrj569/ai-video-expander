@@ -1,0 +1,23 @@
+---
+export const prerender = false;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StaticRender from '../../components/StaticRender';
+import ShareView, { generateMetadata } from '../../components/page-views/share/ShareView';
+import NotFoundView from '../../components/page-views/not-found/NotFoundView';
+import { serverCmsApi } from '@/lib/server-api';
+
+const id = Astro.params.id ?? '';
+const params = Promise.resolve({ id });
+const opus = await serverCmsApi.getOpusDetail(id);
+const metadata = await generateMetadata({ params });
+const found = Boolean(opus && opus.status === 1);
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+if (!found) {
+  Astro.response.status = 404;
+  Astro.response.headers.set('X-Robots-Tag', 'noindex');
+}
+const content = found ? await ShareView({ params }) : null;
+---
+<BaseLayout metadata={metadata} path={`/share/${id}`}>
+  {content ? <StaticRender value={content} /> : <NotFoundView />}
+</BaseLayout>

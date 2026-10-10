@@ -1,0 +1,118 @@
+/* Static contract checks only: no network, login, checkout or production proof. */
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const ts = require('typescript');
+const root = path.resolve(__dirname, '..');
+const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
+
+const config = read('website-config.js');
+assert.match(config, /pricing:\s*generatedPricing/);
+assert.match(config, /export const siteConfig = generatedSite/);
+const api = read('lib/api.ts');
+assert.match(api, /\/api\/pay\/anyway/);
+assert.doesNotMatch(api, /\/api\/pay\/stripe/);
+assert.match(api, /headers: getHeaders\(\),\s*body: JSON.stringify\(\{\s*price_id: priceId,/);
+const section = read('components/PricingSection.tsx');
+assert.match(section, /credits: selectedPlan.credits/);
+assert.doesNotMatch(section, /buttonText\.match/);
+assert.match(section, /heading\?: string/);
+assert.match(section, /description\?: string/);
+assert.match(section, /md:grid-cols-3/);
+assert.match(section, /if \(!checkoutConfigured\) return/);
+assert.match(section, /disabled=\{!checkoutConfigured/);
+const readinessModule = { exports: {} };
+vm.runInNewContext(ts.transpileModule(read('lib/checkout-readiness.ts'), {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
+}).outputText, { exports: readinessModule.exports, URL });
+const ready = readinessModule.exports.isCheckoutConfigured;
+assert.equal(ready({ implementationStatus: 'template-unconfigured' }, { baseUrl: 'https://api.real-site.test', appId: 'configured-app' }), false);
+assert.equal(ready({ implementationStatus: 'verified-public' }, { baseUrl: 'https://api.example.com', appId: 'configured-app' }), false);
+assert.equal(ready({ implementationStatus: 'verified-public' }, { baseUrl: 'https://api.real-site.test', appId: 'template-app' }), false);
+assert.equal(ready({ implementationStatus: 'verified-public' }, { baseUrl: 'https://api.real-site.test', appId: 'configured-app' }), true);
+assert.equal(ready({ implementationStatus: 'target-state-development' }, { baseUrl: 'https://api.real-site.test', appId: 'configured-app' }), true);
+for (const implementationStatus of ['implemented', 'planning', '', 'unknown']) {
+  assert.equal(ready({ implementationStatus }, { baseUrl: 'https://api.real-site.test', appId: 'configured-app' }), false);
+}
+const faq = read('src/components/page-views/pricing/PricingFAQ.tsx');
+const page = read('src/components/page-views/pricing/PricingView.tsx');
+assert.match(faq, /import \{ pricingFaqItems \} from '@\/lib\/pricing-faq'/);
+assert.match(page, /import \{ pricingFaqSchema \} from '@\/lib\/pricing-faq'/);
+assert.ok(fs.existsSync(path.join(root, 'src/pages/llms.txt.ts')));
+assert.ok(!fs.existsSync(path.join(root, 'public/llms.txt')));
+assert.match(read('src/lib/llms.ts'), /verified-public/);
+assert.match(read('src/lib/llms.ts'), /llmsPolicies/);
+assert.doesNotMatch(page, /'Product'|'Offer'|InStock|unitText: 'month'/);
+assert.doesNotMatch(faq, /480p|720p|monthly subscriptions|Visa/);
+
+const pricing = JSON.parse(read('configs/generated-pricing.json'));
+const faqModule = { exports: {} };
+vm.runInNewContext(ts.transpileModule(read('lib/pricing-faq.ts'), {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
+}).outputText, {
+  exports: faqModule.exports,
+  require: (specifier) => {
+    assert.equal(specifier, '@/website-config');
+    return { pricingConfig: pricing };
+  },
+});
+const sharedFaq = faqModule.exports;
+assert.equal(sharedFaq.pricingFaqItems.length, 5);
+assert.equal(sharedFaq.pricingFaqSchema.mainEntity.length, 5);
+assert.deepEqual(
+  JSON.parse(JSON.stringify(sharedFaq.pricingFaqSchema.mainEntity)),
+  JSON.parse(JSON.stringify(sharedFaq.pricingFaqItems.map(({ question, answer }) => ({
+    '@type': 'Question', name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })))),
+);
+assert.equal(pricing.currency, 'USD');
+assert.equal(pricing.purchaseType, 'one-time');
+assert.equal(pricing.creditsExpire, false);
+for (const plan of pricing.oneTimePlans) {
+  assert.equal(plan.priceId, plan.key);
+  assert.equal(typeof plan.credits, 'number');
+  assert.ok(Number.isInteger(plan.credits) && plan.credits > 0);
+  assert.ok(Number.isFinite(plan.priceAmount) && plan.priceAmount > 0);
+}
+const site = JSON.parse(read('configs/generated-site.json'));
+assert.ok(site.name && site.slug && site.canonicalUrl && site.toolPath);
+const llmsModule = { exports: {} };
+const profile = JSON.parse(read('configs/generated-public-profile.json'));
+const policies = JSON.parse(read('src/config/page-policies.json')).policies;
+let currentProfile = profile;
+vm.runInNewContext(ts.transpileModule(read('src/lib/llms.ts'), {
+  compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
+}).outputText, {
+  exports: llmsModule.exports,
+  require: (specifier) => specifier === '@/website-config'
+    ? { get publicProfileConfig() { return currentProfile; }, pricingConfig: pricing }
+    : { llmsPolicies: policies.filter(policy => policy.llms && policy.robots.index) },
+});
+for (const status of ['template-unconfigured', 'target-state-development']) {
+  currentProfile = { ...profile, implementationStatus: status };
+  const content = llmsModule.exports.buildLlmsTxt();
+  assert.match(content, /pending verification/);
+  assert.doesNotMatch(content, /## Pricing|## Verified capabilities/);
+}
+currentProfile = {
+  ...profile, implementationStatus: 'verified-public',
+  pages: [
+    { path: '/', title: 'Home', description: 'Public entry.', status: 'verified', evidence: 'fixture' },
+    { path: '/pricing', title: 'Pricing', description: 'Credit packs.', status: 'verified', evidence: 'fixture' },
+    { path: '/profile', title: 'Profile', description: 'Private.', status: 'verified', evidence: 'fixture' },
+    { path: '/invented', title: 'Missing', description: 'Missing.', status: 'verified', evidence: 'fixture' },
+    { path: '/blog', title: 'Unverified blog', description: 'Not ready.', status: 'planned', evidence: '' },
+  ],
+  capabilities: ['Confirmed test capability',
+    { text: 'Verified object capability', status: 'verified', evidence: 'fixture' },
+    { text: 'Do not assert planned capability', status: 'planned', evidence: '' }],
+};
+const publicLlms = llmsModule.exports.buildLlmsTxt();
+assert.match(publicLlms, /one-time purchases/);
+assert.match(publicLlms, /never expire/);
+assert.match(publicLlms, /Verified object capability/);
+assert.match(publicLlms, /\[Pricing\]/);
+assert.doesNotMatch(publicLlms, /\/profile|\/invented|Unverified blog|planned capability|Allow:|Disallow:/);
+console.log('Pricing template static contract checks passed.');

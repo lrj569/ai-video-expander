@@ -1,0 +1,51 @@
+---
+export const prerender = false;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StaticRender from '../../components/StaticRender';
+import BlogPostView, { generateMetadata } from '../../components/page-views/blog/slug/BlogPostView';
+import BlogViewTracker from '../../components/page-views/blog/slug/BlogViewTracker';
+import NotFoundView from '../../components/page-views/not-found/NotFoundView';
+import { getBlogPostBySlug } from '@/lib/blog/blogUtils';
+
+const slug = Astro.params.slug ?? '';
+const params = Promise.resolve({ slug });
+const result = await getBlogPostBySlug(slug);
+const metadata = await generateMetadata({ params });
+if (!result) {
+  Astro.response.status = 404;
+  Astro.response.headers.set('X-Robots-Tag', 'noindex');
+}
+const content = result ? await BlogPostView({ params }) : null;
+---
+<BaseLayout metadata={metadata} path={`/blog/${slug}`}>
+  {content ? <StaticRender value={content} /> : <NotFoundView />}
+  {result && <BlogViewTracker url={result.originalUrl} client:load />}
+  <script>
+    const links = Array.from(document.querySelectorAll<HTMLAnchorElement>('nav a[href^="#heading-"]'));
+    const select = (id: string) => {
+      for (const link of links) {
+        const active = link.hash === `#${id}`;
+        link.classList.toggle('text-foreground', active);
+        link.classList.toggle('bg-foreground/10', active);
+        link.classList.toggle('font-medium', active);
+      }
+    };
+    for (const link of links) {
+      link.addEventListener('click', (event) => {
+        const target = document.getElementById(link.hash.slice(1));
+        if (!target) return;
+        event.preventDefault();
+        history.pushState(null, '', link.hash);
+        window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 100, behavior: 'smooth' });
+        select(target.id);
+      });
+    }
+    const observer = new IntersectionObserver((entries) => {
+      for (const entry of entries) if (entry.isIntersecting) select(entry.target.id);
+    }, { rootMargin: '-140px 0px -70% 0px' });
+    for (const link of links) {
+      const heading = document.getElementById(link.hash.slice(1));
+      if (heading) observer.observe(heading);
+    }
+  </script>
+</BaseLayout>

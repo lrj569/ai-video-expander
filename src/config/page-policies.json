@@ -1,0 +1,233 @@
+{
+  "version": 1,
+  "policies": [
+    {
+      "path": "/",
+      "routeFile": "src/pages/index.astro",
+      "category": "public",
+      "rendering": "prerender",
+      "robots": { "index": true, "follow": true },
+      "sitemap": "manifest",
+      "llms": true,
+      "llmsLabel": "Home",
+      "llmsDescription": "Primary public entry point for the configured product.",
+      "contentWatch": [
+        "src/pages/index.astro",
+        "src/components/page-views/home/HomeView.tsx",
+        "components/home/Hero.tsx",
+        "components/PricingSection.tsx",
+        "configs/generated-pricing.json",
+        "configs/generated-site.json",
+        "components/Footer.tsx",
+        "src/components/SiteHeader.astro"
+      ],
+      "configWatch": ["canonical.url", "project", "pageTdk./", "pricing"],
+      "contentIgnore": [
+        "components/generator-common/**",
+        "src/entries/generator/**",
+        "src/styles/**",
+        "**/*.test.*",
+        "**/*.spec.*",
+        "**/*.d.ts"
+      ]
+    },
+    {
+      "path": "/pricing",
+      "routeFile": "src/pages/pricing.astro",
+      "category": "public",
+      "rendering": "prerender",
+      "robots": { "index": true, "follow": true },
+      "sitemap": "manifest",
+      "llms": true,
+      "llmsLabel": "Pricing",
+      "llmsDescription": "Public pricing and plan information configured for the product.",
+      "contentWatch": [
+        "src/pages/pricing.astro",
+        "src/components/page-views/pricing/PricingView.tsx",
+        "src/components/page-views/pricing/PricingFAQ.tsx",
+        "lib/pricing-faq.ts",
+        "components/PricingSection.tsx",
+        "components/Footer.tsx",
+        "src/components/SiteHeader.astro"
+      ],
+      "configWatch": ["canonical.url", "project.name", "pageTdk./pricing", "pricing"],
+      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
+    },
+    {
+      "path": "/blog",
+      "routeFile": "src/pages/blog/index.astro",
+      "category": "public",
+      "rendering": "ssr",
+      "robots": { "index": true, "follow": true },
+      "sitemap": "cms-index",
+      "llms": true,
+      "llmsLabel": "Blog",
+      "llmsDescription": "Public articles returned by the configured CMS.",
+      "contentWatch": [
+        "src/pages/blog/index.astro",
+        "src/components/page-views/blog/BlogIndexView.tsx",
+        "components/Footer.tsx",
+        "src/components/SiteHeader.astro"
+      ],
+      "configWatch": ["canonical.url", "project.name", "pageTdk./blog"],
+      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
+    },
+    {
+      "path": "/blog/[slug]",
+      "routeFile": "src/pages/blog/[slug].astro",
+      "category": "public-dynamic",
+      "rendering": "ssr",
+      "robots": { "index": true, "follow": true },
+      "sitemap": "cms-items",
+      "llms": false,
+      "contentWatch": [
+        "src/pages/blog/[slug].astro",
+        "src/components/page-views/blog/slug/BlogPostView.tsx",
+        "lib/blog/blogSeo.ts"
+      ],
+      "configWatch": ["canonical.url", "project.name", "pageTdk./blog"],
+      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
+    },
+    {
+      "path": "/terms",
+      "routeFile": "src/pages/terms.astro",
+      "category": "legal",
+      "rendering": "prerender",
+      "robots": { "index": false, "follow": true },
+      "sitemap": "none",
+      "llms": false,
+      "contentWatch": ["src/pages/terms.astro", "src/components/page-views/terms/TermsView.tsx"],
+      "configWatch": ["canonical.url", "pageTdk./terms"],
+      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
+    },
+    {
+      "path": "/privacy",
+      "routeFile": "src/pages/privacy.astro",
+      "category": "legal",
+      "rendering": "prerender",
+      "robots": { "index": false, "follow": true },
+      "sitemap": "none",
+      "llms": false,
+      "contentWatch": ["src/pages/privacy.astro", "src/components/page-views/privacy/PrivacyView.tsx"],
+      "configWatch": ["canonical.url", "pageTdk./privacy"],
+      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
+    },
+    {
+      "path": "/refund",
+      "routeFile": "src/pages/refund.astro",
+      "category": "legal",
+      "rendering": "prerender",
+      "robots": { "index": false, "follow": true },
+      "sitemap": "none",
+      "llms": false,
+      "contentWatch": ["src/pages/refund.astro", "src/components/page-views/refund/RefundView.tsx"],
+      "configWatch": ["canonical.url", "pageTdk./refund"],
+      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
+    },
+    {
+      "path": "/payment-success",
+      "routeFile": "src/pages/payment-success.astro",
+      "category": "payment-status",
+      "rendering": "ssr",
+      "robots": { "index": false, "follow": true },
+      "sitemap": "none",
+      "llms": false,
+      "contentWatch": ["src/pages/payment-success.astro", "src/components/page-views/payment-success/PaymentSuccessView.tsx"],
+      "configWatch": ["canonical.url", "pageTdk./payment-success"],
+      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
+    },
+    {
+      "path": "/payment-failed",
+      "routeFile": "src/pages/payment-failed.astro",
+      "category": "payment-status",
+      "rendering": "ssr",
+      "robots": { "index": false, "follow": true },
+      "sitemap": "none",
+      "llms": false,
+      "contentWatch": ["src/pages/payment-failed.astro", "src/components/page-views/payment-failed/PaymentFailedView.tsx"],
+      "configWatch": ["canonical.url", "pageTdk./payment-failed"],
+      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
+    },
+    {
+      "path": "/profile",
+      "routeFile": "src/pages/profile.astro",
+      "category": "private",
+      "rendering": "ssr",
+      "robots": { "index": false, "follow": true },
+      "sitemap": "none",
+      "llms": false,
+      "contentWatch": ["src/pages/profile.astro", "src/components/page-views/profile/ProfileView.tsx"],
+      "configWatch": ["canonical.url"],
+      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
+    },
+    {
+      "path": "/sso-callback",
+      "routeFile": "src/pages/sso-callback.astro",
+      "category": "internal-state",
+      "rendering": "ssr",
+      "robots": { "index": false, "follow": false },
+      "sitemap": "none",
+      "llms": false,
+      "contentWatch": ["src/pages/sso-callback.astro", "src/components/page-views/sso-callback/SsoCallbackView.tsx"],
+      "configWatch": ["canonical.url"],
+      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
+    },
+    {
+      "path": "/share/[id]",
+      "routeFile": "src/pages/share/[id].astro",
+      "category": "internal-state",
+      "rendering": "ssr",
+      "robots": { "index": false, "follow": false },
+      "sitemap": "none",
+      "llms": false,
+      "contentWatch": ["src/pages/share/[id].astro", "src/components/page-views/share/ShareView.tsx"],
+      "configWatch": ["canonical.url", "project.name"],
+      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
+    },
+    {
+      "path": "/404",
+      "routeFile": "src/pages/404.astro",
+      "category": "internal-state",
+      "rendering": "prerender",
+      "robots": { "index": false, "follow": false },
+      "sitemap": "none",
+      "llms": false,
+      "contentWatch": ["src/pages/404.astro", "src/components/page-views/not-found/NotFoundView.tsx"],
+      "configWatch": [],
+      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
+    },
+    {
+      "path": "/robots.txt",
+      "routeFile": "src/pages/robots.txt.ts",
+      "category": "system",
+      "rendering": "endpoint",
+      "robots": { "index": false, "follow": false },
+      "sitemap": "none",
+      "llms": false,
+      "contentWatch": [],
+      "configWatch": []
+    },
+    {
+      "path": "/sitemap.xml",
+      "routeFile": "src/pages/sitemap.xml.ts",
+      "category": "system",
+      "rendering": "endpoint",
+      "robots": { "index": false, "follow": false },
+      "sitemap": "none",
+      "llms": false,
+      "contentWatch": [],
+      "configWatch": []
+    },
+    {
+      "path": "/llms.txt",
+      "routeFile": "src/pages/llms.txt.ts",
+      "category": "system",
+      "rendering": "endpoint",
+      "robots": { "index": false, "follow": false },
+      "sitemap": "none",
+      "llms": false,
+      "contentWatch": [],
+      "configWatch": []
+    }
+  ]
+}

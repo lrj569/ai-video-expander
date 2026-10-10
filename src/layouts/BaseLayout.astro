@@ -1,0 +1,97 @@
+---
+import { ClientRouter } from 'astro:transitions';
+import '@/src/styles/globals.css';
+import { websiteConfig } from '@/website-config';
+import { getPagePolicy } from '@/src/lib/page-policy';
+import SiteHeader from '../components/SiteHeader.astro';
+
+type Meta = Record<string, any>;
+interface Props {
+  metadata?: Meta;
+  path: string;
+  noShell?: boolean;
+}
+
+const { metadata = {}, path, noShell = false } = Astro.props;
+const pagePolicy = getPagePolicy(path);
+const pageTdk: Record<string, { title: string; description: string }> = websiteConfig.pageTdk;
+const fallback = pageTdk[path] ?? pageTdk['/'];
+const title = typeof metadata.title === 'string'
+  ? metadata.title
+  : metadata.title?.absolute ?? fallback.title;
+const description = metadata.description ?? fallback.description ?? '';
+const keywords = Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : metadata.keywords;
+const canonical = metadata.alternates?.canonical ?? `${websiteConfig.canonical.url}${path === '/' ? '' : path}`;
+const robotsIndex = (pagePolicy?.robots.index ?? true) && metadata.robots?.index !== false;
+const robotsFollow = (pagePolicy?.robots.follow ?? true) && metadata.robots?.follow !== false;
+const robots = [
+  robotsIndex ? 'index' : 'noindex',
+  robotsFollow ? 'follow' : 'nofollow',
+  robotsIndex ? 'max-image-preview:large' : false,
+].filter(Boolean).join(', ');
+const googleBot = metadata.robots?.googleBot;
+const googleBotDirectives = googleBot && [
+  googleBot.index === false ? 'noindex' : 'index',
+  googleBot.follow === false ? 'nofollow' : 'follow',
+  googleBot['max-video-preview'] !== undefined && `max-video-preview:${googleBot['max-video-preview']}`,
+  googleBot['max-image-preview'] && `max-image-preview:${googleBot['max-image-preview']}`,
+  googleBot['max-snippet'] !== undefined && `max-snippet:${googleBot['max-snippet']}`,
+].filter(Boolean).join(', ');
+const og = metadata.openGraph ?? {};
+const twitter = metadata.twitter ?? {};
+const ogImage = og.images?.[0];
+const image = typeof ogImage === 'string' ? ogImage : ogImage?.url ?? `${websiteConfig.canonical.url}/share-img.png`;
+---
+<!doctype html>
+<html lang="en" class="dark">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <meta name="robots" content={robots} />
+    {googleBotDirectives && <meta name="googlebot" content={googleBotDirectives} />}
+    <link rel="canonical" href={canonical} />
+    {robotsIndex && <link rel="describedby" href={`${websiteConfig.canonical.url}/llms.txt`} />}
+    <meta property="og:title" content={og.title ?? title} />
+    <meta property="og:description" content={og.description ?? description} />
+    <meta property="og:type" content={og.type ?? 'website'} />
+    <meta property="og:url" content={og.url ?? canonical} />
+    <meta property="og:image" content={image} />
+    {og.siteName && <meta property="og:site_name" content={og.siteName} />}
+    {og.locale && <meta property="og:locale" content={og.locale} />}
+    <meta name="twitter:card" content={twitter.card ?? 'summary_large_image'} />
+    <meta name="twitter:title" content={twitter.title ?? title} />
+    <meta name="twitter:description" content={twitter.description ?? description} />
+    <meta name="twitter:image" content={twitter.images?.[0] ?? image} />
+    <link rel="icon" href="/favicon-32.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon-48.ico" sizes="48x48" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <ClientRouter />
+    <slot name="head" />
+  </head>
+  <body class="bg-background text-foreground antialiased">
+    {!noShell && <SiteHeader />}
+    <main class:list={[!noShell && 'min-h-[calc(100vh-56px)] pt-14']}>
+      <slot />
+    </main>
+    <script is:inline>
+      window.addEventListener('load', () => {
+        window.setTimeout(() => {
+          window._czc = window._czc || [];
+          window._czc.push(['_setAccount', 1281431393]);
+          for (const src of [
+            'https://v1.cnzz.com/z.js?id=1281417985&async=1',
+            'https://v1.cnzz.com/z.js?id=1281431393&async=1',
+          ]) {
+            const script = document.createElement('script');
+            script.src = src;
+            document.body.appendChild(script);
+          }
+        }, 0);
+      }, { once: true });
+    </script>
+  </body>
+</html>

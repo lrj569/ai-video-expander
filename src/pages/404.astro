@@ -1,0 +1,8 @@
+---
+export const prerender = true;
+import BaseLayout from '../layouts/BaseLayout.astro';
+import NotFoundView from '../components/page-views/not-found/NotFoundView';
+---
+<BaseLayout metadata={{ title: 'Page Not Found', robots: { index: false, follow: false } }} path="/404">
+  <NotFoundView />
+</BaseLayout>

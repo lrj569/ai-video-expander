@@ -1,0 +1,10 @@
+---
+export const prerender = false;
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import StaticRender from '../../components/StaticRender';
+import BlogIndexView, { metadata } from '../../components/page-views/blog/BlogIndexView';
+const content = await BlogIndexView();
+---
+<BaseLayout metadata={metadata} path="/blog">
+  <StaticRender value={content} />
+</BaseLayout>

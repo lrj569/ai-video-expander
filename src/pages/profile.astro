@@ -1,0 +1,9 @@
+---
+export const prerender = false;
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ProfileEntry from '../entries/profile';
+Astro.response.headers.set('Cache-Control', 'private, no-store');
+---
+<BaseLayout metadata={{ robots: { index: false, follow: true } }} path="/profile">
+  <ProfileEntry client:load />
+</BaseLayout>
