@@ -54,41 +54,6 @@
       "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
     },
     {
-      "path": "/blog",
-      "routeFile": "src/pages/blog/index.astro",
-      "category": "public",
-      "rendering": "ssr",
-      "robots": { "index": true, "follow": true },
-      "sitemap": "cms-index",
-      "llms": true,
-      "llmsLabel": "Blog",
-      "llmsDescription": "Public articles returned by the configured CMS.",
-      "contentWatch": [
-        "src/pages/blog/index.astro",
-        "src/components/page-views/blog/BlogIndexView.tsx",
-        "components/Footer.tsx",
-        "src/components/SiteHeader.astro"
-      ],
-      "configWatch": ["canonical.url", "project.name", "pageTdk./blog"],
-      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
-    },
-    {
-      "path": "/blog/[slug]",
-      "routeFile": "src/pages/blog/[slug].astro",
-      "category": "public-dynamic",
-      "rendering": "ssr",
-      "robots": { "index": true, "follow": true },
-      "sitemap": "cms-items",
-      "llms": false,
-      "contentWatch": [
-        "src/pages/blog/[slug].astro",
-        "src/components/page-views/blog/slug/BlogPostView.tsx",
-        "lib/blog/blogSeo.ts"
-      ],
-      "configWatch": ["canonical.url", "project.name", "pageTdk./blog"],
-      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
-    },
-    {
       "path": "/terms",
       "routeFile": "src/pages/terms.astro",
       "category": "legal",

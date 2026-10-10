@@ -14,17 +14,25 @@ const requiredRoutes = [
   'src/pages/terms.astro',
   'src/pages/privacy.astro',
   'src/pages/refund.astro',
-  'src/pages/blog/index.astro',
-  'src/pages/blog/[slug].astro',
   'src/pages/share/[id].astro',
   'src/pages/404.astro',
   'src/pages/robots.txt.ts',
   'src/pages/sitemap.xml.ts',
   'src/pages/llms.txt.ts',
 ];
+const dormantBlogSources = [
+  'src/dormant/blog-routes/index.astro',
+  'src/dormant/blog-routes/[slug].astro',
+];
 
 for (const route of requiredRoutes) {
   if (!existsSync(join(projectRoot, route))) failures.push(`missing route source: ${route}`);
+}
+for (const source of dormantBlogSources) {
+  if (!existsSync(join(projectRoot, source))) failures.push(`missing dormant blog source: ${source}`);
+}
+for (const removedRoute of ['src/pages/blog/index.astro', 'src/pages/blog/[slug].astro']) {
+  if (existsSync(join(projectRoot, removedRoute))) failures.push(`disabled blog route is still public: ${removedRoute}`);
 }
 
 const walk = (directory) => existsSync(directory)

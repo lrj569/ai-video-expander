@@ -7,6 +7,20 @@ const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const registry = JSON.parse(readFileSync(join(root, 'src/config/page-policies.json'), 'utf8'));
 const failures = [];
 
+const requiredStandards = [
+  'docs/astro-project-development-standard.md',
+  'docs/astro-ssr-performance-standard.md',
+  'docs/astro-islands-architecture.md',
+];
+for (const standard of requiredStandards) {
+  if (!existsSync(join(root, standard))) failures.push(`missing required engineering standard: ${standard}`);
+}
+
+const agentsSource = readFileSync(join(root, 'AGENTS.md'), 'utf8');
+for (const standard of requiredStandards) {
+  if (!agentsSource.includes(standard)) failures.push(`AGENTS.md must reference ${standard}`);
+}
+
 const walk = (directory) => existsSync(directory)
   ? readdirSync(directory, { withFileTypes: true }).flatMap((entry) => {
       const path = join(directory, entry.name);
@@ -20,6 +34,11 @@ const pageSources = walk(join(root, 'src/pages'))
   .map(normalize)
   .sort();
 const registeredSources = registry.policies.map((policy) => policy.routeFile).sort();
+
+for (const file of pageSources.filter((file) => file.endsWith('.astro'))) {
+  const source = readFileSync(join(root, file), 'utf8');
+  if (source.includes('client:only')) failures.push(`${file} uses client:only without an approved exception`);
+}
 
 for (const file of pageSources) {
   if (!registeredSources.includes(file)) failures.push(`route is missing PagePolicy: ${file}`);

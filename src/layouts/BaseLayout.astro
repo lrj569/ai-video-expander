@@ -77,21 +77,5 @@ const image = typeof ogImage === 'string' ? ogImage : ogImage?.url ?? `${website
     <main class:list={[!noShell && 'min-h-[calc(100vh-56px)] pt-14']}>
       <slot />
     </main>
-    <script is:inline>
-      window.addEventListener('load', () => {
-        window.setTimeout(() => {
-          window._czc = window._czc || [];
-          window._czc.push(['_setAccount', 1281431393]);
-          for (const src of [
-            'https://v1.cnzz.com/z.js?id=1281417985&async=1',
-            'https://v1.cnzz.com/z.js?id=1281431393&async=1',
-          ]) {
-            const script = document.createElement('script');
-            script.src = src;
-            document.body.appendChild(script);
-          }
-        }, 0);
-      }, { once: true });
-    </script>
   </body>
 </html>

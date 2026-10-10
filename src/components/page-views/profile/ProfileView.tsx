@@ -1,6 +1,6 @@
 'use client';
 
-import { useUser, useAuth } from '@/src/compat/clerk';
+import { useUser, useAuth, useClerk } from '@/src/compat/clerk';
 import { Footer } from '@/components/Footer';
 import Image from '@/src/compat/image';
 import { useEffect, useState, useRef } from 'react';
@@ -18,7 +18,6 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import Link from '@/src/compat/link';
 import { ReloadIcon, EyeOpenIcon } from '@radix-ui/react-icons';
 import { api } from '@/lib/api';
 import { useUserInfo } from '@/lib/providers';
@@ -44,6 +43,7 @@ import {
 export default function ProfilePage() {
   const { user, isLoaded, isSignedIn } = useUser();
   const { userId } = useAuth();
+  const { openSignIn } = useClerk();
   const { userInfo: userApiInfo } = useUserInfo();
 
   // 鍥剧墖鍘嗗彶璁板綍鐘舵€?
@@ -286,11 +286,16 @@ export default function ProfilePage() {
             <div className="rounded border border-border bg-card p-8 text-center shadow-custom">
               <h1 className="text-2xl font-bold mb-4 text-card-foreground">Profile</h1>
               <p className="mb-6 text-muted-foreground">Please sign in to view your profile</p>
-              <Link href="/sign-in">
-                <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Sign In
-                </Button>
-              </Link>
+              <Button
+                className="bg-primary hover:bg-primary/90 text-primary-foreground"
+                onClick={() => openSignIn({
+                  oauthFlow: 'popup',
+                  fallbackRedirectUrl: '/profile',
+                  signUpFallbackRedirectUrl: '/profile',
+                })}
+              >
+                Sign In
+              </Button>
             </div>
           </div>
         </main>

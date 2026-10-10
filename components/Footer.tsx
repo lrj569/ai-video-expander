@@ -52,7 +52,6 @@ export function Footer({ friendlyLinks = [] }: FooterProps) {
             <div className="mb-3 text-[13px] font-medium text-foreground">Navigation</div>
             <ul className="space-y-2">
               <li><Link href="/" className="text-[13px] hover:text-foreground">Home</Link></li>
-              <li><Link href="/blog" className="text-[13px] hover:text-foreground">Blog</Link></li>
               <li><Link href="/pricing" className="text-[13px] hover:text-foreground">Pricing</Link></li>
             </ul>
           </div>

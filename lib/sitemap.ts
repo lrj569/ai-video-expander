@@ -36,6 +36,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       lastModified: manifestDate(policy.path),
     }));
 
+  const hasCmsBlogRoutes = sitemapPolicies.some((policy) =>
+    policy.sitemap === 'cms-index' || policy.sitemap === 'cms-items');
+  if (!hasCmsBlogRoutes) return sitemapEntries;
+
   try {
     const blogResponse = await serverCmsApi.getBlogList(1, 100, 0);
     const posts = Array.isArray(blogResponse?.list) ? blogResponse.list : [];

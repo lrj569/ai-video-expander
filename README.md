@@ -1,6 +1,6 @@
 # Astro SaaS Template
 
-从 `nest-template` 复制并迁移到 Astro 7 的 SaaS 模板。迁移保留原有深色视觉、React 交互组件、Clerk 登录、用户积分、支付回跳、CMS 博客、分享页和 SEO 配置。
+从 `nest-template` 复制并迁移到 Astro 7 的 SaaS 模板。迁移保留原有深色视觉、React 交互组件、Clerk 登录、用户积分、支付回跳、分享页和 SEO 配置。CMS 博客源码暂存于 `src/dormant/blog-routes` 与相关组件目录，默认不注册公开路由。
 
 ## 技术栈
 
@@ -59,7 +59,7 @@ src/config/page-policies.json 真实路由的渲染、索引、sitemap 与 llms.
 ## 渲染边界
 
 - 预渲染：`/`、`/pricing`、`/terms`、`/privacy`、`/refund`、`/404`。
-- SSR：`/profile`、支付状态、`/sso-callback`、`/blog`、`/blog/[slug]`、`/share/[id]`。
+- SSR：`/profile`、支付状态、`/sso-callback`、`/share/[id]`。
 - Endpoint：`/robots.txt`、`/sitemap.xml`、`/llms.txt`。
 - React islands：账户控件、首页/价格交互、profile、支付成功与 SSO 回调；Logo、桌面导航、Hero、Footer 和公开正文保持服务端 HTML。
 - 公共标题、description、canonical、robots、Open Graph 和 Twitter 标签由 `src/layouts/BaseLayout.astro` 输出到原始 HTML。
@@ -73,7 +73,9 @@ src/config/page-policies.json 真实路由的渲染、索引、sitemap 与 llms.
 - Profile 复用全局账户摘要，只单独请求作品、账单等页面私有数据。
 - `/profile`、支付状态、`/sso-callback` 和分享状态返回 `Cache-Control: private, no-store`。
 
-新增页面前先阅读 `docs/astro-project-development-standard.md`；新增交互岛还需阅读 `docs/astro-islands-architecture.md`。
+新增页面前先阅读 `docs/astro-project-development-standard.md`；涉及 SSR 数据、客户端水合、缓存、媒体或首屏性能时必须阅读 `docs/astro-ssr-performance-standard.md`；新增交互岛还需阅读 `docs/astro-islands-architecture.md`。
+
+默认实现原则是“服务端 HTML + 最小 React Islands”：公开正文、metadata、JSON-LD 与首次公共数据在 Astro/服务端完成；弹框、账户、上传、进度、浏览器 API 等交互在客户端完成。同一份 SSR 数据只获取一次并通过 props 复用，禁止 metadata、正文和 `useEffect` 重复请求。
 
 ## 配置
 

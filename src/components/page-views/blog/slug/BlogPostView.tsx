@@ -6,20 +6,17 @@ import {
   estimateReadingTime,
   formatDate,
   generateSlug,
-  getBlogPostBySlug,
 } from '@/lib/blog/blogUtils';
-import { serverCmsApi } from '@/lib/server-api';
+import { serverCmsApi, type BlogPost as BlogPostData } from '@/lib/server-api';
 import type { Metadata } from '@/src/compat/metadata';
-import { notFound } from '@/src/compat/navigation';
-import BlogViewTracker from './BlogViewTracker';
 import BlogTableOfContents from './BlogTableOfContents';
 import styles from './blog-post.module.css';
 import { siteUrl } from '@/website-config';
 
-interface BlogPostPageProps {
-  params: Promise<{
-    slug: string;
-  }>;
+export interface BlogPostPageProps {
+  post: BlogPostData;
+  originalUrl: string;
+  slug: string;
 }
 
 interface Heading {
@@ -71,29 +68,11 @@ function addHeadingIds(html: string, headings: Heading[]): string {
   return processedHtml;
 }
 
-export async function generateMetadata({ params }: BlogPostPageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const result = await getBlogPostBySlug(slug);
-
-  if (!result) {
-    return {
-      title: 'Blog Post Not Found',
-      description: 'The requested blog post could not be found.',
-    };
-  }
-
-  return buildBlogDetailMetadata({ post: result.post, slug });
+export function generateMetadata({ post, slug }: BlogPostPageProps): Metadata {
+  return buildBlogDetailMetadata({ post, slug });
 }
 
-export default async function BlogPost({ params }: BlogPostPageProps) {
-  const { slug } = await params;
-  const result = await getBlogPostBySlug(slug);
-
-  if (!result) {
-    notFound();
-  }
-
-  const { post, originalUrl } = result;
+export default function BlogPost({ post, originalUrl, slug }: BlogPostPageProps) {
   const headings = extractHeadings(post.content);
   const processedContent = addTableCellLabels(addHeadingIds(post.content, headings));
   const shareUrl = `${siteUrl}/blog/${generateSlug(post.title, originalUrl || post.url)}`;
@@ -102,7 +81,6 @@ export default async function BlogPost({ params }: BlogPostPageProps) {
   return (
     <div className="min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(jsonLd) }} />
-      <BlogViewTracker url={originalUrl} />
 
       <section className="px-6 sm:px-10 lg:px-16 pt-24 pb-8 lg:pb-12">
         <div className="max-w-6xl mx-auto">

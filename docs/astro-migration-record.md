@@ -41,7 +41,7 @@ The source project was copied without `.git`, `.next`, `.next-dev`, `node_module
 | `/404` | prerendered | static React render |
 | `/profile` | SSR | React island |
 | `/sso-callback` | SSR | React island |
-| `/blog`, `/blog/[slug]` | SSR | server HTML plus targeted client behavior |
+| Blog route sources | Dormant | retained under `src/dormant/blog-routes`; no public route or CMS request by default |
 | `/share/[id]` | SSR | server HTML |
 | `/robots.txt`, `/sitemap.xml`, `/llms.txt` | SSR endpoint | none |
 
