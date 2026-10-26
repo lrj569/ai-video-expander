@@ -41,8 +41,8 @@ assert.match(faq, /import \{ pricingFaqItems \} from '@\/lib\/pricing-faq'/);
 assert.match(page, /import \{ pricingFaqSchema \} from '@\/lib\/pricing-faq'/);
 assert.ok(fs.existsSync(path.join(root, 'src/pages/llms.txt.ts')));
 assert.ok(!fs.existsSync(path.join(root, 'public/llms.txt')));
-assert.match(read('src/lib/llms.ts'), /verified-public/);
 assert.match(read('src/lib/llms.ts'), /llmsPolicies/);
+assert.doesNotMatch(read('src/lib/llms.ts'), /pending verification|This template is not/);
 assert.doesNotMatch(page, /'Product'|'Offer'|InStock|unitText: 'month'/);
 assert.doesNotMatch(faq, /480p|720p|monthly subscriptions|Visa/);
 
@@ -87,32 +87,39 @@ vm.runInNewContext(ts.transpileModule(read('src/lib/llms.ts'), {
 }).outputText, {
   exports: llmsModule.exports,
   require: (specifier) => specifier === '@/website-config'
-    ? { get publicProfileConfig() { return currentProfile; }, pricingConfig: pricing }
+    ? { get publicProfileConfig() { return currentProfile; } }
     : { llmsPolicies: policies.filter(policy => policy.llms && policy.robots.index) },
 });
-for (const status of ['template-unconfigured', 'target-state-development']) {
-  currentProfile = { ...profile, implementationStatus: status };
+// Identity only when nothing is verified: no placeholder or status wording in any state.
+for (const implementationStatus of ['template-unconfigured', 'target-state-development', 'verified-public']) {
+  currentProfile = { ...profile, implementationStatus };
   const content = llmsModule.exports.buildLlmsTxt();
-  assert.match(content, /pending verification/);
-  assert.doesNotMatch(content, /## Pricing|## Verified capabilities/);
+  assert.match(content, new RegExp(`^# ${profile.name}`));
+  assert.doesNotMatch(content, /pending verification|not a verified|## Product|## Pricing/);
 }
-currentProfile = {
-  ...profile, implementationStatus: 'verified-public',
-  pages: [
-    { path: '/', title: 'Home', description: 'Public entry.', status: 'verified', evidence: 'fixture' },
-    { path: '/pricing', title: 'Pricing', description: 'Credit packs.', status: 'verified', evidence: 'fixture' },
-    { path: '/profile', title: 'Profile', description: 'Private.', status: 'verified', evidence: 'fixture' },
-    { path: '/invented', title: 'Missing', description: 'Missing.', status: 'verified', evidence: 'fixture' },
-    { path: '/blog', title: 'Unverified blog', description: 'Not ready.', status: 'planned', evidence: '' },
-  ],
-  capabilities: ['Confirmed test capability',
-    { text: 'Verified object capability', status: 'verified', evidence: 'fixture' },
-    { text: 'Do not assert planned capability', status: 'planned', evidence: '' }],
-};
-const publicLlms = llmsModule.exports.buildLlmsTxt();
-assert.match(publicLlms, /one-time purchases/);
-assert.match(publicLlms, /never expire/);
-assert.match(publicLlms, /Verified object capability/);
-assert.match(publicLlms, /\[Pricing\]/);
-assert.doesNotMatch(publicLlms, /\/profile|\/invented|Unverified blog|planned capability|Allow:|Disallow:/);
+// Verified pages and capabilities appear in development as well; unverified ones never do.
+const verifiedPages = [
+  { path: '/', title: 'Home', description: 'Public entry.', usage: 'Open the tool and follow the steps.', status: 'verified', evidence: 'fixture' },
+  { path: '/pricing', title: 'Pricing', description: 'Credit packs.', usage: 'Compare packs and choose one.', status: 'verified', evidence: 'fixture' },
+  { path: '/profile', title: 'Profile', description: 'Private.', usage: 'Private.', status: 'verified', evidence: 'fixture' },
+  { path: '/invented', title: 'Missing', description: 'Missing.', usage: 'Missing.', status: 'verified', evidence: 'fixture' },
+  { path: '/blog', title: 'Unverified blog', description: 'Not ready.', usage: 'Not ready.', status: 'planned', evidence: '' },
+];
+for (const implementationStatus of ['target-state-development', 'verified-public']) {
+  currentProfile = {
+    ...profile, implementationStatus, canonicalUrl: '',
+    pages: verifiedPages,
+    capabilities: [
+      { text: 'Verified object capability', status: 'verified', evidence: 'fixture' },
+      { text: 'Do not assert planned capability', status: 'planned', evidence: '' },
+    ],
+  };
+  const publicLlms = llmsModule.exports.buildLlmsTxt();
+  assert.match(publicLlms, /## Product/);
+  assert.match(publicLlms, /\[Home\]\(\/\): Public entry\./);
+  assert.match(publicLlms, /\[Pricing\]\(\/pricing\)/);
+  assert.match(publicLlms, /Open the tool and follow the steps\./);
+  assert.match(publicLlms, /Verified object capability/);
+  assert.doesNotMatch(publicLlms, /\/profile|\/invented|Unverified blog|planned capability|Allow:|Disallow:/);
+}
 console.log('Pricing template static contract checks passed.');
