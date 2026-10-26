@@ -7,7 +7,7 @@ export default function TermsOfServicePage() {
   // 定义静态内容
   const termsContent = {
     title: "Terms of Service",
-    effectiveDate: "Effective Date: August 18, 2025",
+    effectiveDateLabel: "Effective Date:",
     introduction: `Please read these Terms of Service carefully before using the ${siteConfig.name} service. By accessing or using our service, you agree to be bound by these terms.`,
     sections: [
       {
@@ -51,7 +51,7 @@ export default function TermsOfServicePage() {
         <div className="max-w-4xl mx-auto">
           <article className="prose max-w-none rounded border border-border bg-card p-4 shadow-sm md:p-6">
             <h1 className="mb-4 text-center font-poppins text-3xl font-medium text-foreground md:text-4xl">{termsContent.title}</h1>
-            <p className="text-center text-base text-muted-foreground mb-10">{termsContent.effectiveDate}</p>
+            <p className="text-center text-base text-muted-foreground mb-10">{termsContent.effectiveDateLabel} <time data-legal-effective-date=""></time></p>
             <p className="lead text-lg md:text-xl mb-8 text-foreground">{termsContent.introduction}</p>
 
             {termsContent.sections.map((section, index) => (

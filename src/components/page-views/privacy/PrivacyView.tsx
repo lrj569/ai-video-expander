@@ -7,7 +7,7 @@ export default function PrivacyPolicyPage() {
   // 定义静态内容
   const privacyContent = {
     title: "Privacy Policy",
-    effectiveDate: "Effective Date: August 18, 2025",
+    effectiveDateLabel: "Effective Date:",
     introduction: `At ${siteConfig.name}, we take your privacy seriously. This Privacy Policy outlines how we collect, use, and protect your information when you use our services.`,
     sections: [
       {
@@ -51,7 +51,7 @@ export default function PrivacyPolicyPage() {
         <div className="max-w-4xl mx-auto">
           <article className="prose max-w-none rounded border border-border bg-card p-4 shadow-sm md:p-6">
             <h1 className="mb-4 text-center font-poppins text-3xl font-medium text-foreground md:text-4xl">{privacyContent.title}</h1>
-            <p className="text-center text-base text-muted-foreground mb-10">{privacyContent.effectiveDate}</p>
+            <p className="text-center text-base text-muted-foreground mb-10">{privacyContent.effectiveDateLabel} <time data-legal-effective-date=""></time></p>
             <p className="lead text-lg md:text-xl mb-8 text-foreground">{privacyContent.introduction}</p>
             
             {privacyContent.sections.map((section, index) => (
