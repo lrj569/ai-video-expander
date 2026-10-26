@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "generatedAt": "2026-10-10T06:48:28.739Z",
+  "generatedAt": "2026-10-26T10:11:12.765Z",
   "pages": {
     "/": {
       "fingerprint": "6fb813f65b05de9d8e5c04c5aaa3fe239f495a94e4c47f55dc46cf776f0067c5",
       "lastModified": "2026-10-10T06:48:28.739Z"
     },
     "/pricing": {
-      "fingerprint": "e5791809c25fbdf5380dfa90a46359e7bbfdf06d801de622184130fe0a14e272",
-      "lastModified": "2026-10-10T06:48:28.739Z"
+      "fingerprint": "972646e79f3e7deca4976150fafaa5c583a4024f2c8f4cb45c29c8164bbc8155",
+      "lastModified": "2026-10-26T10:11:12.765Z"
     }
   }
 }
