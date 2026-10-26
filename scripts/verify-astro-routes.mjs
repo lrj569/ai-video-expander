@@ -77,7 +77,7 @@ for (const [route, file] of [
   if (route === '/pricing') {
     const schemas = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
       .map(match => JSON.parse(match[1]));
-    const faq = schemas.find(schema => schema['@type'] === 'FAQPage');
+    const faq = schemas.find(schema => [schema['@type']].flat().includes('FAQPage'));
     if (faq?.mainEntity?.length !== 5) failures.push('Pricing FAQ schema must contain the five shared questions');
     for (const question of faq?.mainEntity ?? []) {
       if (!html.includes(question.name)) failures.push(`FAQ question missing in server HTML: ${question.name}`);

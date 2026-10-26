@@ -1,18 +1,9 @@
-'use client';
-
-import { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { ChevronDown } from 'lucide-react';
 import { siteConfig, contactConfig } from '@/website-config';
 import { pricingFaqItems } from '@/lib/pricing-faq';
 
 export default function PricingFAQ() {
-  const [openIndex, setOpenIndex] = useState<number | null>(0);
   const faqItems = pricingFaqItems;
-
-  const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index);
-  };
 
   return (
     <section className="bg-background px-4 py-20">
@@ -38,43 +29,24 @@ export default function PricingFAQ() {
           {/* Right side - FAQ Items */}
           <div className="space-y-4">
             {faqItems.map((item, index) => (
-              <div
+              <details
                 key={index}
-                className="rounded-[20px] border border-transparent bg-card"
+                open={index === 0}
+                className="group rounded-[20px] border border-transparent bg-card"
               >
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  aria-expanded={openIndex === index}
-                  aria-controls={`pricing-faq-answer-${index}`}
-                  className="flex w-full items-center justify-between rounded-[20px] px-6 py-5 text-left transition-all duration-200 hover:bg-accent"
-                >
+                <summary className="flex w-full cursor-pointer list-none items-center justify-between rounded-[20px] px-6 py-5 text-left transition-colors duration-200 hover:bg-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-ring [&::-webkit-details-marker]:hidden">
                   <h3 className="pr-4 text-lg font-semibold text-foreground">
                     {item.question}
                   </h3>
-                  <div className="flex-shrink-0">
-                    {openIndex === index ? (
-                      <ChevronUp className="w-5 h-5 text-primary" />
-                    ) : (
-                      <ChevronDown className="w-5 h-5 text-muted-foreground" />
-                    )}
-                  </div>
-                </button>
-                
-                <div
-                  id={`pricing-faq-answer-${index}`}
-                  className={cn(
-                    'overflow-hidden transition-all duration-300 ease-in-out',
-                    openIndex === index ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-                  )}
-                >
-                  <div className="px-6 pb-5">
-                    <div className="mb-4 h-px bg-border"></div>
-                    <p className="leading-relaxed text-muted-foreground">
-                      {item.answer}
-                    </p>
-                  </div>
+                  <ChevronDown aria-hidden="true" className="h-5 w-5 flex-shrink-0 text-muted-foreground transition-transform duration-200 group-open:rotate-180 group-open:text-primary" />
+                </summary>
+                <div className="px-6 pb-5">
+                  <div className="mb-4 h-px bg-border"></div>
+                  <p className="leading-relaxed text-muted-foreground">
+                    {item.answer}
+                  </p>
                 </div>
-              </div>
+              </details>
             ))}
 
             {/* Contact support card */}
