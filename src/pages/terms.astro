@@ -2,11 +2,9 @@
 export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 import TermsView from '../components/page-views/terms/TermsView';
-import LegalDateScript from '../components/LegalDateScript.astro';
 import { buildStaticMetadata } from '../lib/page-metadata/static-pages';
 const metadata = buildStaticMetadata('/terms');
 ---
 <BaseLayout metadata={metadata} path="/terms">
   <TermsView />
-  <LegalDateScript />
 </BaseLayout>

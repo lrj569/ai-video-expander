@@ -1,0 +1,30 @@
+---
+// Dates are filled in the browser, so the built HTML never contains a fixed date:
+// - [data-current-year]: the footer copyright year;
+// - time[data-legal-effective-date]: the effective date on the legal pages.
+// It is included once in BaseLayout and listens to astro:page-load, which fires on the first load and after every
+// ClientRouter navigation. A script placed only on the legal pages would not run when the visitor arrives there
+// through a client-side link, which left the date empty until a full reload.
+---
+<script is:inline>
+  (function () {
+    function fill() {
+      var now = new Date();
+      var year = String(now.getFullYear());
+      var iso = year + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
+      var text = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      var years = document.querySelectorAll('[data-current-year]');
+      for (var i = 0; i < years.length; i++) years[i].textContent = year;
+      var dates = document.querySelectorAll('time[data-legal-effective-date]');
+      for (var j = 0; j < dates.length; j++) {
+        dates[j].setAttribute('datetime', iso);
+        dates[j].textContent = text;
+      }
+    }
+    fill();
+    if (!window.__runtimeDatesBound) {
+      window.__runtimeDatesBound = true;
+      document.addEventListener('astro:page-load', fill);
+    }
+  })();
+</script>
