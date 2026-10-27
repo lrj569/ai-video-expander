@@ -67,7 +67,7 @@ export function Footer({ friendlyLinks = [] }: FooterProps) {
         </div>
 
         <div className="mt-12 border-t border-border pt-6 text-[12px]">
-          © 2025 {siteConfig.name}. All rights reserved.
+          © <span data-current-year suppressHydrationWarning></span> {siteConfig.name}. All rights reserved.
         </div>
       </div>
     </footer>

@@ -4,6 +4,7 @@ import '@/src/styles/globals.css';
 import { websiteConfig } from '@/website-config';
 import { getPagePolicy } from '@/src/lib/page-policy';
 import SiteHeader from '../components/SiteHeader.astro';
+import CurrentYearScript from '../components/CurrentYearScript.astro';
 
 type Meta = Record<string, any>;
 interface Props {
@@ -77,5 +78,6 @@ const image = typeof ogImage === 'string' ? ogImage : ogImage?.url ?? `${website
     <main class:list={[!noShell && 'min-h-[calc(100vh-56px)] pt-14']}>
       <slot />
     </main>
+    <CurrentYearScript />
   </body>
 </html>
