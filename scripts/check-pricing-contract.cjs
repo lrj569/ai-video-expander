@@ -77,7 +77,16 @@ for (const plan of pricing.oneTimePlans) {
   assert.ok(Number.isFinite(plan.priceAmount) && plan.priceAmount > 0);
 }
 const site = JSON.parse(read('configs/generated-site.json'));
-assert.ok(site.name && site.slug && site.canonicalUrl && site.toolPath);
+assert.ok(site.name && site.slug && site.toolPath);
+assert.equal(typeof site.canonicalUrl, 'string');
+// Development runs without a domain (canonicalUrl ''); every other profile needs a clean HTTPS origin,
+// the same rule the builder's site contract bridge applies.
+if (!(site.implementationStatus === 'target-state-development' && site.canonicalUrl === '')) {
+  const origin = new URL(site.canonicalUrl);
+  assert.equal(origin.protocol, 'https:');
+  assert.ok(origin.hostname && !origin.username && !origin.password);
+  assert.ok(origin.pathname === '/' && !origin.search && !origin.hash);
+}
 const llmsModule = { exports: {} };
 const profile = JSON.parse(read('configs/generated-public-profile.json'));
 const policies = JSON.parse(read('src/config/page-policies.json')).policies;
