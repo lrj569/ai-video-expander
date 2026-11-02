@@ -33,13 +33,18 @@ export default function PricingSection({
   description = 'Pay once for the credits you need. Your purchased credits never expire.',
 }: PricingSectionProps = {}) {
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
+  const [checkoutMessage, setCheckoutMessage] = useState('');
   const { user, isSignedIn } = useUser();
   const { openSignIn } = useClerk();
   const pricingPlans: PricingPlan[] = pricingConfig.oneTimePlans;
   const checkoutConfigured = isCheckoutConfigured(siteConfig, apiConfig);
 
   const handleUpgradeClick = async (priceId: string, planKey: string) => {
-    if (!checkoutConfigured) return;
+    if (!checkoutConfigured) {
+      setCheckoutMessage("We couldn't open checkout. Please try again later.");
+      return;
+    }
+    setCheckoutMessage('');
     if (!isSignedIn) {
       openSignIn();
       return;
@@ -129,7 +134,7 @@ export default function PricingSection({
                     : 'border border-border bg-secondary text-secondary-foreground hover:border-primary/50 hover:bg-secondary/80'
               )}
               onClick={() => !isFree && handleUpgradeClick(plan.priceId, plan.key)}
-              disabled={!checkoutConfigured || loadingPlan === plan.key || !plan.priceId}
+              disabled={loadingPlan === plan.key || !plan.priceId}
             >
               {loadingPlan === plan.key ? (
                 <span className="flex items-center justify-center">
@@ -161,7 +166,7 @@ export default function PricingSection({
   );
 
   if (hideSection) {
-    return content;
+    return <div>{content}{checkoutMessage && <p className="mt-6 text-sm text-muted-foreground" role="alert">{checkoutMessage}</p>}</div>;
   }
 
   return (
@@ -172,7 +177,7 @@ export default function PricingSection({
           <p className="text-lg leading-relaxed text-muted-foreground">{description}</p>
         </div>
         {content}
-        {!checkoutConfigured && <p className="mt-6 text-sm text-muted-foreground">Checkout is not available yet.</p>}
+        {checkoutMessage && <p className="mt-6 text-sm text-muted-foreground" role="alert">{checkoutMessage}</p>}
       </div>
     </section>
   );

@@ -1,12 +1,13 @@
 import type { Metadata } from '@/src/compat/metadata';
 import { SITE_NAME, getPageTdk, siteUrl, websiteConfig } from '@/website-config';
 import { getPagePolicy } from '@/src/lib/page-policy';
+import { pageCanonical } from './values';
 
 export function buildStaticMetadata(path: string): Metadata {
   const tdk = getPageTdk(path);
   const policy = getPagePolicy(path);
   if (!policy) throw new Error(`Missing PagePolicy for ${path}`);
-  const canonical = `${websiteConfig.canonical.url}${path === '/' ? '' : path}`;
+  const canonical = pageCanonical(websiteConfig.canonical.url, path);
   return {
     title: tdk.title,
     description: tdk.description,

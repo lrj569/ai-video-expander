@@ -20,6 +20,8 @@
     "verify:islands": "node scripts/verify-islands-architecture.mjs",
     "verify:routes": "node scripts/verify-astro-routes.mjs && npm run verify:chunks",
     "verify:chunks": "node scripts/verify-client-chunks.mjs",
+    "test:adapters": "node --test scripts/test-template-adapters.mjs",
+    "verify:contracts": "node scripts/check-pricing-contract.cjs && npm run test:adapters",
     "icon": "python scripts/generate-icons.py"
   },
   "dependencies": {

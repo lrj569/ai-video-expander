@@ -13,6 +13,8 @@
       "llmsDescription": "Primary public entry point for the configured product.",
       "contentWatch": [
         "src/pages/index.astro",
+        "src/layouts/BaseLayout.astro",
+        "src/lib/page-metadata/values.ts",
         "src/components/page-views/home/HomeView.tsx",
         "components/home/Hero.tsx",
         "components/PricingSection.tsx",
@@ -43,6 +45,9 @@
       "llmsDescription": "Public pricing and plan information configured for the product.",
       "contentWatch": [
         "src/pages/pricing.astro",
+        "src/layouts/BaseLayout.astro",
+        "src/lib/page-metadata/values.ts",
+        "src/lib/page-metadata/static-pages.ts",
         "src/components/page-views/pricing/PricingView.tsx",
         "src/components/page-views/pricing/PricingFAQ.tsx",
         "lib/pricing-faq.ts",

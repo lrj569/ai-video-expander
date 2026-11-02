@@ -64,7 +64,7 @@ SSR 数据所有权、客户端水合等级、缓存和首屏性能的详细规�
 `/llms.txt` 由 Astro endpoint 生成，数据来源为主工程桥接的 `configs/generated-public-profile.json`、`generated-pricing.json` 经 `website-config.js` 导出，以及 PagePolicy：
 
 - `websiteConfig.publicProfile` 提供经过确认的名称、用途、能力和公开页面；`project` 保留工程兼容字段；
-- 只有 `verified-public` 才输出产品说明与价格；未配置/开发阶段只输出待验证说明，不能伪称已上线；
+- 公开内容与开发/发布阶段分开：身份信息可输出，有本地或实际来源证据的真实公开页面与能力可列入；未配置阶段不输出占位或“待验证”状态说明，不把本地证据写成已上线证明。资料与收录规则以主工程 `docs/workflows/llms-public-content.md` 为权威；
 - PagePolicy 只提供真实存在且允许索引的公开链接；
 - Legal、Profile、支付、SSO、分享状态、API 和不存在的页面不得列入；
 - 克隆模板后必须用经过确认的产品事实替换项目说明，不得由模板推断产品能力；
@@ -72,7 +72,7 @@ SSR 数据所有权、客户端水合等级、缓存和首屏性能的详细规�
 
 ## 6. LCP 与样式加载
 
-- 不加载阻塞首屏的远程字体；使用系统字体或由 Astro 管理的自托管字体。
+- 不加载阻塞首屏的远程字体；使用系统字体或由 Astro 管理的自托管字体。各项目自行选字体，通过 `src/styles/project-fonts.ts` 的模块导入接入一次；该入口不预设统一字体。
 - `build.inlineStylesheets: 'auto'` 只内联小型关键样式，共享 CSS 保持可缓存。
 - 单个客户端 JavaScript chunk 的未压缩体积不得超过 500 KiB；`npm run verify:chunks` 在生产构建后执行硬性校验，禁止通过调高 Vite 告警阈值规避。
 - PDF、媒体处理等重型浏览器依赖必须在实际操作触发时动态加载，并优先直接引用所需底层模块，避免打包未使用的兼容封装。
@@ -94,7 +94,7 @@ SSR 数据所有权、客户端水合等级、缓存和首屏性能的详细规�
 ## 8. 验收边界
 
 - 首页价格模块必须使用锁定 H2、描述和共享 PricingSection，紧邻首页 FAQ 之前；当前模板没有首页 FAQ，项目实施时按其 SEO 文档补齐，不得自行预建。
-- 公共价格来自主工程，不在模板手改。购买请求发送 product_id 作为 price_id 到 /api/pay/anyway；积分记录读取数值 credits，不解析按钮字符串。
+- 公共价格来自主工程，不在模板手改。购买请求把套餐 code（模板 priceId/key）作为 price_id 发到 /api/pay/anyway，由后端查询商品记录；积分记录读取数值 credits，不解析按钮字符串。未配置时点击后给出明确反馈，不发占位支付请求；合同细则以主工程 `docs/workflows/pricing-template-contract.md` 为权威。
 - 可见 Pricing FAQ 与 FAQPage schema 共用 lib/pricing-faq.ts，禁止维护第二份回答或保留旧订阅、分辨率、支付卡种承诺。
 
 - `check` 与规范脚本证明源码、类型和静态契约。
