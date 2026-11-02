@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { useUser, useClerk } from '@/src/compat/clerk';
 import { Check, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -34,12 +34,14 @@ export default function PricingSection({
 }: PricingSectionProps = {}) {
   const [loadingPlan, setLoadingPlan] = useState<string | null>(null);
   const [checkoutMessage, setCheckoutMessage] = useState('');
+  const checkoutPending = useRef(false);
   const { user, isSignedIn } = useUser();
   const { openSignIn } = useClerk();
   const pricingPlans: PricingPlan[] = pricingConfig.oneTimePlans;
   const checkoutConfigured = isCheckoutConfigured(siteConfig, apiConfig);
 
   const handleUpgradeClick = async (priceId: string, planKey: string) => {
+    if (checkoutPending.current) return;
     if (!checkoutConfigured) {
       setCheckoutMessage("We couldn't open checkout. Please try again later.");
       return;
@@ -71,6 +73,7 @@ export default function PricingSection({
       );
     }
 
+    checkoutPending.current = true;
     setLoadingPlan(planKey);
 
     try {
@@ -84,10 +87,11 @@ export default function PricingSection({
 
       console.error('Payment session response missing URL:', data);
       alert('Checkout URL is missing. Please try again later.');
-      setLoadingPlan(null);
     } catch (error) {
       console.error('Error during checkout creation request:', error);
       alert(error instanceof Error ? error.message : 'Network error. Please check your connection and try again.');
+    } finally {
+      checkoutPending.current = false;
       setLoadingPlan(null);
     }
   };
@@ -134,7 +138,7 @@ export default function PricingSection({
                     : 'border border-border bg-secondary text-secondary-foreground hover:border-primary/50 hover:bg-secondary/80'
               )}
               onClick={() => !isFree && handleUpgradeClick(plan.priceId, plan.key)}
-              disabled={loadingPlan === plan.key || !plan.priceId}
+              aria-busy={loadingPlan === plan.key}
             >
               {loadingPlan === plan.key ? (
                 <span className="flex items-center justify-center">

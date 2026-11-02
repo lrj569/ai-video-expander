@@ -22,6 +22,7 @@
 
 - Hero excludes navigation and is implemented from the frozen sketch.
 - Pricing and generator forms reuse the existing components and shared configuration. Preserve checkout behaviour.
+- Pricing interaction is not a development gate. Purchase buttons do not use disabled states; payment configuration and real transactions belong to deployment.
 - The navigation login button may change only its background and text colour. Do not modify the Footer bottom navigation.
 - Do not invent sales statistics, performance results or price promises.
 - Each project chooses its own font family, sizes and weights from its design tokens. Import its selected self-hosted package CSS only through `src/styles/project-fonts.ts`, which BaseLayout loads once.

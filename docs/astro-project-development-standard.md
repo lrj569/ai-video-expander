@@ -94,7 +94,7 @@ SSR 数据所有权、客户端水合等级、缓存和首屏性能的详细规�
 ## 8. 验收边界
 
 - 首页价格模块必须使用锁定 H2、描述和共享 PricingSection，紧邻首页 FAQ 之前；当前模板没有首页 FAQ，项目实施时按其 SEO 文档补齐，不得自行预建。
-- 公共价格来自主工程，不在模板手改。购买请求把套餐 code（模板 priceId/key）作为 price_id 发到 /api/pay/anyway，由后端查询商品记录；积分记录读取数值 credits，不解析按钮字符串。未配置时点击后给出明确反馈，不发占位支付请求；合同细则以主工程 `docs/workflows/pricing-template-contract.md` 为权威。
+- 公共价格来自主工程，不在模板手改。购买请求把套餐 code（模板 priceId/key）作为 price_id 发到 /api/pay/anyway，由后端查询商品记录；积分记录读取数值 credits，不解析按钮字符串。价格区购买交互、禁用条件和接口连通性不作开发门禁；购买按钮不使用 disabled，保留原登录、请求和错误处理，进行中在请求层避免重复提交。支付配置和真实交易在部署阶段处理；合同细则以主工程 `docs/workflows/pricing-template-contract.md` 为权威。
 - 可见 Pricing FAQ 与 FAQPage schema 共用 lib/pricing-faq.ts，禁止维护第二份回答或保留旧订阅、分辨率、支付卡种承诺。
 
 - `check` 与规范脚本证明源码、类型和静态契约。
