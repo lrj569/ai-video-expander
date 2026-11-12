@@ -14,6 +14,7 @@
       "contentWatch": [
         "src/pages/index.astro",
         "src/layouts/BaseLayout.astro",
+        "src/lib/site-structured-data.mjs",
         "src/lib/page-metadata/values.ts",
         "src/components/page-views/home/HomeView.tsx",
         "components/home/Hero.tsx",
@@ -46,6 +47,7 @@
       "contentWatch": [
         "src/pages/pricing.astro",
         "src/layouts/BaseLayout.astro",
+        "src/lib/site-structured-data.mjs",
         "src/lib/page-metadata/values.ts",
         "src/lib/page-metadata/static-pages.ts",
         "src/components/page-views/pricing/PricingView.tsx",

@@ -2,7 +2,7 @@ import { GoogleOneTapAuth } from '@/components/auth';
 import { Footer } from '@/components/Footer';
 import dynamic from '@/src/compat/dynamic';
 import { Metadata } from '@/src/compat/metadata';
-import { SITE_NAME, SITE_DESCRIPTION, siteUrl, websiteConfig, getPageTdk } from '@/website-config';
+import { SITE_NAME, siteUrl, websiteConfig, getPageTdk } from '@/website-config';
 
 const tdk = getPageTdk('/');
 
@@ -14,15 +14,6 @@ const Hero = dynamic(() => import('@/components/home/Hero'), {
 const PricingSection = dynamic(() => import('@/components/PricingSection'), {
   loading: () => <div className="h-96 animate-pulse bg-muted/10 rounded-lg" />,
 });
-
-// JSON-LD WebSite for homepage
-export const websiteJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: SITE_NAME,
-  description: SITE_DESCRIPTION,
-  url: websiteConfig.canonical.url,
-};
 
 // SEO metadata
 export const metadata: Metadata = {

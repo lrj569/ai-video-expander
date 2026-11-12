@@ -2,7 +2,7 @@
   "name": "Website Template",
   "description": "A configurable website template.",
   "slug": "website-template",
-  "canonicalUrl": "https://example.com",
+  "canonicalUrl": "",
   "toolPath": "/#tool",
   "implementationStatus": "template-unconfigured",
   "pages": [],

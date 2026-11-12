@@ -3,6 +3,7 @@ import react from '@astrojs/react';
 import vercel from '@astrojs/vercel';
 import clerk from '@clerk/astro';
 import { siteUrl } from './website-config.js';
+import { publicStructuredDataOrigin } from './src/lib/site-structured-data.mjs';
 
 try {
   process.loadEnvFile('.env');
@@ -12,6 +13,10 @@ try {
 
 if (!process.env.PUBLIC_CLERK_PUBLISHABLE_KEY && process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY) {
   process.env.PUBLIC_CLERK_PUBLISHABLE_KEY = process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY;
+}
+
+if (process.env.VERCEL_ENV === 'production' && !publicStructuredDataOrigin(siteUrl)) {
+  throw new Error('Set the official HTTPS canonicalUrl before a production build.');
 }
 
 // Keep Clerk's virtual modules and deployment integration, while public-page

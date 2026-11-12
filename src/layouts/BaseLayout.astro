@@ -5,6 +5,7 @@ import '@/src/styles/globals.css';
 import { pageCanonical, socialImageValues } from '@/src/lib/page-metadata/values';
 import { websiteConfig } from '@/website-config';
 import { getPagePolicy } from '@/src/lib/page-policy';
+import { publicStructuredDataOrigin, serializeStructuredData, siteStructuredData } from '@/src/lib/site-structured-data.mjs';
 import SiteHeader from '../components/SiteHeader.astro';
 import RuntimeDatesScript from '../components/RuntimeDatesScript.astro';
 
@@ -13,9 +14,10 @@ interface Props {
   metadata?: Meta;
   path: string;
   noShell?: boolean;
+  structuredData?: Record<string, unknown>[];
 }
 
-const { metadata = {}, path, noShell = false } = Astro.props;
+const { metadata = {}, path, noShell = false, structuredData = [] } = Astro.props;
 const pagePolicy = getPagePolicy(path);
 const pageTdk: Record<string, { title: string; description: string }> = websiteConfig.pageTdk;
 const fallback = pageTdk[path] ?? pageTdk['/'];
@@ -26,6 +28,9 @@ const description = metadata.description ?? fallback.description ?? '';
 const keywords = Array.isArray(metadata.keywords) ? metadata.keywords.join(', ') : metadata.keywords;
 const canonical = pageCanonical(websiteConfig.canonical.url, path, metadata.alternates?.canonical);
 const robotsIndex = (pagePolicy?.robots.index ?? true) && metadata.robots?.index !== false;
+const sharedStructuredData = pagePolicy?.category === 'public' && robotsIndex
+  ? siteStructuredData(publicStructuredDataOrigin(websiteConfig.canonical.url), path, websiteConfig.site.name)
+  : [];
 const robotsFollow = (pagePolicy?.robots.follow ?? true) && metadata.robots?.follow !== false;
 const robots = [
   robotsIndex ? 'index' : 'noindex',
@@ -78,6 +83,9 @@ const twitterImage = socialImageValues(twitter.images?.[0], image.url);
     <link rel="apple-touch-icon" href="/icon-192.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <ClientRouter />
+    {[...sharedStructuredData, ...structuredData].map(data => (
+      <script type="application/ld+json" set:html={serializeStructuredData(data)} />
+    ))}
     <slot name="head" />
   </head>
   <body class="bg-background text-foreground antialiased">

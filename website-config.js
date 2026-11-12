@@ -28,7 +28,7 @@ export const websiteConfig = {
 
   // Canonical / site URL - single source for all public URLs (canonical, OG, sitemap, share images)
   canonical: {
-    url: generatedSite.canonicalUrl,
+    url: generatedSite.canonicalUrl.replace(/\/$/, ''),
   },
   // API Configuration
   api: {

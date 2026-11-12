@@ -4,6 +4,7 @@ import { Footer } from '@/components/Footer';
 import PricingSection from '@/components/PricingSection';
 import PricingFAQ from './PricingFAQ';
 import { SITE_NAME, siteUrl, websiteConfig, getPageTdk } from '@/website-config';
+import { publicStructuredDataOrigin } from '@/src/lib/site-structured-data.mjs';
 
 const tdk = getPageTdk('/pricing');
 
@@ -52,12 +53,13 @@ export const metadata: Metadata = {
 };
 
 // Only emit supported page facts, not invented product offers.
+const schemaOrigin = publicStructuredDataOrigin(siteUrl);
 export const pricingSchemaData = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: tdk.title,
   description: tdk.description,
-  url: `${siteUrl}/pricing`,
+  ...(schemaOrigin ? { url: `${schemaOrigin}/pricing` } : {}),
 };
 export const faqSchemaData = pricingFaqSchema;
 

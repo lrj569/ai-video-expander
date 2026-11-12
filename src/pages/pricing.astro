@@ -6,9 +6,7 @@ import PricingFAQ from '../components/page-views/pricing/PricingFAQ';
 import { Footer } from '@/components/Footer';
 import { faqSchemaData, metadata, pricingSchemaData } from '../components/page-views/pricing/PricingView';
 ---
-<BaseLayout metadata={metadata} path="/pricing">
-  <script type="application/ld+json" set:html={JSON.stringify(pricingSchemaData)} />
-  <script type="application/ld+json" set:html={JSON.stringify(faqSchemaData)} />
+<BaseLayout metadata={metadata} path="/pricing" structuredData={[pricingSchemaData, faqSchemaData]}>
   <PricingSection client:load />
   <PricingFAQ />
   <Footer />
