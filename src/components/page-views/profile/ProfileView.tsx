@@ -3,7 +3,7 @@
 import { useUser, useAuth, useClerk } from '@/src/compat/clerk';
 import { Footer } from '@/components/Footer';
 import Image from '@/src/compat/image';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { Button } from '@/components/ui/button';
 import {
   Dialog,
@@ -44,17 +44,30 @@ export default function ProfilePage() {
   const { user, isLoaded, isSignedIn } = useUser();
   const { userId } = useAuth();
   const { openSignIn } = useClerk();
-  const { userInfo: userApiInfo } = useUserInfo();
+  const { userInfo: userApiInfo, readyUserId } = useUserInfo();
 
   // 鍥剧墖鍘嗗彶璁板綍鐘舵€?
-  const [historyList, setHistoryList] = useState<GenerationHistoryItem[]>([]);
-  const [isLoadingHistory, setIsLoadingHistory] = useState(true);
-  const [historyError, setHistoryError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-  const [totalHistoryCount, setTotalHistoryCount] = useState(0);
+  const [history, setHistory] = useState<{
+    userId: string;
+    page: number;
+    list: GenerationHistoryItem[];
+    totalPages: number;
+  } | null>(null);
+  const [historyRequest, setHistoryRequest] = useState<{
+    userId: string;
+    page: number;
+    status: 'loading' | 'success' | 'error';
+  } | null>(null);
+  const [refreshVersion, setRefreshVersion] = useState(0);
   const historyPageSize = 16;
-  const autoRefreshRef = useRef<NodeJS.Timeout | null>(null);
+  const currentHistory = history?.userId === userId && history?.page === currentPage ? history : null;
+  const requestStatus = historyRequest?.userId === userId && historyRequest?.page === currentPage
+    ? historyRequest.status
+    : 'loading';
+  const isLoadingHistory = requestStatus === 'loading';
+  const historyList = currentHistory?.list ?? [];
+  const totalPages = history?.userId === userId ? history?.totalPages ?? 0 : 0;
 
   // 鍙嬫儏閾炬帴鐘舵€?
   const [friendlyLinks, setFriendlyLinks] = useState<FriendLink[]>([]);
@@ -115,97 +128,41 @@ export default function ProfilePage() {
     fetchFriendlyLinks();
   }, []); // 鍙湪缁勪欢鎸傝浇鏃舵墽琛屼竴娆?
 
-  // 淇敼鑾峰彇浣滃搧鍘嗗彶璁板綍鐨剈seEffect锛岀Щ闄ゅ畾鏃跺櫒
   useEffect(() => {
-    const fetchGenerationHistory = async (page: number) => {
-      if (!isLoaded || !userId) {
-        // 杩樻湭鍔犺浇瀹屾垚鎴栫敤鎴锋湭鐧诲綍
-        setIsLoadingHistory(false);
-        setHistoryList([]);
-        setTotalPages(0);
-        setTotalHistoryCount(0);
-        return;
-      }
+    if (!userId || readyUserId !== userId) return;
 
-      setIsLoadingHistory(true);
-      setHistoryError(null);
+    let cancelled = false;
+    let loading = false;
+    const request = { userId, page: currentPage };
+    const fetchHistory = async (showProgress: boolean) => {
+      if (loading) return;
+      loading = true;
+      if (showProgress) setHistoryRequest({ ...request, status: 'loading' });
+
       try {
-        const result = await api.user.getUserOpusList(page, historyPageSize);
-
-        if (result.code === 200 && result.data) {
-          setHistoryList(result.data.list || []);
-          setTotalPages(result.data.total_page || 0);
-          setTotalHistoryCount(result.data.count || 0);
-        } else {
-          console.error("Failed to fetch history:", result.msg || 'Unknown API error');
-          setHistoryList([]);
-          setTotalPages(0);
-          setTotalHistoryCount(0);
-          setHistoryError(result.msg || 'Failed to fetch generation history');
-        }
+        const { data } = await api.user.getUserOpusList(currentPage, historyPageSize);
+        if (cancelled) return;
+        setHistory({ ...request, list: data.list ?? [], totalPages: data.total_page ?? 0 });
+        setHistoryRequest({ ...request, status: 'success' });
       } catch (error) {
-        console.error("Failed to fetch generation history:", error);
-        setHistoryError(error instanceof Error ? error.message : 'An unknown error occurred fetching history');
-        setHistoryList([]);
-        setTotalPages(0);
-        setTotalHistoryCount(0);
+        if (cancelled) return;
+        console.error('Failed to fetch generation history:', error);
+        if (showProgress) setHistoryRequest({ ...request, status: 'error' });
       } finally {
-        setIsLoadingHistory(false);
+        loading = false;
       }
     };
 
-    // 棣栨鍔犺浇鏁版嵁
-    fetchGenerationHistory(currentPage);
-  }, [isLoaded, userId, currentPage]); // 浣跨敤userId鏇挎崲user浣滀负渚濊禆椤?
+    void fetchHistory(true);
+    const refreshInterval = window.setInterval(() => {
+      if (!document.hidden) void fetchHistory(false);
+    }, 30_000);
 
-  // Auto-refresh effect - 姣?0绉掕嚜鍔ㄥ埛鏂颁竴娆?
-  useEffect(() => {
-    if (!isLoaded || !userId) return;
-
-    const startAutoRefresh = () => {
-      if (autoRefreshRef.current) return; // 宸插瓨鍦ㄥ垯涓嶉噸澶嶅垱寤?
-      autoRefreshRef.current = setInterval(() => {
-        // 闈欓粯鍒锋柊锛屼笉鏄剧ずloading鐘舵€?
-        const fetchGenerationHistory = async (page: number) => {
-          try {
-            const result = await api.user.getUserOpusList(page, historyPageSize);
-            if (result.code === 200 && result.data) {
-              setHistoryList(result.data.list || []);
-              setTotalPages(result.data.total_page || 0);
-              setTotalHistoryCount(result.data.count || 0);
-            }
-          } catch (error) {
-            console.error("Auto-refresh failed:", error);
-          }
-        };
-        fetchGenerationHistory(currentPage);
-      }, 30000); // 30绉?
-    };
-
-    const stopAutoRefresh = () => {
-      if (autoRefreshRef.current) {
-        clearInterval(autoRefreshRef.current);
-        autoRefreshRef.current = null;
-      }
-    };
-
-    const handleVisibilityChange = () => {
-      if (document.hidden) {
-        stopAutoRefresh();
-      } else {
-        startAutoRefresh();
-      }
-    };
-
-    startAutoRefresh();
-    document.addEventListener('visibilitychange', handleVisibilityChange);
-
-    // 娓呯悊锛氶〉闈㈠嵏杞芥垨璺敱鍙樻洿鏃跺仠姝㈣疆璇㈠苟绉婚櫎鐩戝惉
     return () => {
-      stopAutoRefresh();
-      document.removeEventListener('visibilitychange', handleVisibilityChange);
+      cancelled = true;
+      window.clearInterval(refreshInterval);
     };
-  }, [isLoaded, userId, currentPage]);
+  }, [userId, readyUserId, currentPage, refreshVersion]);
 
   // 澶勭悊鍒嗛〉鍙樺寲
   const handlePageChange = (newPage: number) => {
@@ -225,42 +182,7 @@ export default function ProfilePage() {
     setIsDetailDialogOpen(true);
   };
 
-  // 鍒锋柊鍘嗗彶璁板綍
-  const refreshHistory = () => {
-    const fetchGenerationHistory = async (page: number) => {
-      if (!isLoaded || !userId) {
-        return;
-      }
-
-      setIsLoadingHistory(true);
-      setHistoryError(null);
-      try {
-        const result = await api.user.getUserOpusList(page, historyPageSize);
-
-        if (result.code === 200 && result.data) {
-          setHistoryList(result.data.list || []);
-          setTotalPages(result.data.total_page || 0);
-          setTotalHistoryCount(result.data.count || 0);
-        } else {
-          console.error("Failed to fetch history:", result.msg || 'Unknown API error');
-          setHistoryList([]);
-          setTotalPages(0);
-          setTotalHistoryCount(0);
-          setHistoryError(result.msg || 'Failed to fetch generation history');
-        }
-      } catch (error) {
-        console.error("Failed to fetch generation history:", error);
-        setHistoryError(error instanceof Error ? error.message : 'An unknown error occurred fetching history');
-        setHistoryList([]);
-        setTotalPages(0);
-        setTotalHistoryCount(0);
-      } finally {
-        setIsLoadingHistory(false);
-      }
-    };
-
-    fetchGenerationHistory(currentPage);
-  };
+  const refreshHistory = () => setRefreshVersion(version => version + 1);
 
   if (!isLoaded) {
     return (
@@ -500,6 +422,12 @@ export default function ProfilePage() {
 
         {/* 瑙嗛鍘嗗彶鍖哄煙锛堟寜鏃ユ湡鍒嗙粍锛?*/}
         <div className="container mx-auto pb-16">
+          {requestStatus === 'error' && (
+            <div className="py-6 text-center">
+              <p role="alert" className="mb-3 text-muted-foreground">Couldn't load your videos.</p>
+              <Button type="button" variant="outline" onClick={refreshHistory}>Try again</Button>
+            </div>
+          )}
           {historyList.length > 0 ? (
             <div className="space-y-8">
               {groupedHistory.map((group, groupIndex) => (
@@ -616,57 +544,61 @@ export default function ProfilePage() {
                 </div>
               ))}
             </div>
-          ) : (
+          ) : isLoadingHistory ? (
+            <div role="status" className="py-12 text-center text-muted-foreground">Loading videos…</div>
+          ) : requestStatus === 'success' && (
             <div className="text-center text-muted-foreground py-12">No videos yet.</div>
           )}
 
           {/* 鍒嗛〉缁勪欢 */}
-          <div className="flex justify-center mt-8">
-            <Pagination>
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationPrevious
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handlePageChange(currentPage - 1);
-                    }}
-                    className={currentPage <= 1 ? 'pointer-events-none opacity-50' : ''}
-                  />
-                </PaginationItem>
-
-                {paginationItems.map((item, index) => (
-                  <PaginationItem key={index}>
-                    {item === '...' ? (
-                      <PaginationEllipsis />
-                    ) : (
-                      <PaginationLink
-                        href="#"
-                        onClick={(e) => {
-                          e.preventDefault();
-                          handlePageChange(item as number);
-                        }}
-                        isActive={item === currentPage}
-                      >
-                        {item}
-                      </PaginationLink>
-                    )}
+          {totalPages > 1 && (
+            <div className="flex justify-center mt-8">
+              <Pagination>
+                <PaginationContent>
+                  <PaginationItem>
+                    <PaginationPrevious
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handlePageChange(currentPage - 1);
+                      }}
+                      className={currentPage <= 1 ? 'pointer-events-none opacity-50' : ''}
+                    />
                   </PaginationItem>
-                ))}
 
-                <PaginationItem>
-                  <PaginationNext
-                    href="#"
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handlePageChange(currentPage + 1);
-                    }}
-                    className={currentPage >= totalPages ? 'pointer-events-none opacity-50' : ''}
-                  />
-                </PaginationItem>
-              </PaginationContent>
-            </Pagination>
-          </div>
+                  {paginationItems.map((item, index) => (
+                    <PaginationItem key={index}>
+                      {item === '...' ? (
+                        <PaginationEllipsis />
+                      ) : (
+                        <PaginationLink
+                          href="#"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            handlePageChange(item as number);
+                          }}
+                          isActive={item === currentPage}
+                        >
+                          {item}
+                        </PaginationLink>
+                      )}
+                    </PaginationItem>
+                  ))}
+
+                  <PaginationItem>
+                    <PaginationNext
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handlePageChange(currentPage + 1);
+                      }}
+                      className={currentPage >= totalPages ? 'pointer-events-none opacity-50' : ''}
+                    />
+                  </PaginationItem>
+                </PaginationContent>
+              </Pagination>
+            </div>
+          )}
         </div>
 
 

@@ -4,11 +4,11 @@ import { useUser, useClerk } from '@/src/compat/clerk';
 import UserProfileMenu from '../nav/user-profile-menu';
 import { Button } from '../../components/ui/button';
 
-function AuthSkeleton() {
+function AuthLoading() {
   return (
-    <div className="h-10 w-24 animate-pulse rounded-full bg-gradient-to-r from-gray-200 via-gray-100 to-gray-200">
-      <div className="h-full w-full rounded-full bg-gradient-to-r from-transparent via-white/20 to-transparent animate-shimmer" />
-    </div>
+    <span role="status" className="inline-flex h-11 items-center rounded-full border border-primary bg-primary px-6 py-2 text-sm font-medium tracking-[-0.14px] text-primary-foreground">
+      Login<span className="sr-only">: checking session</span>
+    </span>
   );
 }
 
@@ -17,13 +17,13 @@ export default function AuthButton() {
   const { openSignIn } = useClerk();
 
   if (!isLoaded) {
-    return <AuthSkeleton />;
+    return <AuthLoading />;
   }
 
   // Signed-in: never fall through to the Login button (user may lag one frame).
   if (isSignedIn) {
     if (!user) {
-      return <AuthSkeleton />;
+      return <AuthLoading />;
     }
     return <UserProfileMenu user={user} />;
   }

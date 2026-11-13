@@ -8,6 +8,7 @@ import { api } from '../api';
 import {
   clearUserState,
   isUserInfoStale,
+  markUserSessionReady,
   refreshUserInfo,
   setActiveUser,
   useUserInfo,
@@ -90,6 +91,7 @@ export function UserProvider({ children }: { children: ReactNode }) {
 
         if (inviteCode) clearInviteCode();
         syncedUserId = userId;
+        markUserSessionReady(userId);
         await refreshUserInfo({ force: true, showLoading: true });
       } catch (error) {
         if (syncPromiseUserId !== userId) return;

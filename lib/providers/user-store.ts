@@ -25,6 +25,7 @@ type UserSnapshot = {
   userId: string | null;
   userInfo: UserInfo | null;
   isLoadingUserInfo: boolean;
+  sessionReady: boolean;
   lastFetchedAt: number;
 };
 
@@ -35,6 +36,7 @@ const serverSnapshot: UserSnapshot = {
   userId: null,
   userInfo: null,
   isLoadingUserInfo: false,
+  sessionReady: false,
   lastFetchedAt: 0,
 };
 
@@ -49,6 +51,7 @@ function emit(next: UserSnapshot) {
     next.userId === snapshot.userId &&
     next.userInfo === snapshot.userInfo &&
     next.isLoadingUserInfo === snapshot.isLoadingUserInfo &&
+    next.sessionReady === snapshot.sessionReady &&
     next.lastFetchedAt === snapshot.lastFetchedAt
   ) return;
 
@@ -118,8 +121,13 @@ export function setActiveUser(userId: string | null) {
     userId,
     userInfo: cached?.userInfo ?? null,
     isLoadingUserInfo: !cached?.userInfo,
+    sessionReady: false,
     lastFetchedAt: cached?.lastFetchedAt ?? 0,
   });
+}
+
+export function markUserSessionReady(userId: string) {
+  if (activeUserId === userId) emit({ ...snapshot, sessionReady: true });
 }
 
 export function isUserInfoStale(maxAgeMs = USER_INFO_MAX_AGE_MS) {
@@ -149,7 +157,7 @@ export async function refreshUserInfo(options: { force?: boolean; showLoading?: 
       const userInfo = normalizeUserInfo(result.data);
       const lastFetchedAt = Date.now();
       writeCachedSnapshot(userId, userInfo, lastFetchedAt);
-      emit({ userId, userInfo, isLoadingUserInfo: false, lastFetchedAt });
+      emit({ ...snapshot, userInfo, isLoadingUserInfo: false, lastFetchedAt });
     } catch (error) {
       if (activeUserId === userId) emit({ ...snapshot, isLoadingUserInfo: false });
       throw error;
@@ -189,6 +197,7 @@ export function useUserInfo() {
   const current = useSyncExternalStore(subscribe, () => snapshot, () => serverSnapshot);
   return {
     userInfo: current.userInfo,
+    readyUserId: current.sessionReady ? current.userId : null,
     isLoadingUserInfo: current.isLoadingUserInfo,
     refreshUserInfo: forceRefreshUserInfo,
     clearUserState,

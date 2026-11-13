@@ -112,16 +112,10 @@ export function PayLogDialog({ open, onOpenChange, onOpenInvoiceDialog }: PayLog
                       <span className="text-xs text-muted-foreground">Date</span>
                       <span className="text-sm text-card-foreground font-medium">{formatTimestamp(item.created_at)}</span>
                     </div>
-                    {/* <div className="flex items-center justify-between">
-                      <span className="text-xs text-muted-foreground">Points</span>
-                      <span className={`${dialogTable.pillBase} bg-green-500/20 text-green-400 font-bold`}>
-                        {item.amount}
-                      </span>
-                    </div> */}
                     <div className="flex items-center justify-between">
                       <span className="text-xs text-muted-foreground">Price</span>
                       <span className="text-sm text-card-foreground font-medium">
-                        {item.amount}
+                        {(item.amount / 100).toFixed(2)}
                       </span>
                     </div>
                     <div className="flex items-center justify-between">
@@ -166,7 +160,7 @@ export function PayLogDialog({ open, onOpenChange, onOpenInvoiceDialog }: PayLog
                           <tr key={item.id} className={dialogTable.row}>
                             <td className={`${dialogTable.cell} text-muted-foreground min-w-[120px]`}>{formatTimestamp(item.created_at)}</td>
                             <td className={`${dialogTable.cell} min-w-[80px]`}>
-                              {item.amount}
+                              {(item.amount / 100).toFixed(2)}
                             </td>
                             <td className={`${dialogTable.cell} text-card-foreground hidden sm:table-cell min-w-[90px]`}>{item.currency}</td>
                             <td className={`${dialogTable.cell} text-card-foreground hidden sm:table-cell min-w-[110px]`}>{item.pay_type}</td>
