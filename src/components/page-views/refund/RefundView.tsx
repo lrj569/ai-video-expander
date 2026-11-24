@@ -9,7 +9,7 @@ export default function RefundPolicyPage() {
         <div className="max-w-4xl mx-auto">
           <article className="prose max-w-none rounded border border-border bg-card p-4 shadow-sm md:p-6">
             <h1 className="mb-4 text-center font-poppins text-3xl font-medium text-foreground md:text-4xl">Refund Policy</h1>
-            <p className="text-center text-base text-muted-foreground mb-10">Effective Date: <time data-legal-effective-date=""></time></p>
+            <p className="text-center text-base text-muted-foreground mb-10">Effective Date: <time data-legal-fixed-date="" dateTime={siteConfig.legalEffectiveDate.iso}>{siteConfig.legalEffectiveDate.label}</time></p>
 
             <p className="lead text-lg md:text-xl mb-8 text-foreground">
               Thank you for using the AI services provided by {siteConfig.name}. We hope you're satisfied with our products and services. If you'd like to request a refund, please review the following policy carefully.

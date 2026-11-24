@@ -61,6 +61,25 @@
       "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
     },
     {
+      "path": "/guide",
+      "routeFile": "src/pages/guide.astro",
+      "category": "public",
+      "rendering": "prerender",
+      "robots": { "index": true, "follow": true },
+      "sitemap": "manifest",
+      "llms": true,
+      "llmsLabel": "Guide",
+      "llmsDescription": "Learn to choose a source, set the new frame, and save an expanded video.",
+      "contentWatch": [
+        "src/pages/guide.astro",
+        "src/components/page-views/guide/guide-content.ts",
+        "src/layouts/BaseLayout.astro",
+        "docs/page-development-plans/ai-video-expander-guide.md"
+      ],
+      "configWatch": ["canonical.url", "project.name", "pageTdk./guide"],
+      "contentIgnore": ["src/styles/**", "**/*.test.*", "**/*.spec.*", "**/*.d.ts"]
+    },
+    {
       "path": "/terms",
       "routeFile": "src/pages/terms.astro",
       "category": "legal",

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0.0",
+  "pricing": {
+    "schema_version": "1.0.0",
+    "project_slug": "ai-video-expander",
+    "source": "configs/pricing/default.json",
+    "source_sha256": "840275a23affdb6f57ced150c10e345512d063c380e0b7a190fd3f8015ee2bee",
+    "resolution": "shared-default",
+    "snapshot_sha256": "3c160fea5ffe7114ca85be7056c51c61f9d1ae9af7d8a050ebd302b849d13417"
+  },
+  "siteProfileSha256": "da882b762217c98e2bec6e419490e06be3c96978228203610337726c7d3aa294",
+  "files": {
+    "configs/generated-pricing.json": "61f4e5a2b8dbd8a7f5c29aab3c7821dc12930eb00cef82b1b06dbb0a283ee95f",
+    "configs/generated-site.json": "1c76de0588e5ccac10b8ebb8e079819eedacd1140ed7a89601403480ef5dd655",
+    "configs/generated-public-profile.json": "8f0f6c959bc4ada75fbfb591ed021391f555835bdca53f2c5433f6fbdfb9f670",
+    "src/lib/llms.ts": "03b32d06f34c2ceb2ec0095a452e90aa5636bdd670df21e4f4b1d6e5fdd1b431",
+    "configs/generated-brand.json": "d89ab29f5772e58351476f5b319c8c738a557bdad069ab196acb1ea1e3a00e81",
+    "public/site.webmanifest": "9866421fd27ba9128897f37e92e99913d57a74dba9186fdbd42fc2dd5cb62282"
+  },
+  "brandAssets": {
+    "configSha256": "a511cc29ef58608d8910a9e581b5d48f422eddb218ff94c274f86e174c09e3bc",
+    "files": {
+      "/brand/logo.svg": "4519163650b3a0c6e3304512a311705ff4e54d6577d62cc37ee78c2a4ed320a7",
+      "/brand/logo.webp": "1e35ba2d68a040e44404da5b49532f1cd9de407d01a0a9f9d3d1b2bdbc773c60",
+      "/share-img.png": "c9a830912401a0963fb7fc1a640b8823cb584402c7d1c3c6e54170f143ee8f02",
+      "/brand/apple-touch-icon.png": "d3f51b0598801ce018766bae1c2ffbfebe3c1b1e051d29ad3ede7401f8ae472b",
+      "/icon-192.png": "a55f41fd78bcbe6fba2e442aa78aba946c12eae2131ce2cf3d0eb33cab78e0e4",
+      "/icon-512.png": "98c5fa8bfb4a07c532bde042a1b2c8b1549047330ca6f6cbc589b43dbd68f8f4",
+      "/brand/icon-maskable.png": "dde6a80385bc6eecad570280c304934992a1235759951f9f55475dfab9d46e9a",
+      "/favicon.ico": "7928bc518719e3b4947a5238bbe582d47acf4515980ae8ae8e3c44b3620082a3",
+      "/favicon-32.ico": "2640fba55548010db233e46f72c73a78f2c668dabd4a953d71363365a5d69797",
+      "/favicon-48.ico": "d0a1811886dbbc3a3affc225128cd042e360b7ea71bf6de608bd392728e1a282",
+      "/favicon-96.ico": "67c3fc5bd5f5a4bc0d0947055055583a2bcc2ba18e88b3df513a6db6fa676804"
+    }
+  }
+}

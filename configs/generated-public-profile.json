@@ -1,10 +1,35 @@
 {
-  "name": "Website Template",
-  "description": "A configurable website template.",
-  "slug": "website-template",
+  "slug": "ai-video-expander",
+  "name": "AI Video Expander",
+  "description": "Expand the frame of an existing video to fit a new aspect ratio.",
   "canonicalUrl": "",
   "toolPath": "/#tool",
-  "implementationStatus": "template-unconfigured",
-  "pages": [],
+  "implementationStatus": "target-state-development",
+  "pages": [
+    {
+      "path": "/",
+      "title": "AI Video Expander",
+      "description": "A video reframing workspace with an MP4 upload, a fill prompt, aspect ratio choices and resolution controls.",
+      "usage": "Open the workspace to choose a short source clip and set the target frame. The source and target previews show how the same kind of shot can be composed for vertical, square or widescreen delivery.",
+      "status": "verified",
+      "evidence": "Local / page: Edit form, frame controls, worked examples and locked Home copy."
+    },
+    {
+      "path": "/guide",
+      "title": "Guide",
+      "description": "A tutorial for choosing a source clip, describing the added space, and preparing the expanded video for export.",
+      "usage": "Use the quick-start steps to find the right settings, then compare the five prompt examples for different orientations. Copy a prompt or open it in the workspace for editing, and consult troubleshooting for clip duration and output settings.",
+      "status": "verified",
+      "evidence": "Local /guide page: SSR tutorial, prompt copy and case links."
+    },
+    {
+      "path": "/pricing",
+      "title": "Pricing",
+      "description": "The three one-time credit packs, their USD prices, and the policy for keeping purchased credits.",
+      "usage": "Compare the credits in each pack and the upfront price. The FAQ explains one-time purchase, supported price information and how long purchased credits remain valid.",
+      "status": "verified",
+      "evidence": "Local /pricing page: SSR pricing cards and locked FAQ."
+    }
+  ],
   "capabilities": []
 }

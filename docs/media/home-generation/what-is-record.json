@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "Ten-second title-led motion film, muted ochre and charcoal. A narrow luminous terracotta frame opens out across a black film leader, and the words AI Video Expander slide into focus with the opening. Hold that single correctly spelled phrase long enough to read, with strong light-on-dark contrast and no other type. The frame carries into a tall view of a cyclist on a concrete terrace, then into a wide view of musicians entering a small rehearsal space. Frame lines reveal extra surroundings before dissolving. Keep cuts precise, textures photographic and subjects easy to see. Soft film-projector rhythm, no voice. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "16:9",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:18:19.9380090Z",
+    "taskId":  "dd0009c7f4234005b1f4dcc41d9f8ae4",
+    "checkedAt":  "2026-11-24T03:21:51.1905000Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/a19f0e9b-dff1-412b-95b9-926692129ca8.mp4",
+    "polls":  92,
+    "waitedSeconds":  207.3,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/e7d30b98-7f9d-4e55-8d57-547cee354059.mp4",
+    "asset":  {
+                  "bytes":  2948074,
+                  "sha256":  "f79c7ec654f809a1b9e049208dd415ac8379807650aec662834cbb06228eb27c",
+                  "width":  1344,
+                  "height":  768,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/home-generation/what-is.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:21:58.4691252Z"
+}

@@ -1,0 +1,700 @@
+{
+  "schemaVersion": "2.0.0",
+  "slug": "ai-video-expander",
+  "heroReference": {
+    "competitorUrl": "https://seedreams.net/",
+    "videoIntent": "参考页面是静态作品浏览，通过大画面和缩略图呈现制作任务。本站保留层级与相邻布局，加入适用的视频案例。",
+    "visualStyle": {
+      "medium": "静态照片和作品缩略图",
+      "colorAndLight": "竞品观察到亮作品和深表面之间有层次，本站使用暖纸色、陶红与炭黑。",
+      "pacing": "选择缩略图后替换主画面，无可播放视频节奏。",
+      "composition": "主媒体宽画布，缩略图下置；移动随表单纵向重排。",
+      "narrative": "让用户先看输出再决定是否尝试。"
+    },
+    "notBorrowed": "竞品人物、图片、文字、品牌、色彩与产品承诺",
+    "blueprint": "docs/design/ai-video-expander/hero-blueprint.md",
+    "cases": [
+      "guide-case-1",
+      "guide-case-2",
+      "guide-case-3"
+    ]
+  },
+  "media": [
+    {
+      "id": "what-is",
+      "type": "video",
+      "page": "home",
+      "module": "what-is",
+      "sourceHeading": "What Is AI Video Expander?",
+      "meaning": "解释源片如何适应新画幅",
+      "story": "编辑台上一道光框由窄扩宽，透过框看到两个不同发布场景。",
+      "mechanism": "关键词随画框展开，接续一竖一横两段可识别场景。",
+      "directions": [
+        "片门从窄到宽",
+        "桌面上的两种底片",
+        "裁切线幻化成场景"
+      ],
+      "chosen": 2,
+      "reason": "镜头关系能呈现画幅改变，新增区便于在播放中观察。",
+      "prompt": "Ten-second title-led motion film, muted ochre and charcoal. A narrow luminous terracotta frame opens out across a black film leader, and the words AI Video Expander slide into focus with the opening. Hold that single correctly spelled phrase long enough to read, with strong light-on-dark contrast and no other type. The frame carries into a tall view of a cyclist on a concrete terrace, then into a wide view of musicians entering a small rehearsal space. Frame lines reveal extra surroundings before dissolving. Keep cuts precise, textures photographic and subjects easy to see. Soft film-projector rhythm, no voice.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "16:9",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/home-generation/what-is.mp4",
+        "final": "public/media/home/what-is.mp4",
+        "poster": "public/media/home/what-is.webp",
+        "record": "docs/media/home-generation/what-is-record.json"
+      }
+    },
+    {
+      "id": "feature-ratio",
+      "type": "video",
+      "page": "home",
+      "module": "key-features",
+      "sourceHeading": "Choose the Shape of Your Video",
+      "meaning": "一次拍摄转成新的画幅",
+      "story": "滑雪者越过红旗，雪地构图为竖版增加天空与坡面。",
+      "mechanism": "横向源取景和竖向成品同时可辨。",
+      "directions": [
+        "陡坡滑雪竖画幅",
+        "花园演出方画幅",
+        "车库滑板横画幅"
+      ],
+      "chosen": 2,
+      "reason": "镜头关系能呈现画幅改变，新增区便于在播放中观察。",
+      "prompt": "On a restrained dark film-viewer background, a skier in a navy shell crosses an orange boundary flag on a sunlit alpine slope. The large vertical moving image has powder and sky extending above and below the skier. Keep one small widescreen view of the same skier at the far left against clean charcoal empty space, with the main vertical moving image on the right. The camera stays locked. Snow spray trails the turn and settles. No labels or borders over the skier.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "16:9",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/home-generation/feature-ratio.mp4",
+        "final": "public/media/home/feature-ratio.mp4",
+        "poster": "public/media/home/feature-ratio.webp",
+        "record": "docs/media/home-generation/feature-ratio-record.json"
+      },
+      "inputPresentation": "inset",
+      "insetSafeArea": "左侧炭黑空白区域，避免遮挡右侧主画面"
+    },
+    {
+      "id": "feature-frame",
+      "type": "video",
+      "page": "home",
+      "module": "key-features",
+      "sourceHeading": "Keep the Whole Source Frame",
+      "meaning": "扩幅中保留原始构图",
+      "story": "室内红绿扶手椅上的两位受访者同时入画，留出上下空间。",
+      "mechanism": "人和两把椅子始终留在中央源区域。",
+      "directions": [
+        "双人访谈整体保留",
+        "舞台剧对手动作",
+        "并行车辆"
+      ],
+      "chosen": 1,
+      "reason": "首要主体和变化在小视口仍清楚，场景动作可一次拍完整。",
+      "prompt": "A fixed-camera moving portrait crop of two adult interview guests seated in rust-red and forest-green armchairs in a plaster room. Both chairs and both faces remain visible. One guest nods and the other closes a small notebook. The larger continuing shot above and below shows ceiling and wood floor. A single tiny horizontal moving strip sits at the left in a generous black margin, outside the area with the chairs, and gives an alternate framing of those same subjects. Bright north light and a restrained film-grain texture. No text.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "16:9",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/home-generation/feature-frame.mp4",
+        "final": "public/media/home/feature-frame.mp4",
+        "poster": "public/media/home/feature-frame.webp",
+        "record": "docs/media/home-generation/feature-frame-record.json"
+      },
+      "inputPresentation": "inset",
+      "insetSafeArea": "左侧独立黑边，椅子及人物在右侧全画幅"
+    },
+    {
+      "id": "feature-prompt",
+      "type": "video",
+      "page": "home",
+      "module": "key-features",
+      "sourceHeading": "Describe What Belongs at the Edges",
+      "meaning": "说明文字如何引导新增区域",
+      "story": "修理员将台灯拉亮，墙面延伸出一块可放标题的空间。",
+      "mechanism": "台灯、工具和墙面在明确视线方向分开。",
+      "directions": [
+        "自行车修理台留字区",
+        "陶罐旁加强墙面",
+        "印刷机后的空工作台"
+      ],
+      "chosen": 3,
+      "reason": "将注意力放在任务成品，单镜头保持变化清楚。",
+      "prompt": "A small bicycle repair bench under an anglepoise lamp. A mechanic in an indigo overshirt straightens a chrome spanner and turns on the lamp. The main wide image on the right gives the workshop an extended bare sandy plaster wall beside the bench, with shallow side light and no graphics on the wall. A single small moving narrow view on the far left in clear dark empty space shows the lamp and spanner without the full wall. Keep the materials matte, the lamp sharp and the camera fixed. No text.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "16:9",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/home-generation/feature-prompt.mp4",
+        "final": "public/media/home/feature-prompt.mp4",
+        "poster": "public/media/home/feature-prompt.webp",
+        "record": "docs/media/home-generation/feature-prompt-record.json"
+      },
+      "inputPresentation": "inset",
+      "insetSafeArea": "左侧空暗边，不覆盖右侧灯与延伸墙面"
+    },
+    {
+      "id": "feature-quality",
+      "type": "video",
+      "page": "home",
+      "module": "key-features",
+      "sourceHeading": "Set the Output Resolution",
+      "meaning": "展示适合输出的视觉细节",
+      "story": "印刷工掀起一张带细线纹理的纸，从横向构图看清纹理。",
+      "mechanism": "成品画面中的网纹、纸边和印刷色帮助理解输出细节。",
+      "directions": [
+        "印刷表面细纹",
+        "胶片底片光带",
+        "微缩台面零件"
+      ],
+      "chosen": 2,
+      "reason": "镜头关系能呈现画幅改变，新增区便于在播放中观察。",
+      "prompt": "A fixed landscape shot across a screen-printing table, shot close enough to catch paper grain and finely printed rust-orange lines. An adult printmaker draws the squeegee slowly across an inked screen, lifts it and sets the finished paper down in the middle of the wide frame. A navy apron and a strip of natural window light balance the burnt orange. The image holds steady at the end so the edge texture remains legible. No UI, labels, size claims or comparison frames.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "16:9",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/home-generation/feature-quality.mp4",
+        "final": "public/media/home/feature-quality.mp4",
+        "poster": "public/media/home/feature-quality.webp",
+        "record": "docs/media/home-generation/feature-quality-record.json"
+      },
+      "inputPresentation": "none"
+    },
+    {
+      "id": "case-post",
+      "type": "video",
+      "page": "home",
+      "module": "use-cases",
+      "sourceHeading": "Turn a Wide Shot into a Vertical Post",
+      "meaning": "双人采访竖版保留两人，留出字幕位置",
+      "story": "采访结束前两位嘉宾同时笑起来，椅子和两张脸在竖版中央有分量。",
+      "mechanism": "纵向构图留出上下空间。",
+      "directions": [
+        "双人采访",
+        "排练后的两位演员",
+        "餐馆主人对谈"
+      ],
+      "chosen": 1,
+      "reason": "首要主体和变化在小视口仍清楚，场景动作可一次拍完整。",
+      "prompt": "A ten-second vertical independent magazine interview. Two adults in adjacent chairs, one in a pale blue shirt and one in a black jacket, exchange a glance and share a brief laugh. Keep both faces and both bodies within the same tall composition, with an unpatterned buff wall above and a clear dark rug below for future captions. Window light washes the side of the small theatre lounge. Film at seated eye height with a fixed camera. No letters or captions; quiet room sound.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "9:16",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/home-generation/case-post.mp4",
+        "final": "public/media/home/case-post.mp4",
+        "poster": "public/media/home/case-post.webp",
+        "record": "docs/media/home-generation/case-post-record.json"
+      },
+      "inputPresentation": "none"
+    },
+    {
+      "id": "case-ad",
+      "type": "video",
+      "page": "home",
+      "module": "use-cases",
+      "sourceHeading": "Make Room for a Product Headline",
+      "meaning": "横向广告给标题预留侧面空白",
+      "story": "架上的红色便携唱盘合盖，侧面墙依然干净。",
+      "mechanism": "单一商品靠左，横画幅另一侧留出安静空间。",
+      "directions": [
+        "唱盘落盖",
+        "磨砂咖啡器具",
+        "旧相机皮套"
+      ],
+      "chosen": 3,
+      "reason": "将注意力放在任务成品，单镜头保持变化清楚。",
+      "prompt": "A graphic 16:9 product placement with a burnt-red portable record player on the left of a stone bench. Its clear lid clicks shut as a record slows underneath. Static camera at bench level, slender white window reflections on the lid, with an open expanse of oatmeal plaster to the right. Leave that area readable as uninterrupted space for future titles. No people, logos or text. Keep shadows firm and realistic.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "16:9",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/home-generation/case-ad.mp4",
+        "final": "public/media/home/case-ad.mp4",
+        "poster": "public/media/home/case-ad.webp",
+        "record": "docs/media/home-generation/case-ad-record.json"
+      },
+      "inputPresentation": "none"
+    },
+    {
+      "id": "case-landscape",
+      "type": "video",
+      "page": "home",
+      "module": "use-cases",
+      "sourceHeading": "Give Portrait Footage a Landscape Frame",
+      "meaning": "窄画面的海边主体延伸出地平线和岸线",
+      "story": "雾蓝海堤上一位穿砂色大衣的人停步看潮水。",
+      "mechanism": "主体完整保留，左右地景成为横剪素材。",
+      "directions": [
+        "海堤行人",
+        "立体停车场出口",
+        "大棚里的花农"
+      ],
+      "chosen": 2,
+      "reason": "镜头关系能呈现画幅改变，新增区便于在播放中观察。",
+      "prompt": "An ultrawide locked-off shot of a person in a sand-colored coat walking along a slate sea wall and pausing to look at the water. Keep the walker fully visible around the center, visually bracketed by the jetty masonry. The coast extends in both directions, with sea foam advancing across the dark stones and a thin line of granite on the distant horizon. A long mellow morning exposure, wind moving the coat hem, realistic wave sound and no titles.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "21:9",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/home-generation/case-landscape.mp4",
+        "final": "public/media/home/case-landscape.mp4",
+        "poster": "public/media/home/case-landscape.webp",
+        "record": "docs/media/home-generation/case-landscape-record.json"
+      },
+      "inputPresentation": "none"
+    },
+    {
+      "id": "guide-case-1-source",
+      "type": "video",
+      "page": "guide",
+      "module": "prompt-examples",
+      "sourceHeading": "Frame a bicycle trick for a vertical cut",
+      "meaning": "提供可装入表单的起始视频",
+      "story": "BMX 车手翻过陶红坡道，竖版增加天空和坡面。",
+      "mechanism": "原视角集中于待扩框的主体。",
+      "directions": [
+        "本任务对应的紧框素材",
+        "较宽的环境切入",
+        "手部动作特写"
+      ],
+      "chosen": 2,
+      "reason": "镜头关系能呈现画幅改变，新增区便于在播放中观察。",
+      "prompt": "Ten-second landscape source video at a low fixed wheel-height angle. A rider in a teal jacket pops the front wheel of a cream BMX over a low red clay bank and rolls down the ramp. Show the full rider and bike with an edge of muted evening sky. Tight landscape composition across the action, natural movement, no graphics.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "16:9",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/guide-generation/guide-case-1-source.mp4",
+        "final": "public/media/guide/guide-case-1-source.mp4",
+        "poster": "public/media/guide/guide-case-1-source.webp",
+        "record": "docs/media/guide-generation/guide-case-1-source-record.json"
+      },
+      "role": "starting-material",
+      "caseId": "guide-case-1",
+      "caseHeading": "Frame a bicycle trick for a vertical cut",
+      "sourceDerivation": "Keyframe-compatible packet trim of the recorded source to at most 10 seconds; same delivered preview and prefill file."
+    },
+    {
+      "id": "guide-case-1",
+      "type": "video",
+      "page": "guide",
+      "module": "prompt-examples",
+      "sourceHeading": "Frame a bicycle trick for a vertical cut",
+      "meaning": "完整显示该教程中的目标画幅",
+      "story": "BMX 车手翻过陶红坡道，竖版增加天空和坡面。",
+      "mechanism": "以轮毂高度的固定镜头保持原构图中心。",
+      "directions": [
+        "突出目标比例",
+        "突出主体周围空间",
+        "突出可保留动作"
+      ],
+      "chosen": 3,
+      "reason": "将注意力放在任务成品，单镜头保持变化清楚。",
+      "prompt": "Ten seconds in a vertical frame. A rider in a teal jacket pops the front wheel of a cream BMX over a low red clay bank, then rolls away along the ramp. The camera stays locked at wheel height. Keep the whole bicycle across the middle of the image, with pale evening sky above and scuffed red clay leading up from the lower edge.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "9:16",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/guide-generation/guide-case-1.mp4",
+        "final": "public/media/guide/guide-case-1.mp4",
+        "poster": "public/media/guide/guide-case-1.webp",
+        "record": "docs/media/guide-generation/guide-case-1-record.json"
+      },
+      "role": "output",
+      "caseId": "guide-case-1",
+      "caseHeading": "Frame a bicycle trick for a vertical cut",
+      "inputPresentation": "external",
+      "startingMaterials": [
+        "guide-case-1-source"
+      ]
+    },
+    {
+      "id": "guide-case-2-source",
+      "type": "video",
+      "page": "guide",
+      "module": "prompt-examples",
+      "sourceHeading": "Widen a ceramic studio shot",
+      "meaning": "提供可装入表单的起始视频",
+      "story": "陶艺师修整胚体，宽版增加左右货架与作业台。",
+      "mechanism": "原视角集中于待扩框的主体。",
+      "directions": [
+        "本任务对应的紧框素材",
+        "较宽的环境切入",
+        "手部动作特写"
+      ],
+      "chosen": 2,
+      "reason": "镜头关系能呈现画幅改变，新增区便于在播放中观察。",
+      "prompt": "Ten-second portrait source clip of a potter in an ochre apron shaping a pale blue bowl on a spinning wheel. Tight vertical framing from waist height with just narrow pieces of teal shelving beyond the elbows, and sunlight from the left. The hands are cleanly defined and the wheel continues to turn. No text.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "9:16",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/guide-generation/guide-case-2-source.mp4",
+        "final": "public/media/guide/guide-case-2-source.mp4",
+        "poster": "public/media/guide/guide-case-2-source.webp",
+        "record": "docs/media/guide-generation/guide-case-2-source-record.json"
+      },
+      "role": "starting-material",
+      "caseId": "guide-case-2",
+      "caseHeading": "Widen a ceramic studio shot",
+      "sourceDerivation": "Keyframe-compatible packet trim of the recorded source to at most 10 seconds; same delivered preview and prefill file."
+    },
+    {
+      "id": "guide-case-2",
+      "type": "video",
+      "page": "guide",
+      "module": "prompt-examples",
+      "sourceHeading": "Widen a ceramic studio shot",
+      "meaning": "完整显示该教程中的目标画幅",
+      "story": "陶艺师修整胚体，宽版增加左右货架与作业台。",
+      "mechanism": "扩展室内侧面，原来的手、围裙和碗居中。",
+      "directions": [
+        "突出目标比例",
+        "突出主体周围空间",
+        "突出可保留动作"
+      ],
+      "chosen": 1,
+      "reason": "首要主体和变化在小视口仍清楚，场景动作可一次拍完整。",
+      "prompt": "Ten seconds in a widescreen frame. Clay folds inward as a potter in an ochre apron shapes a pale blue bowl on a spinning wheel. Hold a steady waist-high shot. The potter and bowl stay in the middle as teal shelves, stacked ceramic cups and a sunlit workbench extend the room on either side.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "16:9",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/guide-generation/guide-case-2.mp4",
+        "final": "public/media/guide/guide-case-2.mp4",
+        "poster": "public/media/guide/guide-case-2.webp",
+        "record": "docs/media/guide-generation/guide-case-2-record.json"
+      },
+      "role": "output",
+      "caseId": "guide-case-2",
+      "caseHeading": "Widen a ceramic studio shot",
+      "inputPresentation": "external",
+      "startingMaterials": [
+        "guide-case-2-source"
+      ]
+    },
+    {
+      "id": "guide-case-3-source",
+      "type": "video",
+      "page": "guide",
+      "module": "prompt-examples",
+      "sourceHeading": "Make a square coffee product clip",
+      "meaning": "提供可装入表单的起始视频",
+      "story": "咖啡勺倒出几粒咖啡豆，方版向上下增加台面和墙。",
+      "mechanism": "原视角集中于待扩框的主体。",
+      "directions": [
+        "本任务对应的紧框素材",
+        "较宽的环境切入",
+        "手部动作特写"
+      ],
+      "chosen": 2,
+      "reason": "镜头关系能呈现画幅改变，新增区便于在播放中观察。",
+      "prompt": "Ten-second landscape tabletop source clip. A tan scoop tips a few beans beside a matte plum coffee bag on an oat-colored tabletop. Locked low three-quarter camera, close enough that the bag occupies most of the composition and the background is matte plaster. The scoop settles by the bag. No branding.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text. The plum coffee bag is a plain solid plum pouch with an entirely blank front and blank back, no paper label, marks, graphics, numbers, writing or type anywhere in the shot.",
+      "aspectRatio": "16:9",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/guide-generation/guide-case-3-source.mp4",
+        "final": "public/media/guide/guide-case-3-source.mp4",
+        "poster": "public/media/guide/guide-case-3-source.webp",
+        "record": "docs/media/guide-generation/guide-case-3-source-record.json"
+      },
+      "role": "starting-material",
+      "caseId": "guide-case-3",
+      "caseHeading": "Make a square coffee product clip",
+      "sourceDerivation": "Keyframe-compatible packet trim of the recorded source to at most 10 seconds; same delivered preview and prefill file."
+    },
+    {
+      "id": "guide-case-3",
+      "type": "video",
+      "page": "guide",
+      "module": "prompt-examples",
+      "sourceHeading": "Make a square coffee product clip",
+      "meaning": "完整显示该教程中的目标画幅",
+      "story": "咖啡勺倒出几粒咖啡豆，方版向上下增加台面和墙。",
+      "mechanism": "保留袋口、勺和豆的关系。",
+      "directions": [
+        "突出目标比例",
+        "突出主体周围空间",
+        "突出可保留动作"
+      ],
+      "chosen": 2,
+      "reason": "镜头关系能呈现画幅改变，新增区便于在播放中观察。",
+      "prompt": "Ten seconds in a square tabletop shot. A tan scoop tips a few coffee beans beside a matte plum coffee bag and settles on the table. The camera holds at a low three-quarter angle. Continue the warm oat-colored tabletop below the bag and the softly lit plaster backdrop above it, leaving clear space around the packaging.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text. The plum coffee bag is a plain solid plum pouch with an entirely blank front and blank back, no paper label, marks, graphics, numbers, writing or type anywhere in the shot.",
+      "aspectRatio": "1:1",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/guide-generation/guide-case-3.mp4",
+        "final": "public/media/guide/guide-case-3.mp4",
+        "poster": "public/media/guide/guide-case-3.webp",
+        "record": "docs/media/guide-generation/guide-case-3-record.json"
+      },
+      "role": "output",
+      "caseId": "guide-case-3",
+      "caseHeading": "Make a square coffee product clip",
+      "inputPresentation": "external",
+      "startingMaterials": [
+        "guide-case-3-source"
+      ]
+    },
+    {
+      "id": "guide-case-4-source",
+      "type": "video",
+      "page": "guide",
+      "module": "prompt-examples",
+      "sourceHeading": "Leave room above a climbing shot",
+      "meaning": "提供可装入表单的起始视频",
+      "story": "攀岩者抓住岩点继续移动，竖版延伸头顶岩壁。",
+      "mechanism": "原视角集中于待扩框的主体。",
+      "directions": [
+        "本任务对应的紧框素材",
+        "较宽的环境切入",
+        "手部动作特写"
+      ],
+      "chosen": 2,
+      "reason": "镜头关系能呈现画幅改变，新增区便于在播放中观察。",
+      "prompt": "Ten-second landscape source shot of a climber in a rust jacket with a cobalt rope on pale sandstone. Fixed side view, the body and ledge fill the frame as they catch a handhold and step up. Short view of the ledge above the hand, sunshine across coarse stone, no labels.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "16:9",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/guide-generation/guide-case-4-source.mp4",
+        "final": "public/media/guide/guide-case-4-source.mp4",
+        "poster": "public/media/guide/guide-case-4-source.webp",
+        "record": "docs/media/guide-generation/guide-case-4-source-record.json"
+      },
+      "role": "starting-material",
+      "caseId": "guide-case-4",
+      "caseHeading": "Leave room above a climbing shot",
+      "sourceDerivation": "Keyframe-compatible packet trim of the recorded source to at most 10 seconds; same delivered preview and prefill file."
+    },
+    {
+      "id": "guide-case-4",
+      "type": "video",
+      "page": "guide",
+      "module": "prompt-examples",
+      "sourceHeading": "Leave room above a climbing shot",
+      "meaning": "完整显示该教程中的目标画幅",
+      "story": "攀岩者抓住岩点继续移动，竖版延伸头顶岩壁。",
+      "mechanism": "红衣与蓝绳位置稳定，形成上部留空。",
+      "directions": [
+        "突出目标比例",
+        "突出主体周围空间",
+        "突出可保留动作"
+      ],
+      "chosen": 3,
+      "reason": "将注意力放在任务成品，单镜头保持变化清楚。",
+      "prompt": "Ten seconds in a tall portrait shot. A climber in a rust jacket catches a ledge on pale sandstone, then takes one measured step upward as a cobalt rope tightens below. Film from a stationary side angle. Show the entire climber and the rock around them, with quiet sunlit sandstone extending above the handhold.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "3:4",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/guide-generation/guide-case-4.mp4",
+        "final": "public/media/guide/guide-case-4.mp4",
+        "poster": "public/media/guide/guide-case-4.webp",
+        "record": "docs/media/guide-generation/guide-case-4-record.json"
+      },
+      "role": "output",
+      "caseId": "guide-case-4",
+      "caseHeading": "Leave room above a climbing shot",
+      "inputPresentation": "external",
+      "startingMaterials": [
+        "guide-case-4-source"
+      ]
+    },
+    {
+      "id": "guide-case-5-source",
+      "type": "video",
+      "page": "guide",
+      "module": "prompt-examples",
+      "sourceHeading": "Carry a night street across a wider frame",
+      "meaning": "提供可装入表单的起始视频",
+      "story": "雨夜单车停靠，超宽版增加路面的反光与窗光。",
+      "mechanism": "原视角集中于待扩框的主体。",
+      "directions": [
+        "本任务对应的紧框素材",
+        "较宽的环境切入",
+        "手部动作特写"
+      ],
+      "chosen": 2,
+      "reason": "镜头关系能呈现画幅改变，新增区便于在播放中观察。",
+      "prompt": "Ten-second landscape source clip from sidewalk elevation. A silver delivery bicycle with a red crate moves across a wet paving reflection and stops at the curb. One amber shop window behind the bike, brick surroundings, fixed side shot, realistic rain after dusk. No lettering.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "16:9",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/guide-generation/guide-case-5-source.mp4",
+        "final": "public/media/guide/guide-case-5-source.mp4",
+        "poster": "public/media/guide/guide-case-5-source.webp",
+        "record": "docs/media/guide-generation/guide-case-5-source-record.json"
+      },
+      "role": "starting-material",
+      "caseId": "guide-case-5",
+      "caseHeading": "Carry a night street across a wider frame",
+      "sourceDerivation": "Keyframe-compatible packet trim of the recorded source to at most 10 seconds; same delivered preview and prefill file."
+    },
+    {
+      "id": "guide-case-5",
+      "type": "video",
+      "page": "guide",
+      "module": "prompt-examples",
+      "sourceHeading": "Carry a night street across a wider frame",
+      "meaning": "完整显示该教程中的目标画幅",
+      "story": "雨夜单车停靠，超宽版增加路面的反光与窗光。",
+      "mechanism": "同一车筐与橱窗余光延续至两侧。",
+      "directions": [
+        "突出目标比例",
+        "突出主体周围空间",
+        "突出可保留动作"
+      ],
+      "chosen": 1,
+      "reason": "首要主体和变化在小视口仍清楚，场景动作可一次拍完整。",
+      "prompt": "Ten seconds in an ultrawide street shot. A silver delivery bicycle with a red crate rolls through an amber shop-window reflection and stops at a curb. The camera stays level and stationary. Keep the bicycle near the middle as wet paving and warm shop windows continue across both sides of the frame.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text. Use an old dark-painted timber storefront with brick and three plain amber window panes. All fasciae and windows are blank and unlettered. The bicycle and its red crate are visibly in the foreground as amber light reflects on the wet road. No shop signs, words, characters, glyphs, advertising, menus, humans or mannequins.",
+      "aspectRatio": "21:9",
+      "resolution": "768p",
+      "status": "adopted",
+      "output": {
+        "original": "docs/media/guide-generation/guide-case-5.mp4",
+        "final": "public/media/guide/guide-case-5.mp4",
+        "poster": "public/media/guide/guide-case-5.webp",
+        "record": "docs/media/guide-generation/guide-case-5-record.json"
+      },
+      "role": "output",
+      "caseId": "guide-case-5",
+      "caseHeading": "Carry a night street across a wider frame",
+      "inputPresentation": "external",
+      "startingMaterials": [
+        "guide-case-5-source"
+      ]
+    },
+    {
+      "type": "image",
+      "id": "how-1",
+      "page": "home",
+      "module": "how-to-use",
+      "step": 1,
+      "sourceHeading": "Step 1: Upload a Source Video",
+      "meaning": "选择已有视频",
+      "prompt": "Editorial instruction illustration in off-white, clay red and coal. A tile with a film clip of a white skateboard on a terracotta bank is mid-move from a visible file stack toward a large outlined upload tray. Put a clear upward arrow inside the tray and a small legible MP4 file tag on the arriving video tile. Show the same white deck and ochre concrete in the tile. Render a clean orthographic studio diagram with restrained shadows and readable shapes. No extraneous interface and no text beyond MP4.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "4:3",
+      "status": "adopted",
+      "directions": [
+        "工具状态的可读线性步骤",
+        "把实际动作凝成一个可识别画面",
+        "使用更大媒体对照形状"
+      ],
+      "chosen": 1,
+      "reason": "动作标识与素材能够并读，缩小后仍保留主体的轮廓。",
+      "output": {
+        "original": "docs/media/home-generation/how-1.png",
+        "final": "public/media/home/how-1.webp",
+        "record": "docs/media/home-generation/how-1-record.json",
+        "imagePlan": "docs/media/home-generation/how-1-plan.json",
+        "request": "docs/media/home-generation/how-1-request.json"
+      }
+    },
+    {
+      "type": "image",
+      "id": "how-2",
+      "page": "home",
+      "module": "how-to-use",
+      "step": 2,
+      "sourceHeading": "Step 2: Set the Frame and Expand",
+      "meaning": "设置目标画幅并启动扩框",
+      "prompt": "Editorial instruction illustration in off-white, clay red and coal. The video tile of a white skateboard against a terracotta bank now sits at the center of a vertical frame on an editing canvas. Crisp ruler marks outside the frame, two outward arrows and a clearly lit Expand button show the selected target taking effect. Show newly open sky and clay at the margins. Keep the skateboard complete. Match a restrained orthographic desk diagram with large legible shapes. No text beyond Expand and 9:16.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "4:3",
+      "status": "adopted",
+      "directions": [
+        "工具状态的可读线性步骤",
+        "把实际动作凝成一个可识别画面",
+        "使用更大媒体对照形状"
+      ],
+      "chosen": 2,
+      "reason": "动作标识与素材能够并读，缩小后仍保留主体的轮廓。",
+      "output": {
+        "original": "docs/media/home-generation/how-2.png",
+        "final": "public/media/home/how-2.webp",
+        "record": "docs/media/home-generation/how-2-record.json",
+        "imagePlan": "docs/media/home-generation/how-2-plan.json",
+        "request": "docs/media/home-generation/how-2-request.json"
+      }
+    },
+    {
+      "type": "image",
+      "id": "how-3",
+      "page": "home",
+      "module": "how-to-use",
+      "step": 3,
+      "sourceHeading": "Step 3: Download and Save the Video",
+      "meaning": "预览并保存成品",
+      "prompt": "Editorial instruction illustration in off-white, clay red and coal. A video monitor on the left visibly previews the completed tall clip of a white skateboard on a terracotta bank. Immediately beside it is a large clear downward arrow pointing into a folder on the right, and a distinct file tile marked MP4 lies visibly inside the folder. Show preview, active download and saved file together at a glance. Orthographic studio diagram, uncluttered shapes, precise spacing. No text beyond MP4.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "4:3",
+      "status": "adopted",
+      "directions": [
+        "工具状态的可读线性步骤",
+        "把实际动作凝成一个可识别画面",
+        "使用更大媒体对照形状"
+      ],
+      "chosen": 3,
+      "reason": "动作标识与素材能够并读，缩小后仍保留主体的轮廓。",
+      "output": {
+        "original": "docs/media/home-generation/how-3.png",
+        "final": "public/media/home/how-3.webp",
+        "record": "docs/media/home-generation/how-3-record.json",
+        "imagePlan": "docs/media/home-generation/how-3-plan.json",
+        "request": "docs/media/home-generation/how-3-request.json"
+      }
+    },
+    {
+      "type": "image",
+      "id": "social-source",
+      "page": "home",
+      "module": "brand",
+      "sourceHeading": "Brand social image",
+      "meaning": "分享卡传达扩展画框",
+      "prompt": "Landscape editorial social-card background. Left side stays clear and readable with matte warm off-white paper, no words or lettering. On the right is a dramatic charcoal frame with an original small still of a skater on a clay bank set inside it. Successive terracotta crop marks suggest the picture extending outward, with additional quiet landscape within the outer frame. Use a believable photographic still with tactile paper margins and no digital glow. Place visual weight on the right and preserve the center reading area. No copy, mark, logo or watermark.",
+      "exclusions": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+      "aspectRatio": "16:9",
+      "status": "adopted",
+      "directions": [
+        "工具状态的可读线性步骤",
+        "把实际动作凝成一个可识别画面",
+        "使用更大媒体对照形状"
+      ],
+      "chosen": 2,
+      "reason": "动作标识与素材能够并读，缩小后仍保留主体的轮廓。",
+      "output": {
+        "original": "docs/media/home-generation/social-source.png",
+        "final": "public/media/home/social-source.webp",
+        "record": "docs/media/home-generation/social-source-record.json",
+        "imagePlan": "docs/media/home-generation/social-source-plan.json",
+        "request": "docs/media/home-generation/social-source-request.json"
+      }
+    }
+  ]
+}

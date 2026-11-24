@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "Ten seconds in a vertical frame. A rider in a teal jacket pops the front wheel of a cream BMX over a low red clay bank, then rolls away along the ramp. The camera stays locked at wheel height. Keep the whole bicycle across the middle of the image, with pale evening sky above and scuffed red clay leading up from the lower edge. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "9:16",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:18:20.0879509Z",
+    "taskId":  "d278870d9ea44fb0bd12685d745db164",
+    "checkedAt":  "2026-11-24T03:20:29.8831344Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/6258918b-0aa4-4b58-a291-179ce83d5ae8.mp4",
+    "polls":  56,
+    "waitedSeconds":  126.1,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/58156be0-1797-4aae-9804-a39808654607.mp4",
+    "asset":  {
+                  "bytes":  5311721,
+                  "sha256":  "e07d67c7f34fb9ba356f8ea769d31ab743a9ba6452b283cc879b73bfccf0ef54",
+                  "width":  768,
+                  "height":  1344,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/guide-generation/guide-case-1.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:20:35.3721991Z"
+}

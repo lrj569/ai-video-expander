@@ -1,8 +1,5 @@
 import { pricingFaqSchema } from '@/lib/pricing-faq';
-import { Metadata } from '@/src/compat/metadata';
-import { Footer } from '@/components/Footer';
-import PricingSection from '@/components/PricingSection';
-import PricingFAQ from './PricingFAQ';
+import type { Metadata } from '@/src/compat/metadata';
 import { SITE_NAME, siteUrl, websiteConfig, getPageTdk } from '@/website-config';
 import { publicStructuredDataOrigin } from '@/src/lib/site-structured-data.mjs';
 
@@ -52,18 +49,15 @@ export const metadata: Metadata = {
   },
 };
 
-// Only emit supported page facts, not invented product offers.
 const schemaOrigin = publicStructuredDataOrigin(siteUrl);
 export const pricingSchemaData = {
   '@context': 'https://schema.org',
-  '@type': 'WebPage',
+  '@type': ['WebPage', 'FAQPage'],
   name: tdk.title,
   description: tdk.description,
+  inLanguage: 'en-US',
+  keywords: tdk.keywords,
+  mainEntity: pricingFaqSchema.mainEntity,
   ...(schemaOrigin ? { url: `${schemaOrigin}/pricing` } : {}),
 };
-export const faqSchemaData = pricingFaqSchema;
-
-export default function PricingPage() {
-  return <><PricingSection /><PricingFAQ /><Footer /></>;
-}
 

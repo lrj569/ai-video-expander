@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0",
+  "themeColor": "#72EADB",
+  "backgroundColor": "#080F1B",
+  "logoIdentity": {
+    "primaryKeyword": "AI Video Expander",
+    "firstWord": "AI",
+    "initial": "A",
+    "designBasis": "keyword-first-word-initial"
+  },
+  "logo": {
+    "src": "/brand/logo.svg",
+    "width": 64,
+    "height": 64
+  },
+  "logoRaster": {
+    "src": "/brand/logo.webp",
+    "width": 512,
+    "height": 512
+  },
+  "socialImage": {
+    "src": "/share-img.png",
+    "width": 1200,
+    "height": 630,
+    "mimeType": "image/png",
+    "alt": "AI Video Expander with expanding frame marks around a skater on a red clay bank"
+  },
+  "favicon": {
+    "src": "/favicon.ico"
+  },
+  "favicon32": {
+    "src": "/favicon-32.ico"
+  },
+  "favicon48": {
+    "src": "/favicon-48.ico"
+  },
+  "favicon96": {
+    "src": "/favicon-96.ico"
+  },
+  "appleTouchIcon": {
+    "src": "/brand/apple-touch-icon.png",
+    "width": 180,
+    "height": 180
+  },
+  "icon192": {
+    "src": "/icon-192.png",
+    "width": 192,
+    "height": 192
+  },
+  "icon512": {
+    "src": "/icon-512.png",
+    "width": 512,
+    "height": 512
+  },
+  "maskableIcon": {
+    "src": "/brand/icon-maskable.png",
+    "width": 512,
+    "height": 512
+  }
+}

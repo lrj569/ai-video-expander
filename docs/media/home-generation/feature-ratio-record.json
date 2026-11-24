@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "On a restrained dark film-viewer background, a skier in a navy shell crosses an orange boundary flag on a sunlit alpine slope. The large vertical moving image has powder and sky extending above and below the skier. Keep one small widescreen view of the same skier at the far left against clean charcoal empty space, with the main vertical moving image on the right. The camera stays locked. Snow spray trails the turn and settles. No labels or borders over the skier. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "16:9",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:18:20.0147905Z",
+    "taskId":  "ebed30b6625e48a79d92339e5aa63d66",
+    "checkedAt":  "2026-11-24T03:20:41.1342963Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/eed1f7f1-f162-4f41-a1b8-f7183d7a3390.mp4",
+    "polls":  61,
+    "waitedSeconds":  137.2,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/1ffb67f0-dbcc-4bc7-bb50-2f6f060e8f6e.mp4",
+    "asset":  {
+                  "bytes":  5869418,
+                  "sha256":  "2d10f81fc9c6513e027d2ee21bc9adf1428d4dc93c60d187264691cc3f8db6ec",
+                  "width":  1344,
+                  "height":  768,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/home-generation/feature-ratio.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:20:46.6495460Z"
+}

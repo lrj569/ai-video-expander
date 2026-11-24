@@ -1,0 +1,51 @@
+{
+  "url": "https://seedreams.net/",
+  "capturedAt": "2026-11-24T03:09:54.058994+00:00",
+  "views": {
+    "desktop": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "summaryDepth": 1800,
+      "files": [
+        {
+          "path": "desktop-top.png",
+          "sha256": "799f67205f9a6219027351eaa72639d1aa15033c95eae06c7c5fffb51b6bf501"
+        },
+        {
+          "path": "desktop-hero-region.png",
+          "sha256": "6d814be6df322f7c0b9a2c45d38e522147e511128b2717c84c1e5ee9f34cd684"
+        },
+        {
+          "path": "desktop-structure.json",
+          "sha256": "d9f0e09fbefd647ba2ceeca62c909ce0af533a8de2110e9f12be182e140dbf63"
+        }
+      ],
+      "videoFrames": []
+    },
+    "mobile": {
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "summaryDepth": 1688,
+      "files": [
+        {
+          "path": "mobile-top.png",
+          "sha256": "d1a72588a4b7f305144ac0958b5784193c4b11979e665d93e87cee3e07d2063d"
+        },
+        {
+          "path": "mobile-hero-region.png",
+          "sha256": "88dcbca1a2de2a0c2fa27b5031c0a0fd60ad7c839f2c45ed2bd90ae52e1a66fc"
+        },
+        {
+          "path": "mobile-structure.json",
+          "sha256": "1b2ae4899c776013bc07250bea40113ec066937bb07000bff30eae2175d8a1bc"
+        }
+      ],
+      "videoFrames": []
+    }
+  },
+  "limits": "Observation only; structure summary excludes navigation, footer and link targets."
+}

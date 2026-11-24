@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "A fixed landscape shot across a screen-printing table, shot close enough to catch paper grain and finely printed rust-orange lines. An adult printmaker draws the squeegee slowly across an inked screen, lifts it and sets the finished paper down in the middle of the wide frame. A navy apron and a strip of natural window light balance the burnt orange. The image holds steady at the end so the edge texture remains legible. No UI, labels, size claims or comparison frames. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "16:9",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:18:19.9737266Z",
+    "taskId":  "19d8ec5238cc447099152baf3f68f2f3",
+    "checkedAt":  "2026-11-24T03:21:48.2094329Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/6bef3603-ce22-49c3-aa84-67bf9e5f45a1.mp4",
+    "polls":  91,
+    "waitedSeconds":  204.2,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/09e01471-aa7a-4c65-bcd0-426f23eb9d54.mp4",
+    "asset":  {
+                  "bytes":  4311062,
+                  "sha256":  "af853a8ca11d24952155a7ba445c3fab000e030a9d31537bca08b9c6642edee9",
+                  "width":  1344,
+                  "height":  768,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/home-generation/feature-quality.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:21:53.1184298Z"
+}

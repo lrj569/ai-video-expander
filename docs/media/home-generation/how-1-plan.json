@@ -1,0 +1,43 @@
+{
+  "userNeed": "选择已有视频",
+  "subject": "白色滑板和陶红坡道的连续步骤",
+  "style": "编辑式摄影与图解，暖白台面。",
+  "palette": "暖白、陶红、炭黑",
+  "composition": "工作动作与素材在相邻位置，保留配对线索。",
+  "aspectRatio": "4:3",
+  "demonstrates": "选择已有视频",
+  "doesNotProve": "只解释操作或品牌身份，未验证部署及运行效果。",
+  "groupId": "upload-expand-save",
+  "groupKind": "sequence",
+  "coherenceReason": "相同白色滑板及陶红坡面，展示三个连续操作。",
+  "moduleIds": [
+    "how-to-use"
+  ],
+  "role": "process",
+  "artDirection": {
+    "purpose": "选择已有视频",
+    "firstGlanceMessage": "Step 1: Upload a Source Video 能一眼辨认",
+    "visualHook": "同一片段从原始文件转换为按需扩框并下载的素材。",
+    "subjectHierarchy": "动作标识和临近素材的轮廓清楚。",
+    "colorRelationship": "陶红作为编辑动作，炭黑图标配暖白台面。",
+    "lightingAndMaterial": "窗边散射光，磨砂纸面和滑板质感。",
+    "displayScaleCheck": "手机端保留主要动作与短标签，展示全图。"
+  },
+  "referenceEvidence": [
+    {
+      "path": "design-system/ai-video-expander/pages/home.md",
+      "sha256": "d699ee7e1d4a624575d4f28ff411e900e17c7b80e4190b2a4ad38205186998d3"
+    }
+  ],
+  "rejectionCriteria": [
+    "主要动作不清楚",
+    "信息性文字错误或不清楚",
+    "主体缺失或主要动作被裁切"
+  ],
+  "exclusions": {
+    "chineseText": true,
+    "chineseTraditionalElements": true
+  },
+  "exclusionInstruction": "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+  "generationPrompt": "Editorial instruction illustration in off-white, clay red and coal. A tile with a film clip of a white skateboard on a terracotta bank is mid-move from a visible file stack toward a large outlined upload tray. Put a clear upward arrow inside the tray and a small legible MP4 file tag on the arriving video tile. Show the same white deck and ochre concrete in the tile. Render a clean orthographic studio diagram with restrained shadows and readable shapes. No extraneous interface and no text beyond MP4. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text."
+}

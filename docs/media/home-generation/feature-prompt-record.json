@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "A small bicycle repair bench under an anglepoise lamp. A mechanic in an indigo overshirt straightens a chrome spanner and turns on the lamp. The main wide image on the right gives the workshop an extended bare sandy plaster wall beside the bench, with shallow side light and no graphics on the wall. A single small moving narrow view on the far left in clear dark empty space shows the lamp and spanner without the full wall. Keep the materials matte, the lamp sharp and the camera fixed. No text. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "16:9",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:18:19.8910077Z",
+    "taskId":  "1dde49addcc54c5c99693c47c88cf76a",
+    "checkedAt":  "2026-11-24T03:21:44.9273952Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/22322a85-dd92-401f-a3be-dc1a421ab6b4.mp4",
+    "polls":  89,
+    "waitedSeconds":  201,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/33c2d3f7-3b30-411f-95de-1a8b38c908e1.mp4",
+    "asset":  {
+                  "bytes":  3558122,
+                  "sha256":  "0dc8cb1174327cbf9deff708dc804508b613b5c1a5165f191efe8939513a709b",
+                  "width":  1344,
+                  "height":  768,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/home-generation/feature-prompt.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:21:49.8307550Z"
+}

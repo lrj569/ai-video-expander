@@ -1,13 +1,34 @@
 ---
 export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '@/components/home/Hero';
 import PricingSection from '@/components/PricingSection';
 import { Footer } from '@/components/Footer';
 import GoogleOneTapAuth from '@/components/auth/google-one-tap';
-import { metadata } from '../components/page-views/home/HomeView';
+import VideoWorkspace from '@/src/components/VideoWorkspace.astro';
+import FilmPlayer from '@/src/components/FilmPlayer.astro';
+import ProductHeading from '@/src/components/page-views/home/ProductHeading.astro';
+import { homeCopy, metadata, structuredData } from '@/src/components/page-views/home/HomeView';
+import '@/src/components/page-views/home/home.css';
+
+const featureFilms = ['feature-ratio', 'feature-frame', 'feature-prompt', 'feature-quality'];
+const caseFilms = [
+  { id: 'case-post', ratio: '9:16' },
+  { id: 'case-ad', ratio: '16:9' },
+  { id: 'case-landscape', ratio: '21:9' },
+];
+const stepAlts = [
+  'Source video of a white skateboard beside a terracotta ramp',
+  'Target aspect-ratio frames over the skateboard footage',
+  'Expanded video preview in the MP4 download step',
+];
+const film = (id: string, label: string, ratio?: string) => ({
+  src: `/media/home/${id}.mp4`,
+  poster: `/media/home/${id}.webp`,
+  label,
+  ratio,
+});
 ---
-<BaseLayout metadata={metadata} path="/">
+<BaseLayout metadata={metadata} path="/" structuredData={structuredData}>
   {import.meta.env.PROD && (
     <GoogleOneTapAuth
       client:idle
@@ -17,9 +38,124 @@ import { metadata } from '../components/page-views/home/HomeView';
       signUpForceRedirectUrl="/"
     />
   )}
-  <Hero />
-  <div class="below-fold-content">
-    <PricingSection client:visible />
+  <section id="hero" class="ave-hero" aria-labelledby="home-title">
+    <div class="ave-shell">
+      <div class="ave-hero-heading">
+        <ProductHeading tag="h1" id="home-title" text={homeCopy.hero.title} keepTogether="for Reframing" />
+        <p>{homeCopy.hero.subtitle}</p>
+      </div>
+      <VideoWorkspace />
+    </div>
+  </section>
+
+  <div class="ave-home-content below-fold-content">
+    <section id="what-is" class="ave-section ave-shell" aria-labelledby="what-is-heading">
+      <div class="ave-definition ave-enter">
+        <div class="ave-definition-copy">
+          <ProductHeading tag="h2" id="what-is-heading" text={homeCopy.definition.title} />
+          <p class="ave-definition-lead">{homeCopy.definition.description}</p>
+          <p>{homeCopy.definition.body}</p>
+        </div>
+        <div class="ave-film-edge">
+          <FilmPlayer {...film('what-is', homeCopy.definition.title, '16:9')} />
+        </div>
+      </div>
+    </section>
+
+    <section id="key-features" class="ave-section ave-section--tinted" aria-labelledby="features-heading">
+      <div class="ave-shell">
+        <div class="ave-section-head ave-enter">
+          <ProductHeading tag="h2" id="features-heading" text={homeCopy.features.title} keepTogether="Lets You Control" />
+          <p>{homeCopy.features.description}</p>
+        </div>
+        <div class="ave-features">
+          {homeCopy.features.items.map((item, index) => (
+            <article class:list={['ave-feature', 'ave-enter', index < 2 && 'ave-feature--primary']}>
+              <div class="ave-feature-copy">
+                <h3>{item.title}</h3>
+                <p>{item.body}</p>
+                {item.action && <a class="ave-text-link ave-arrow" href={item.action.href}>{item.action.text}</a>}
+              </div>
+              <div class="ave-film-edge">
+                <FilmPlayer {...film(featureFilms[index], item.title, '16:9')} />
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="how-to-use" class="ave-section ave-shell" aria-labelledby="how-to-use-heading">
+      <div class="ave-section-head ave-enter">
+        <ProductHeading tag="h2" id="how-to-use-heading" text={homeCopy.tutorial.title} />
+        <p>
+          {homeCopy.tutorial.description.before}<a class="ave-inline-link" href={homeCopy.tutorial.description.href}>{homeCopy.tutorial.description.linkText}</a>{homeCopy.tutorial.description.after}
+        </p>
+      </div>
+      <ol class="ave-steps">
+        {homeCopy.tutorial.items.map((item, index) => (
+          <li class="ave-step ave-enter">
+            <h3>{item.title}</h3>
+            <p>{item.body}</p>
+            <div class="ave-step-visual">
+              <img src={`/media/home/how-${index + 1}.webp`} alt={stepAlts[index]} width="640" height="480" loading="lazy" decoding="async" />
+            </div>
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section id="use-cases" class="ave-section ave-section--tinted" aria-labelledby="use-cases-heading">
+      <div class="ave-shell">
+        <div class="ave-section-head ave-enter">
+          <ProductHeading tag="h2" id="use-cases-heading" text={homeCopy.cases.title} />
+          <p>{homeCopy.cases.description}</p>
+        </div>
+        <div class="ave-cases">
+          {homeCopy.cases.items.map((item, index) => (
+            <article class="ave-case ave-enter">
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+              <div class:list={['ave-film-edge', index === 0 && 'ave-film-edge--portrait']}>
+                <FilmPlayer {...film(caseFilms[index].id, item.title, caseFilms[index].ratio)} />
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <div class="ave-home-pricing">
+      <PricingSection client:visible heading={homeCopy.pricing.title} description={homeCopy.pricing.description} />
+      <div class="ave-shell">
+        <a class="ave-text-link ave-arrow" href={homeCopy.pricing.link.href}>{homeCopy.pricing.link.linkText}</a>
+      </div>
+    </div>
+
+    <section id="faq" class="ave-section ave-section--tinted" aria-labelledby="faq-heading">
+      <div class="ave-shell ave-faq">
+        <div class="ave-section-head ave-enter">
+          <ProductHeading tag="h2" id="faq-heading" text={homeCopy.faq.title} />
+          <p>{homeCopy.faq.description}</p>
+        </div>
+        <div class="ave-questions ave-enter">
+          {homeCopy.faq.items.map((item) => (
+            <details>
+              <summary><h3>{item.title}</h3></summary>
+              <p>{item.body}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section id="final-cta" class="ave-section ave-shell" aria-labelledby="final-cta-heading">
+      <div class="ave-final ave-enter">
+        <ProductHeading tag="h2" id="final-cta-heading" text={homeCopy.final.title} />
+        <p>{homeCopy.final.body}</p>
+        <a class="ave-primary-link ave-arrow" href={homeCopy.final.action.href}>{homeCopy.final.action.text}</a>
+      </div>
+    </section>
   </div>
   <Footer />
 </BaseLayout>

@@ -6,7 +6,7 @@ import { Check, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { api } from '@/lib/api';
 import { cn } from '@/lib/utils';
-import { pricingConfig, siteConfig, apiConfig } from '@/website-config';
+import { pricingConfig, siteConfig, apiConfig, featuredPricingPlanKey } from '@/website-config';
 import { isCheckoutConfigured } from '@/lib/checkout-readiness';
 
 interface PricingPlan {
@@ -23,12 +23,14 @@ interface PricingPlan {
 
 interface PricingSectionProps {
   hideSection?: boolean;
+  hideHeading?: boolean;
   heading?: string;
   description?: string;
 }
 
 export default function PricingSection({
   hideSection = false,
+  hideHeading = false,
   heading = 'Choose Your Credit Pack',
   description = 'Pay once for the credits you need. Your purchased credits never expire.',
 }: PricingSectionProps = {}) {
@@ -101,26 +103,27 @@ export default function PricingSection({
       : pricingPlans.length === 3 ? 'grid-cols-1 md:grid-cols-3'
         : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-4';
   const content = (
-    <div className={cn('mx-auto grid gap-5', columns)}>
+    <div className={cn('mx-auto grid gap-7 md:gap-5', columns)}>
       {pricingPlans.length === 0 && <p className="text-muted-foreground">Credit packs are not available yet.</p>}
       {pricingPlans.map((plan) => {
         const isFree = plan.key === 'free';
+        const featured = plan.key === featuredPricingPlanKey;
 
         return (
           <div
             key={plan.key}
             className={cn(
-              'relative rounded-[20px] border border-transparent p-6 transition-colors duration-150',
-              plan.popular ? 'bg-accent text-card-foreground' : 'bg-card text-card-foreground hover:bg-accent'
+              'relative rounded-[14px] border p-6 transition-colors duration-150',
+              featured ? 'border-primary bg-accent text-card-foreground' : 'border-border bg-card text-card-foreground hover:border-primary/50'
             )}
           >
-            {plan.popular && (
-              <div className="absolute right-4 top-4 rounded-full bg-primary px-3 py-1 text-[13px] font-medium text-primary-foreground">
+            {featured && (
+              <div className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full bg-primary px-3 py-1 text-[13px] font-medium text-primary-foreground">
                 Most Popular
               </div>
             )}
 
-            <div className={cn('mb-5 text-[22px] font-bold leading-[1.2] tracking-[-0.8px] text-foreground', plan.popular && 'pr-24')}>
+            <div className="mb-5 text-[22px] font-semibold leading-[1.2] tracking-[-0.5px] text-foreground">
               {plan.title}
             </div>
 
@@ -131,7 +134,7 @@ export default function PricingSection({
             <Button
               className={cn(
                 'mb-6 w-full font-semibold',
-                plan.popular
+                featured
                   ? 'bg-primary text-primary-foreground hover:bg-primary/90'
                   : isFree
                     ? 'border border-border bg-secondary text-secondary-foreground hover:bg-secondary/80'
@@ -156,7 +159,7 @@ export default function PricingSection({
                   <Check
                     className={cn(
                       'mt-0.5 h-4 w-4 flex-shrink-0',
-                      plan.popular ? 'text-primary' : 'text-muted-foreground'
+                      featured ? 'text-primary' : 'text-muted-foreground'
                     )}
                   />
                   <span className="text-sm leading-[1.4] tracking-[-0.14px] text-muted-foreground">{feature}</span>
@@ -176,10 +179,10 @@ export default function PricingSection({
   return (
     <section id="pricing" className="bg-background px-5 py-24">
       <div className="mx-auto max-w-7xl">
-        <div className="mb-12 max-w-3xl">
+        {!hideHeading && <div className="mb-12 max-w-3xl">
           <h2 className="mb-5 text-4xl font-medium tracking-tight text-foreground md:text-5xl">{heading}</h2>
           <p className="text-lg leading-relaxed text-muted-foreground">{description}</p>
-        </div>
+        </div>}
         {content}
         {checkoutMessage && <p className="mt-6 text-sm text-muted-foreground" role="alert">{checkoutMessage}</p>}
       </div>

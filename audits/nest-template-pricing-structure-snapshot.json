@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.1.0",
+  "templateRoot": "D:\\项目\\webSite\\ai-video-expander",
+  "framework": "astro",
+  "files": {
+    "src/pages/pricing.astro": "57b9a0fdfc106e0843599c66a8e8f6729d0e7a94afc6e889a40c572bc7a3cdc3",
+    "components/PricingSection.tsx": "1996b40906f35ded79c39a5551e5962ba6a3f6151b1acf4326ccf74d3c89a233",
+    "src/components/page-views/pricing/PricingFAQ.tsx": "a0aeb5ed1578707cd36f53b136d316e8425154b1f6da1352167fb90291398448",
+    "website-config.js": "6e1d8b47b673f5964242a8ea64638ab64b3a342c78285309d82cd88514c9ebe2"
+  },
+  "dependencies": {
+    "configs/generated-pricing.json": "74fa4251652cfb7972aab046898b0b4385be414f0628100631dbf965f20301bf",
+    "configs/generated-site.json": "cf0e70e1800ef2bb5b7f6424b0bbc13baeb7b8cbb92ad8fddd8d99ea43e41c46",
+    "lib/pricing-faq.ts": "a4abdc9440c33b393926bcd244c51e023bbc3ae40cc4078cb8335a26ff8d6055",
+    "lib/checkout-readiness.ts": "0e574d7dc36a4e9b094eb0e8f24864262f3cae77df8e42fe2b224657a2101e0d",
+    "lib/api.ts": "4e8b89eeadedf1c12f8c02cd48b0c76f7d9696c665c8fead85c9b113da5c5672",
+    "src/components/page-views/pricing/PricingView.tsx": "fa8d8bfd334224db56390f9955e6a55efe412ce29af24904e033dcfa3ec88e88"
+  },
+  "scope": "copy-replacement-only; commercial data is supplied separately; no live payment proof"
+}

@@ -1,0 +1,314 @@
+{
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Seedream 5.5 AI Image Generator Transform Your Imagination into Reality",
+      "rect": {
+        "x": 16,
+        "y": 97,
+        "width": 358,
+        "height": 241
+      }
+    },
+    {
+      "tag": "h2",
+      "text": "Image inspiration",
+      "rect": {
+        "x": 15,
+        "y": 1409,
+        "width": 1,
+        "height": 1
+      }
+    }
+  ],
+  "actions": [
+    {
+      "tag": "a",
+      "text": "Seedream 5.5",
+      "rect": {
+        "x": 16,
+        "y": 16,
+        "width": 176,
+        "height": 32
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Login",
+      "rect": {
+        "x": 241,
+        "y": 12,
+        "width": 85,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Open menu",
+      "rect": {
+        "x": 334,
+        "y": 12,
+        "width": 40,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Text to Image",
+      "rect": {
+        "x": 37,
+        "y": 563,
+        "width": 154,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Image Reference",
+      "rect": {
+        "x": 199,
+        "y": 563,
+        "width": 154,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "1.5K",
+      "rect": {
+        "x": 37,
+        "y": 843,
+        "width": 154,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "2K",
+      "rect": {
+        "x": 199,
+        "y": 843,
+        "width": 154,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Intelligent",
+      "rect": {
+        "x": 37,
+        "y": 939,
+        "width": 100,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Fixed ratio",
+      "rect": {
+        "x": 145,
+        "y": 939,
+        "width": 100,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Custom size",
+      "rect": {
+        "x": 253,
+        "y": 939,
+        "width": 100,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Auto",
+      "rect": {
+        "x": 37,
+        "y": 1035,
+        "width": 100,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Opaque",
+      "rect": {
+        "x": 145,
+        "y": 1035,
+        "width": 100,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Transparent",
+      "rect": {
+        "x": 253,
+        "y": 1035,
+        "width": 100,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "1",
+      "rect": {
+        "x": 37,
+        "y": 1131,
+        "width": 73,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "2",
+      "rect": {
+        "x": 118,
+        "y": 1131,
+        "width": 73,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "3",
+      "rect": {
+        "x": 199,
+        "y": 1131,
+        "width": 73,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "4",
+      "rect": {
+        "x": 280,
+        "y": 1131,
+        "width": 73,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "5",
+      "rect": {
+        "x": 37,
+        "y": 1179,
+        "width": 73,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "6",
+      "rect": {
+        "x": 118,
+        "y": 1179,
+        "width": 73,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "7",
+      "rect": {
+        "x": 199,
+        "y": 1179,
+        "width": 73,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "8",
+      "rect": {
+        "x": 280,
+        "y": 1179,
+        "width": 73,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Generate Images 1 credit",
+      "rect": {
+        "x": 33,
+        "y": 1309,
+        "width": 324,
+        "height": 44
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Life inside a honeycomb",
+      "rect": {
+        "x": 16,
+        "y": 1627,
+        "width": 114,
+        "height": 120
+      }
+    },
+    {
+      "tag": "button",
+      "text": "A pantry product portrait",
+      "rect": {
+        "x": 138,
+        "y": 1627,
+        "width": 114,
+        "height": 120
+      }
+    },
+    {
+      "tag": "button",
+      "text": "An empty pink pool",
+      "rect": {
+        "x": 260,
+        "y": 1627,
+        "width": 114,
+        "height": 120
+      }
+    }
+  ],
+  "formFields": [
+    {
+      "tag": "textarea",
+      "type": "",
+      "label": "Prompt *",
+      "rect": {
+        "x": 33,
+        "y": 649,
+        "width": 324,
+        "height": 112
+      }
+    },
+    {
+      "tag": "textarea",
+      "type": "",
+      "label": "Negative prompt Optional",
+      "rect": {
+        "x": 50,
+        "y": 1394,
+        "width": 290,
+        "height": 66
+      }
+    }
+  ],
+  "videos": [],
+  "images": [
+    {
+      "tag": "img",
+      "alt": "Honeybees crawling over golden hexagonal cells",
+      "rect": {
+        "x": 17,
+        "y": 1411,
+        "width": 356,
+        "height": 199
+      }
+    }
+  ],
+  "documentHeight": 24288
+}

@@ -1,0 +1,26 @@
+---
+interface Props {
+  tag: 'h1' | 'h2';
+  id: string;
+  text: string;
+  keepTogether?: string;
+}
+
+const { tag: Heading, id, text, keepTogether } = Astro.props;
+const productName = text.match(/AI Video Expander[?]?/)?.[0];
+const parts = [{ text, keep: false }];
+
+for (const phrase of [productName, keepTogether]) {
+  if (!phrase) continue;
+  const index = parts.findIndex((part) => !part.keep && part.text.includes(phrase));
+  if (index === -1) continue;
+  const part = parts[index].text;
+  const offset = part.indexOf(phrase);
+  parts.splice(index, 1,
+    { text: part.slice(0, offset), keep: false },
+    { text: phrase, keep: true },
+    { text: part.slice(offset + phrase.length), keep: false },
+  );
+}
+---
+<Heading id={id}>{parts.map((part) => part.keep ? <span class="ave-title-phrase">{part.text}</span> : part.text)}</Heading>

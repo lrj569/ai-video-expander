@@ -2,26 +2,24 @@
 
 import { useState } from 'react';
 import { Menu } from 'lucide-react';
+import { publicNavigation } from '@/website-config';
 import Link from '@/src/compat/link';
 import AppProviders from './AppProviders';
 import NavAuthIsland from '@/components/nav/nav-auth-island';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from '@/components/ui/sheet';
 
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/#pricing', label: 'Pricing' },
-];
+
 
 function Controls() {
   const [open, setOpen] = useState(false);
 
   return (
     <div className="ml-auto flex flex-shrink-0 items-center gap-2">
-      <div className="hidden lg:flex">
+      <div className="hidden lg:flex" data-site-auth>
         <NavAuthIsland variant="desktop" />
       </div>
-      <div className="flex lg:hidden">
+      <div className="flex lg:hidden" data-site-auth>
         <NavAuthIsland variant="mobile" />
       </div>
 
@@ -36,7 +34,7 @@ function Controls() {
             <SheetTitle>Menu</SheetTitle>
           </SheetHeader>
           <nav className="mt-6 flex flex-col gap-4" aria-label="Mobile navigation">
-            {navLinks.map((link) => (
+            {publicNavigation.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}

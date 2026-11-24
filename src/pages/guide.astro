@@ -1,0 +1,134 @@
+---
+export const prerender = true;
+
+import BaseLayout from '../layouts/BaseLayout.astro';
+import FilmPlayer from '../components/FilmPlayer.astro';
+import { Footer } from '@/components/Footer';
+import {
+  guideCases, guideFinal, guideHero, guideMetadata, guideSchema, guideSections,
+} from '../components/page-views/guide/guide-content';
+import '../components/page-views/guide/guide.css';
+---
+<BaseLayout metadata={guideMetadata} path="/guide" structuredData={[guideSchema]}>
+  <div class="guide">
+    <header class="guide-hero" id="guide-hero">
+      <h1>{guideHero.title.split(/(Step-by-Step)/).map(piece => piece === "Step-by-Step" ? <span class="guide-title-phrase">{piece}</span> : piece)}</h1>
+      <p>{guideHero.subtitle}</p>
+      <div class="guide-controls">
+        <a class="guide-action guide-action-primary" href={guideHero.primary.href}>
+          {guideHero.primary.label}
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+        </a>
+        <a class="guide-action" href={guideHero.secondary.href}>
+          {guideHero.secondary.label}
+          <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 5v14m-5-5 5 5 5-5"/></svg>
+        </a>
+      </div>
+    </header>
+
+    <div class="guide-layout">
+      <aside class="guide-sidebar">
+        <nav aria-label="On this page">
+          <p class="guide-toc-title">On this page</p>
+          <ol>
+            {guideSections.map(({ id, title }) => <li><a href={`#${id}`}>{title}</a></li>)}
+          </ol>
+        </nav>
+      </aside>
+      <details class="guide-mobile-nav">
+        <summary>On this page</summary>
+        <nav aria-label="On this page">
+          <ol>
+            {guideSections.map(({ id, title }) => <li><a href={`#${id}`}>{title}</a></li>)}
+          </ol>
+        </nav>
+      </details>
+
+      <article class="guide-article">
+        {guideSections.map((section) => (
+          <section class:list={['guide-section', section.id === 'quick-start' && 'guide-steps']} id={section.id} aria-labelledby={`${section.id}-heading`} tabindex="-1">
+            <h2 id={`${section.id}-heading`}>{section.title}</h2>
+            {section.id === 'prompt-examples' ? guideCases.map((example) => (
+              <section class="guide-case" data-prompt-case={example.id} aria-labelledby={`${example.id}-heading`}>
+                <h3 id={`${example.id}-heading`}>{example.title}</h3>
+                <div class="guide-case-layout">
+                  <div class="guide-case-source">
+                    <p><strong>Starting material:</strong> {example.startingMaterial}</p>
+                    <FilmPlayer src={example.source} poster={example.sourcePoster} ratio={example.sourceRatio} label={`source video for ${example.title.toLowerCase()}`} />
+                  </div>
+                  <div class="guide-case-prompt">
+                    <p class="guide-prompt-label">Prompt</p>
+                    <p class="guide-prompt-text" data-prompt-text set:text={example.prompt} />
+                    <div class="guide-controls">
+                      <button class="guide-action" type="button" data-copy-prompt hidden>Copy prompt</button>
+                      <a class="guide-action" href={`/?case=${example.id}#tool`} aria-label={`Try it: ${example.title}`}>
+                        Try it
+                        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+                      </a>
+                    </div>
+                    <span class="guide-copy-status" data-copy-status aria-live="polite"></span>
+                  </div>
+                  <div class:list={['guide-case-result', ['9/16', '3/4'].includes(example.ratio) && 'guide-case-result-vertical']}>
+                    <span class="guide-result-label">Target frame · {example.ratio.replace('/', ':')}</span>
+                    <FilmPlayer src={example.result} poster={example.resultPoster} ratio={example.ratio} label={`target frame video for ${example.title.toLowerCase()}`} />
+                  </div>
+                </div>
+              </section>
+            )) : section.id === 'faq' ? (
+              <div class="guide-faq">
+                {section.topics.map((topic) => (
+                  <details>
+                    <summary><h3>{topic.title.replace(/^Q\d+:\s*/, '')}</h3></summary>
+                    <p>{topic.body}</p>
+                  </details>
+                ))}
+              </div>
+            ) : section.id === 'quick-start' ? (
+              <ol>
+                {section.topics.map((topic, index) => (
+                  <li>
+                    <span class="guide-step-count" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                    <div>
+                      <h3>{topic.title.replace(/^Step \d+:\s*/, '')}</h3>
+                      <p>{topic.body.split('**').map((text, index) => index % 2 ? <strong>{text}</strong> : text)}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            ) : section.topics.length ? (
+              <div class="guide-topics">
+                {section.topics.map((topic) => (
+                  <div>
+                    <h3>{topic.title}</h3>
+                    <p>{topic.body.split('**').map((text, index) => index % 2 ? <strong>{text}</strong> : text)}</p>
+                  </div>
+                ))}
+              </div>
+            ) : <p>{section.body}</p>}
+          </section>
+        ))}
+
+        <section class="guide-section guide-final" id="final-cta" aria-labelledby="guide-final-heading">
+          <h2 id="guide-final-heading">{guideFinal.title}</h2>
+          <p>{guideFinal.body}</p>
+          <a class="guide-action guide-action-primary" href={guideFinal.action.href}>
+            {guideFinal.action.label}
+            <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
+          </a>
+        </section>
+      </article>
+    </div>
+  </div>
+  <Footer />
+</BaseLayout>
+
+<script>
+  import '../components/page-views/guide/guide-prompt-copy.js';
+
+  document.addEventListener('click', (event) => {
+    if (!(event.target instanceof Element)) return;
+    const link = event.target.closest('.guide-mobile-nav a');
+    const disclosure = link?.closest('details');
+    if (disclosure) disclosure.open = false;
+  });
+</script>

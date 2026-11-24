@@ -5,6 +5,7 @@
 
 import generatedPricing from './configs/generated-pricing.json';
 import generatedSite from './configs/generated-site.json';
+import generatedBrand from './configs/generated-brand.json';
 import generatedPublicProfile from './configs/generated-public-profile.json';
 
 export const websiteConfig = {
@@ -23,7 +24,7 @@ export const websiteConfig = {
   },
   // Contact Information
   contact: {
-    supportEmail: 'support@example.com',
+    supportEmail: '',
   },
 
   // Canonical / site URL - single source for all public URLs (canonical, OG, sitemap, share images)
@@ -38,11 +39,7 @@ export const websiteConfig = {
 
   // Page TDK (Title ≤60, Description ≤160, Keywords total <100) – import in routes/components via getPageTdk(path)
   pageTdk: {
-    '/': {
-      title: generatedSite.name,
-      description: generatedSite.description,
-      keywords: ['website template', 'startup template', 'SaaS template', 'Astro template'],
-    },
+    '/': {"title":"AI Video Expander for Reframing Without Cropping","description":"AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square.","keywords":["AI Video Expander","AI video outpainting","expand video without cropping","change video aspect ratio"]},
     '/payment-failed': {
       title: 'Payment Failed',
       description: 'Your payment could not be completed. Please try again or contact support.',
@@ -53,11 +50,8 @@ export const websiteConfig = {
       description: 'Your payment was successful. Your credits have been added to your account.',
       keywords: ['payment success', 'purchase complete'],
     },
-    '/pricing': {
-      title: 'Pricing',
-      description: 'Explore pricing plans and choose the option that fits your project.',
-      keywords: ['pricing', 'plans', 'one-time plans', 'credits'],
-    },
+    '/guide': {"title":"How to Use AI Video Expander: Reframing Guide","description":"Learn how to use AI Video Expander to fit a clip into a new frame. Choose an aspect ratio and export quality, guide the fill, and save the finished MP4.","keywords":["How to Use AI Video Expander","how to expand a video with AI","video reframing tutorial"]},
+    '/pricing': {"title":"AI Video Expander Pricing | One-Time Credit Packs","description":"Compare AI Video Expander pricing for three one-time credit packs. See how many credits each pack includes, what it costs, and how long credits last.","keywords":["AI Video Expander Pricing","video expansion credit packs","one-time AI video credits"]},
     '/terms': {
       title: 'Terms of Service',
       description: 'Read the Terms of Service. Understand the terms and conditions for using this website.',
@@ -100,6 +94,7 @@ export const SITE_DESCRIPTION = websiteConfig.project.purpose;
 // Backward compatibility: siteConfig for components that use siteConfig.name / siteConfig.description
 export const siteConfig = generatedSite;
 export const publicProfileConfig = websiteConfig.publicProfile;
+export const brandConfig = generatedBrand;
 
 // Page TDK – use in routes/components: import { getPageTdk } from '@/website-config'; const tdk = getPageTdk('/');
 export const pageTdk = websiteConfig.pageTdk;
@@ -114,3 +109,13 @@ export function getPageTdk(path) {
   };
 }
 
+
+export const featuredPricingPlanKey = 'PRD268A1OS6MYWDHY';
+
+export const publicNavigation = [
+  { href: '/', label: 'Home', activePath: '/' },
+  { href: '/#tool', label: 'Expand', activePath: '' },
+  { href: '/#use-cases', label: 'Use Cases', activePath: '' },
+  { href: '/guide', label: 'Guide', activePath: '/guide' },
+  { href: '/pricing', label: 'Pricing', activePath: '/pricing' },
+];

@@ -3,7 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import '@/src/styles/project-fonts';
 import '@/src/styles/globals.css';
 import { pageCanonical, socialImageValues } from '@/src/lib/page-metadata/values';
-import { websiteConfig } from '@/website-config';
+import { websiteConfig, brandConfig } from '@/website-config';
 import { getPagePolicy } from '@/src/lib/page-policy';
 import { publicStructuredDataOrigin, serializeStructuredData, siteStructuredData } from '@/src/lib/site-structured-data.mjs';
 import SiteHeader from '../components/SiteHeader.astro';
@@ -47,8 +47,16 @@ const googleBotDirectives = googleBot && [
 ].filter(Boolean).join(', ');
 const og = metadata.openGraph ?? {};
 const twitter = metadata.twitter ?? {};
-const image = socialImageValues(og.images?.[0], `${websiteConfig.canonical.url}/share-img.png`);
-const twitterImage = socialImageValues(twitter.images?.[0], image.url);
+const socialBrand = brandConfig.socialImage;
+const defaultShare = {
+  url: websiteConfig.canonical.url + socialBrand.src,
+  width: socialBrand.width,
+  height: socialBrand.height,
+  type: socialBrand.mimeType,
+  alt: socialBrand.alt,
+};
+const image = socialImageValues(og.images?.[0] ?? defaultShare, defaultShare.url);
+const twitterImage = socialImageValues(twitter.images?.[0] ?? defaultShare, image.url);
 ---
 <!doctype html>
 <html lang="en" class="dark">
@@ -78,9 +86,11 @@ const twitterImage = socialImageValues(twitter.images?.[0], image.url);
     <meta name="twitter:description" content={twitter.description ?? description} />
     <meta name="twitter:image" content={twitterImage.url} />
     {twitterImage.alt && <meta name="twitter:image:alt" content={twitterImage.alt} />}
-    <link rel="icon" href="/favicon-32.ico" sizes="32x32" />
-    <link rel="icon" href="/favicon-48.ico" sizes="48x48" />
-    <link rel="apple-touch-icon" href="/icon-192.png" />
+    <meta name="theme-color" content={brandConfig.themeColor} />
+    <link rel="icon" href={brandConfig.favicon.src} sizes="any" />
+    <link rel="icon" href={brandConfig.favicon32.src} sizes="32x32" />
+    <link rel="icon" href={brandConfig.favicon48.src} sizes="48x48" />
+    <link rel="apple-touch-icon" href={brandConfig.appleTouchIcon.src} />
     <link rel="manifest" href="/site.webmanifest" />
     <ClientRouter />
     {[...sharedStructuredData, ...structuredData].map(data => (

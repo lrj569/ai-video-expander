@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "A fixed-camera moving portrait crop of two adult interview guests seated in rust-red and forest-green armchairs in a plaster room. Both chairs and both faces remain visible. One guest nods and the other closes a small notebook. The larger continuing shot above and below shows ceiling and wood floor. A single tiny horizontal moving strip sits at the left in a generous black margin, outside the area with the chairs, and gives an alternate framing of those same subjects. Bright north light and a restrained film-grain texture. No text. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "16:9",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:18:20.0372464Z",
+    "taskId":  "b6ef2e64e6cc4c599869f401a0484e6e",
+    "checkedAt":  "2026-11-24T03:22:07.7720887Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/a52a282c-7092-4753-a971-5ec246929a10.mp4",
+    "polls":  99,
+    "waitedSeconds":  223.7,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/0e2b51e3-bf54-4748-8206-f1b46d60c5b4.mp4",
+    "asset":  {
+                  "bytes":  2229982,
+                  "sha256":  "bf24c799fd034cc4b2c544977a1ef481b652de0e60be8bcf3645976df824e34f",
+                  "width":  1344,
+                  "height":  768,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/home-generation/feature-frame.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:22:13.8077243Z"
+}

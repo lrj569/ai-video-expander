@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "Ten seconds in a widescreen frame. Clay folds inward as a potter in an ochre apron shapes a pale blue bowl on a spinning wheel. Hold a steady waist-high shot. The potter and bowl stay in the middle as teal shelves, stacked ceramic cups and a sunlit workbench extend the room on either side. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "16:9",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:18:20.0686692Z",
+    "taskId":  "227062b2ffd94332aac2d826430bcab8",
+    "checkedAt":  "2026-11-24T03:21:42.4741770Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/19093f0d-c8ac-4bd2-bb22-ffe23bf98633.mp4",
+    "polls":  88,
+    "waitedSeconds":  198.7,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/ee4e0181-1f41-409e-be24-302882538627.mp4",
+    "asset":  {
+                  "bytes":  3389594,
+                  "sha256":  "794419dc19a3d873bba0c229d94fce1ba380be85e96d8cd75972541322b011ef",
+                  "width":  1344,
+                  "height":  768,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/guide-generation/guide-case-2.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:21:47.1908792Z"
+}

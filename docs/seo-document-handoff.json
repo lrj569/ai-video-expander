@@ -1,0 +1,20 @@
+﻿{
+    "schemaVersion":  "1.0.0",
+    "status":  "COPIED",
+    "sourceCaseWorkspace":  "D:\\项目\\webSite\\.workflow-cases\\ai-video-expander",
+    "copiedAt":  "2026-11-24T03:16:39.0842819Z",
+    "files":  {
+                  "serp-report/ai-video-expander-serp-report.md":  "e25606612c2301e3c5379c46b123f89bb6ab06f51afdee8fb82751501bc41889",
+                  "serp-report/how-to-use-ai-video-expander-serp-report.md":  "92c79f3266e534e166a5d65cb93c3d13d22613b5d77e9e062b5849d80218b041",
+                  "serp-report/ai-video-expander-pricing-serp-report.md":  "88c96549eb33772a91696568ffd2383f3add073e5f4daa8fde761cf60eb75b29",
+                  "docs/website-specs/ai-video-expander.md":  "36869a8b8b90a5006f566f376908721cc32d75a329a340bafb67ab0e72f2d7f5",
+                  "docs/page-development-plans/ai-video-expander-home.md":  "2bbf36ed7468f47d0329929e09a17551bf4d08f7f0c774c862e5efe37c744c2a",
+                  "docs/page-development-plans/ai-video-expander-guide.md":  "579ddf8e5e1a78869c06ee4a5c3ec5069aefb73a2c9801435467b91214f2780c",
+                  "docs/page-development-plans/ai-video-expander-pricing.md":  "9573136cab8d940f46acb3cd857772b1f2e3331f63980135b23f8e99f86f57ee",
+                  "audits/nest-template-pricing-structure-snapshot.json":  "644d5634e242ecd5491d028926a51ef533334cbd171cabe6e6ff00c5b04580c3",
+                  "audits/ai-video-expander-home-editorial-review.json":  "d3a0fc393152e85e29a4023037439341d45374201cd7efaf07e3d89f6c989475",
+                  "audits/seo-document-gate.json":  "6bdb85c3b0ff97dd7ad9f9c4f0dd8d1edb29b017aa2a9eea920170382005ab04",
+                  "config/pricing.json":  "3c160fea5ffe7114ca85be7056c51c61f9d1ae9af7d8a050ebd302b849d13417",
+                  "audits/pricing-resolution.json":  "5966f436ad8d9d8893ab45276a204f2b8c660ec2d1390e2772932b9f0c50f041"
+              }
+}

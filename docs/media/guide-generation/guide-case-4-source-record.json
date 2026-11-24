@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "Ten-second landscape source shot of a climber in a rust jacket with a cobalt rope on pale sandstone. Fixed side view, the body and ledge fill the frame as they catch a handhold and step up. Short view of the ledge above the hand, sunshine across coarse stone, no labels. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "16:9",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:20:51.2887961Z",
+    "taskId":  "d33f8c9e5c4a4ee795be62af92134fb0",
+    "checkedAt":  "2026-11-24T03:23:09.8616688Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/e861034d-4d21-4b6c-9bc5-d6c9b177a767.mp4",
+    "polls":  60,
+    "waitedSeconds":  135.3,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/842d0d7f-6c7a-46c7-9afc-bd8ae3df5430.mp4",
+    "asset":  {
+                  "bytes":  8577056,
+                  "sha256":  "249373c3589529a9bdc94dc6f159f33e4b8149b5878b5d5d44695811bdb4518a",
+                  "width":  1344,
+                  "height":  768,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/guide-generation/guide-case-4-source.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:23:15.5356713Z"
+}

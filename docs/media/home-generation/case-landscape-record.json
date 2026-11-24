@@ -1,0 +1,34 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "An ultrawide locked-off shot of a person in a sand-colored coat walking along a slate sea wall and pausing to look at the water. Keep the walker fully visible around the center, visually bracketed by the jetty masonry. The coast extends in both directions, with sea foam advancing across the dark stones and a thin line of granite on the distant horizon. A long mellow morning exposure, wind moving the coat hem, realistic wave sound and no titles. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "21:9",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:18:20.1520590Z",
+    "taskId":  "9847a93db2484a3da91a3838494829fa",
+    "checkedAt":  "2026-11-24T03:20:40.7320831Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/8dd6bea2-cceb-40e4-8489-2605dd945922.mp4",
+    "polls":  61,
+    "waitedSeconds":  137,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/96f3c406-b58a-4db0-82de-69235070ff7e.mp4",
+    "asset":  {
+                  "bytes":  5700445,
+                  "sha256":  "075e4c6acb5ac9e1b8bb70d2d3b7650733d1980edd358f94d3505a34164b4a13",
+                  "width":  1536,
+                  "height":  672,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/home-generation/case-landscape.mp4",
+                  "warnings":  [
+                                   "resolution differs: requested 768p, got 1536x672"
+                               ]
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:20:45.8632961Z"
+}

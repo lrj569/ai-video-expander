@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "A graphic 16:9 product placement with a burnt-red portable record player on the left of a stone bench. Its clear lid clicks shut as a record slows underneath. Static camera at bench level, slender white window reflections on the lid, with an open expanse of oatmeal plaster to the right. Leave that area readable as uninterrupted space for future titles. No people, logos or text. Keep shadows firm and realistic. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "16:9",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:18:19.8803236Z",
+    "taskId":  "6fd8ac763f074236bfd13d26ddb9e307",
+    "checkedAt":  "2026-11-24T03:20:22.6839286Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/f887fa96-9931-4906-93bd-0ed375a9c277.mp4",
+    "polls":  53,
+    "waitedSeconds":  119.1,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/7e7bbcbd-1ee7-4bae-baa7-8fa4e6a7d325.mp4",
+    "asset":  {
+                  "bytes":  3408603,
+                  "sha256":  "53b7e5e1cc96c0abf3829e99dbc9b01890e74883939f4a2f87d08661ec019ea7",
+                  "width":  1344,
+                  "height":  768,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/home-generation/case-ad.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:20:28.2658977Z"
+}

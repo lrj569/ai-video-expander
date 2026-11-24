@@ -1,0 +1,1967 @@
+{
+  "documentSha256": "2bbf36ed7468f47d0329929e09a17551bf4d08f7f0c774c862e5efe37c744c2a",
+  "websitePlanSha256": "66aa81e6a8dcfdc53eac31006e0a38a1d18d12cdebae3b10818f9eb8be92e2b1",
+  "pricingConfigSha256": "3c160fea5ffe7114ca85be7056c51c61f9d1ae9af7d8a050ebd302b849d13417",
+  "reviewer": {
+    "model": "Codex GPT-6 (seo-content)",
+    "taskId": "01a20b8b-bb18-7880-a261-ad0d1ff779bc",
+    "reviewedAt": "2026-11-24T03:15:08.321358+00:00"
+  },
+  "checks": [
+    {
+      "criterion": "information-gain",
+      "status": "PASS",
+      "reasoning": "The plan's four controls, three different deployment scenarios and five decision questions each receive their own coverage. The definition introduces outpainting; the headline example gives a practical consequence and the FAQ distinguishes source pixels from new content.",
+      "evidence": [
+        {
+          "source": "website-plan",
+          "quote": "| key-features | 4 | 改目标比例；原片完整适配；指导新增区域；选择输出清晰度 | 画布比例决定输出形状，矩形位置决定原片边界，提示词决定新增区域方向，实际比例决定画质档位 | SERP §4 的同一模式支持四种独立的用户决策，按操作分工避免重复 |"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| use-cases | 3 | 转竖版社媒；商品广告留出标题空间；把窄画幅改成横版 | 横向人物原片适配竖屏；中心主体旁留白；竖拍素材补出左右环境 | §1 人群和 SERP §5 的不同任务，按可见输出差异组织 |"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| faq | 5 | 扩框与续写区别；黑边；可用片长；画质与画幅关系；原框之外能恢复什么 | 说明限制和用户决策，分别放边界 FAQ | SERP §3–5 及 §1.3。现有黑边是否被处理需验证；只说明原片区域与新增区域的区别 |"
+        },
+        {
+          "source": "document",
+          "quote": "It uses video outpainting, a way of creating new picture area beyond the edges of a clip."
+        },
+        {
+          "source": "document",
+          "quote": "The added space gives you a place for a headline or call to action in your editor without putting text across the product."
+        },
+        {
+          "source": "document",
+          "quote": "The added area is newly generated. It can suggest a plausible continuation of the scene, but use the original footage if you need an accurate record of what was actually there."
+        }
+      ]
+    },
+    {
+      "criterion": "fact-repetition",
+      "status": "PASS",
+      "reasoning": "Hero surfaces eligibility; the resolution feature expands it with the draft and intermediate choices, and FAQ identifies both specific portrait ratios. The same limits support different decisions in each location, though their compact repetition is noticeable.",
+      "evidence": [
+        {
+          "source": "website-plan",
+          "quote": "| key-features | 4 | 改目标比例；原片完整适配；指导新增区域；选择输出清晰度 | 画布比例决定输出形状，矩形位置决定原片边界，提示词决定新增区域方向，实际比例决定画质档位 | SERP §4 的同一模式支持四种独立的用户决策，按操作分工避免重复 |"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| use-cases | 3 | 转竖版社媒；商品广告留出标题空间；把窄画幅改成横版 | 横向人物原片适配竖屏；中心主体旁留白；竖拍素材补出左右环境 | §1 人群和 SERP §5 的不同任务，按可见输出差异组织 |"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| faq | 5 | 扩框与续写区别；黑边；可用片长；画质与画幅关系；原框之外能恢复什么 | 说明限制和用户决策，分别放边界 FAQ | SERP §3–5 及 §1.3。现有黑边是否被处理需验证；只说明原片区域与新增区域的区别 |"
+        },
+        {
+          "source": "document",
+          "quote": "The 360p setting can serve as a draft, while 540p and 720p are available for any supported ratio."
+        },
+        {
+          "source": "document",
+          "quote": "Square and landscape outputs support 1080p. For 9:16 and 3:4 vertical outputs, the highest setting is 720p. Select the ratio first so the quality choices match where you plan to use the clip."
+        },
+        {
+          "source": "document",
+          "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+        }
+      ]
+    },
+    {
+      "criterion": "risk-placement",
+      "status": "PASS",
+      "reasoning": "Feature and use-case examples describe a practical result. Questions about embedded bars and what the added area represents sit in the FAQ next to actionable guidance.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "The added space gives you a place for a headline or call to action in your editor without putting text across the product."
+        },
+        {
+          "source": "document",
+          "quote": "Black bars already baked into the source are inside its saved frame. For an expansion that starts at the edge of the actual picture, prepare a source file with the bars removed before uploading."
+        }
+      ]
+    },
+    {
+      "criterion": "plain-language",
+      "status": "PASS",
+      "reasoning": "Outpainting is immediately defined using picture edges. A concrete application, room for a headline, explains what newly generated space purchases in editing terms. The Hero resolution shorthand is still understandable.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "It uses video outpainting, a way of creating new picture area beyond the edges of a clip."
+        },
+        {
+          "source": "document",
+          "quote": "The added space gives you a place for a headline or call to action in your editor without putting text across the product."
+        },
+        {
+          "source": "document",
+          "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+        }
+      ]
+    },
+    {
+      "criterion": "direct-definition",
+      "status": "PASS",
+      "reasoning": "The first What Is sentence names the product and states its input and objective in one sentence.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "AI Video Expander is a video editing tool that uses AI to make an existing clip fit a different frame."
+        },
+        {
+          "source": "website-plan",
+          "quote": "- **核心定位：** 画幅扩展与背景补边。输入原片、目标比例和用于新区域的描述，输出扩展过的片段。"
+        }
+      ]
+    },
+    {
+      "criterion": "why-choose-value",
+      "status": "PASS",
+      "reasoning": "Omission is deliberate and preferable. The source offers the adopted features but substantiates no exclusive differentiator.",
+      "evidence": [
+        {
+          "source": "website-plan",
+          "quote": "保留原片画幅是跨平台重用时的实际需求。首页展示完整源片如何嵌入目标画布，减少用户猜测会裁掉哪些画面。引导词用于描述外沿，便于规划字幕和广告留白。现有证据无法建立独家优势，省略独立 Why Choose。"
+        },
+        {
+          "source": "document",
+          "quote": "why_choose: \"omit\""
+        }
+      ]
+    },
+    {
+      "criterion": "feature-distinction",
+      "status": "PASS",
+      "reasoning": "Aspect ratio, fitting the existing shot inside the new canvas, the new area's appearance and resolution are separate controls with separately explained consequences.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "The tool fits the full source frame inside the new canvas before extending it."
+        },
+        {
+          "source": "document",
+          "quote": "Use the prompt to describe what should appear outside the clip."
+        },
+        {
+          "source": "document",
+          "quote": "The 360p setting can serve as a draft, while 540p and 720p are available for any supported ratio."
+        },
+        {
+          "source": "website-plan",
+          "quote": "| key-features | 4 | 改目标比例；原片完整适配；指导新增区域；选择输出清晰度 | 画布比例决定输出形状，矩形位置决定原片边界，提示词决定新增区域方向，实际比例决定画质档位 | SERP §4 的同一模式支持四种独立的用户决策，按操作分工避免重复 |"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| use-cases | 3 | 转竖版社媒；商品广告留出标题空间；把窄画幅改成横版 | 横向人物原片适配竖屏；中心主体旁留白；竖拍素材补出左右环境 | §1 人群和 SERP §5 的不同任务，按可见输出差异组织 |"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| faq | 5 | 扩框与续写区别；黑边；可用片长；画质与画幅关系；原框之外能恢复什么 | 说明限制和用户决策，分别放边界 FAQ | SERP §3–5 及 §1.3。现有黑边是否被处理需验证；只说明原片区域与新增区域的区别 |"
+        }
+      ]
+    },
+    {
+      "criterion": "faq-answer-first",
+      "status": "PASS",
+      "reasoning": "FAQ questions target uses and hard edges of the product. The longest-clip question opens with the actionable threshold.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "Can I expand a clip longer than 10 seconds?"
+        },
+        {
+          "source": "document",
+          "quote": "Work with segments of 10 seconds or less. Cut a longer shot into sections before uploading, then reassemble the expanded sections in your editor. Use matching ratios and settings for clips you plan to join."
+        }
+      ]
+    },
+    {
+      "criterion": "entity-identity",
+      "status": "PASS",
+      "reasoning": "The title and definition agree on the descriptive site identity. Application structured data names the same product rather than claiming model-provider ownership.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "AI Video Expander is a video editing tool that uses AI to make an existing clip fit a different frame."
+        },
+        {
+          "source": "document",
+          "quote": "\"name\": \"AI Video Expander\","
+        }
+      ]
+    },
+    {
+      "criterion": "factual-integrity",
+      "status": "PASS",
+      "reasoning": "The keep-whole-frame promise depends on explicit centered containment in the handoff. Source duration and output quality remain bounded. The FAQ accurately distinguishes generated edges from recovering an unrecorded subject.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "The tool fits the full source frame inside the new canvas before extending it."
+        },
+        {
+          "source": "document",
+          "quote": "The added area is newly generated. It can suggest a plausible continuation of the scene, but use the original footage if you need an accurate record of what was actually there."
+        },
+        {
+          "source": "document",
+          "quote": "- The working form includes video upload, selection of target ratio, orientation-filtered resolution, 5- or 10-second output request and a required edge prompt. Bind the sample to the visible form only on Try it. The tool uses a centered source rectangle that fits within the output frame. It shows validation feedback beside the affected input."
+        },
+        {
+          "source": "website-plan",
+          "quote": "| 源片留在画布里 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ 的 source_position | 使用适配矩形，实测输出中原片边缘、时间和质量 | 避免承诺恢复原先没有拍摄的真实信息 |"
+        }
+      ]
+    },
+    {
+      "criterion": "natural-expression",
+      "status": "PASS",
+      "reasoning": "Actions use ordinary editing language. The title's 'for Reframing' and compact resolution description read a little mechanically but remain clear.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "AI Video Expander for Reframing Without Cropping"
+        },
+        {
+          "source": "document",
+          "quote": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square."
+        },
+        {
+          "source": "document",
+          "quote": "The added space gives you a place for a headline or call to action in your editor without putting text across the product."
+        }
+      ]
+    },
+    {
+      "criterion": "feature-hierarchy",
+      "status": "PASS",
+      "reasoning": "Shape and original composition are primary workflow decisions. The prompt and quality controls support context-specific jobs, consistent with the specified roles.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "| Keep the Whole Source Frame | primary | A new layout that includes the full source frame | plan §2; SERP §4 | A new layout that includes the full source frame | Centered source placement is an explicit tool rule | Core result |"
+        },
+        {
+          "source": "document",
+          "quote": "| Set the Output Resolution | support | An export sized for its intended placement | plan §2; SERP §4 | An export sized for its intended placement | 1080p is restricted to landscape and square | Supporting setting |"
+        }
+      ]
+    },
+    {
+      "criterion": "capability-information",
+      "status": "PASS",
+      "reasoning": "The current copy names all six ratio choices, explains complete framing, describes the prompt's addition area, and gives valid resolution branches.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "The tool fits the full source frame inside the new canvas before extending it."
+        },
+        {
+          "source": "document",
+          "quote": "Use the prompt to describe what should appear outside the clip."
+        },
+        {
+          "source": "document",
+          "quote": "The 360p setting can serve as a draft, while 540p and 720p are available for any supported ratio."
+        },
+        {
+          "source": "website-plan",
+          "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+        }
+      ]
+    },
+    {
+      "criterion": "feature-boundaries",
+      "status": "PASS",
+      "reasoning": "The first feature focuses on deliverable shape; the second focuses on retaining existing visual information. Prompting controls the new area and resolution changes output detail.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "The tool fits the full source frame inside the new canvas before extending it."
+        },
+        {
+          "source": "document",
+          "quote": "Use the prompt to describe what should appear outside the clip."
+        },
+        {
+          "source": "document",
+          "quote": "The 360p setting can serve as a draft, while 540p and 720p are available for any supported ratio."
+        }
+      ]
+    },
+    {
+      "criterion": "capability-clarity",
+      "status": "PASS",
+      "reasoning": "The search description names the spatial result. The subtitle anchors it around the original clip and ties it to a new aspect ratio.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square."
+        },
+        {
+          "source": "document",
+          "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+        },
+        {
+          "source": "website-plan",
+          "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+        }
+      ]
+    },
+    {
+      "criterion": "task-specificity",
+      "status": "PASS",
+      "reasoning": "Both landing pairs address adapting short source footage to an output ratio, a concrete post-production task distinct from extending time.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square."
+        },
+        {
+          "source": "document",
+          "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+        },
+        {
+          "source": "document",
+          "quote": "Frame expansion adds space around the picture. If you need the action to continue after the last frame, look for a tool that generates a video continuation."
+        }
+      ]
+    },
+    {
+      "criterion": "visible-outcome-clarity",
+      "status": "PASS",
+      "reasoning": "Readers can anticipate a full-source reframe with new area outside the original and orientation-appropriate output quality.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+        },
+        {
+          "source": "document",
+          "quote": "The tool fits the full source frame inside the new canvas before extending it."
+        }
+      ]
+    },
+    {
+      "criterion": "generic-replacement-risk",
+      "status": "PASS",
+      "reasoning": "The copy names an operative tradeoff: a wide source may occupy a smaller share of a tall canvas to stay wholly in frame. That is specific to this expand workflow.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "The tool fits the full source frame inside the new canvas before extending it."
+        },
+        {
+          "source": "document",
+          "quote": "This can make the original footage occupy a smaller share of the new frame."
+        }
+      ]
+    },
+    {
+      "criterion": "faq-question-selection",
+      "status": "PASS",
+      "reasoning": "The questions follow directly from query ambiguity and practical input and output decisions. The blur between duration and framing is resolved first.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "Does expanding a video make it longer?"
+        },
+        {
+          "source": "document",
+          "quote": "Can I expand a clip longer than 10 seconds?"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| faq | 5 | 扩框与续写区别；黑边；可用片长；画质与画幅关系；原框之外能恢复什么 | 说明限制和用户决策，分别放边界 FAQ | SERP §3–5 及 §1.3。现有黑边是否被处理需验证；只说明原片区域与新增区域的区别 |"
+        }
+      ]
+    },
+    {
+      "criterion": "faq-user-perspective",
+      "status": "PASS",
+      "reasoning": "The FAQ answers editing questions with expected file behavior or a practical next action, without claiming that hypothetical generations were tested.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "Black bars already baked into the source are inside its saved frame. For an expansion that starts at the edge of the actual picture, prepare a source file with the bars removed before uploading."
+        },
+        {
+          "source": "document",
+          "quote": "Work with segments of 10 seconds or less. Cut a longer shot into sections before uploading, then reassemble the expanded sections in your editor. Use matching ratios and settings for clips you plan to join."
+        },
+        {
+          "source": "document",
+          "quote": "The added area is newly generated. It can suggest a plausible continuation of the scene, but use the original footage if you need an accurate record of what was actually there."
+        }
+      ]
+    },
+    {
+      "criterion": "metadata-meaning",
+      "status": "PASS",
+      "reasoning": "The title addresses preserving the original during reframing and the description clarifies how new spatial area is used, with a source duration and orientation-specific quality ceilings. It remains product copy, while the tutorial owns source preparation.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "AI Video Expander for Reframing Without Cropping"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| Title | 一眼识别改画幅工具 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 新比例的扩框视频 | 核心能力及成品范围 | single | Ray 3.2 视频扩框模式。https://docs.agents.lumalabs.ai/guides/videos/reframing/ |"
+        },
+        {
+          "source": "document",
+          "quote": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square."
+        },
+        {
+          "source": "website-plan",
+          "quote": "| Description | 在搜索结果明白可处理的素材和输出 | 目标画幅扩框；目标画幅扩框；目标画幅扩框 | capability；numeric-spec；numeric-spec | Generate new video around the original frame to fit a new aspect ratio；source clips up to 10 seconds；up to 720p vertical and 1080p landscape or square | 新比例的扩框视频 | 与副标题覆盖同一组事实 | joint | Ray 3.2 视频扩框模式。同一请求中的源片上限和按目标比例区分的画质上限。https://docs.agents.lumalabs.ai/guides/videos/reframing/ |"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+        },
+        {
+          "source": "document",
+          "quote": "Add the short clip you want to reframe. To use one shot from a longer edit, export that shot on its own before uploading."
+        }
+      ],
+      "productValue": {
+        "status": "PASS",
+        "reasoning": "The search snippet gives an eligibility check and explains the expansion result before purchase or upload.",
+        "quote": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square."
+      },
+      "coreConsistency": {
+        "status": "PASS",
+        "reasoning": "Both pairs describe reframing the source. Description and subtitle retain the same ten-second input boundary and two orientation-dependent ceilings.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "AI Video Expander for Reframing Without Cropping"
+          },
+          {
+            "source": "document",
+            "quote": "AI Video Expander for Reframing Without Cropping"
+          },
+          {
+            "source": "document",
+            "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+          },
+          {
+            "source": "document",
+            "quote": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square."
+          }
+        ]
+      }
+    },
+    {
+      "criterion": "hero-focus",
+      "status": "PASS",
+      "reasoning": "H1 names the user job, portrait and landscape ceilings describe different branches, and ten seconds modifies the source clip. The embedded form at #tool already starts the task, so Hero does not add a redundant jump CTA. Setup instructions remain in Step 1 onward.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "AI Video Expander for Reframing Without Cropping"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| H1 | 知道能扩展原画幅 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 新比例的扩框视频 | 核心类别和用户成品 | single | Ray 3.2 视频扩框模式。https://docs.agents.lumalabs.ai/guides/videos/reframing/ |"
+        },
+        {
+          "source": "document",
+          "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+        },
+        {
+          "source": "website-plan",
+          "quote": "| Subtitle | 理解生成区、输入时长和画质上限 | 目标画幅扩框；目标画幅扩框；目标画幅扩框 | capability；numeric-spec；numeric-spec | Generate new video around the original frame to fit a new aspect ratio；source clips up to 10 seconds；up to 720p vertical and 1080p landscape or square | 新比例的扩框视频 | 适用素材及输出范围 | joint | Ray 3.2 视频扩框模式。同一请求中的源片上限和按目标比例区分的画质上限。https://docs.agents.lumalabs.ai/guides/videos/reframing/ |"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+        },
+        {
+          "source": "document",
+          "quote": "Add the short clip you want to reframe. To use one shot from a longer edit, export that shot on its own before uploading."
+        },
+        {
+          "source": "website-plan",
+          "quote": "| output-resolution | hero-required | 目标画幅扩框 | up to 720p vertical and 1080p landscape or square | 竖屏、方形和横屏导出受不同上限影响 |"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| clip-duration | hero-required | 目标画幅扩框 | source clips up to 10 seconds | 现有素材长度决定能否直接上传或需要分段 |"
+        },
+        {
+          "source": "document",
+          "quote": "| Hero | `hero` | AI Video Expander for Reframing Without Cropping | The working form sits inside the Hero at #tool. The form starts the task directly, so a second jump button is omitted. |"
+        }
+      ],
+      "productValue": {
+        "status": "PASS",
+        "reasoning": "The benefit is direct adaptation to a new aspect ratio while keeping the starting shot in view.",
+        "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+      }
+    }
+  ],
+  "searchPresentationReview": {
+    "title": {
+      "status": "PASS",
+      "reasoning": "The field keeps the selected spatial outpainting job in focus.",
+      "evidence": [
+        {
+          "source": "website-plan",
+          "quote": "| Title | 一眼识别改画幅工具 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 新比例的扩框视频 | 核心能力及成品范围 | single | Ray 3.2 视频扩框模式。https://docs.agents.lumalabs.ai/guides/videos/reframing/ |"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+        },
+        {
+          "source": "document",
+          "quote": "AI Video Expander for Reframing Without Cropping"
+        }
+      ],
+      "specificationFit": {
+        "status": "PASS",
+        "reasoning": "This field makes a single core capability claim. The fit-without-crop scope relies on the planned explicit centered contain placement.",
+        "capabilityEvidence": [
+          {
+            "anchor": "目标画幅扩框",
+            "fact": "Generate new video around the original frame to fit a new aspect ratio",
+            "quote": "Reframing Without Cropping",
+            "reasoning": "The excerpt describes changing frame geometry by keeping the original shot within the new frame."
+          }
+        ]
+      },
+      "naturalEnglish": {
+        "status": "PASS",
+        "reasoning": "The exact keyword names the editing category and 'Without Cropping' makes retaining the full shot the reason to choose it. The title could flow more briskly with an action verb.",
+        "quote": "AI Video Expander for Reframing Without Cropping",
+        "categoryEvidence": {
+          "category": "AI Video Expander",
+          "quote": "AI Video Expander",
+          "reasoning": "The descriptive product identity and category directly match the US task query."
+        }
+      },
+      "productFunction": {
+        "status": "PASS",
+        "reasoning": "This is a video reframing tool with an explicit spatial outcome.",
+        "quote": "Reframing Without Cropping"
+      },
+      "coreRelevance": {
+        "status": "PASS",
+        "reasoning": "Spatial expansion solves the primary SERP task; it is a better headline than concentrating on the edge prompt.",
+        "quote": "Reframing Without Cropping"
+      },
+      "combinationFit": {
+        "status": "PASS",
+        "reasoning": "This field makes a single core capability claim. The fit-without-crop scope relies on the planned explicit centered contain placement.",
+        "evidence": [
+          {
+            "source": "website-plan",
+            "quote": "| 目标画幅扩框 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ | official-live | key-feature | development-commitment | Generate new video around the original frame to fit a new aspect ratio；source clips up to 10 seconds；up to 720p vertical and 1080p landscape or square；5 or 10 seconds of output video；9:16 vertical, 3:4 portrait, 1:1 square, 4:3 landscape, 16:9 widescreen, or 21:9 ultrawide。提交时显式设置适配矩形；选档随目标比例约束。 | 任务词采用已发布扩框模式，满足原片复用和尺寸转换 | 型号=Ray 3.2；模式=视频扩框；档位=不分档 |"
+          }
+        ],
+        "quote": "AI Video Expander for Reframing Without Cropping"
+      }
+    },
+    "h1": {
+      "status": "PASS",
+      "reasoning": "The field keeps the selected spatial outpainting job in focus.",
+      "evidence": [
+        {
+          "source": "website-plan",
+          "quote": "| H1 | 知道能扩展原画幅 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 新比例的扩框视频 | 核心类别和用户成品 | single | Ray 3.2 视频扩框模式。https://docs.agents.lumalabs.ai/guides/videos/reframing/ |"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+        },
+        {
+          "source": "document",
+          "quote": "AI Video Expander for Reframing Without Cropping"
+        }
+      ],
+      "specificationFit": {
+        "status": "PASS",
+        "reasoning": "This field makes a single core capability claim. The fit-without-crop scope relies on the planned explicit centered contain placement.",
+        "capabilityEvidence": [
+          {
+            "anchor": "目标画幅扩框",
+            "fact": "Generate new video around the original frame to fit a new aspect ratio",
+            "quote": "Reframing Without Cropping",
+            "reasoning": "The excerpt describes changing frame geometry by keeping the original shot within the new frame."
+          }
+        ]
+      },
+      "naturalEnglish": {
+        "status": "PASS",
+        "reasoning": "The complete keyword and the benefit work as an H1 noun phrase. The phrase names spatial reframing at the point of action.",
+        "quote": "AI Video Expander for Reframing Without Cropping",
+        "categoryEvidence": {
+          "category": "AI Video Expander",
+          "quote": "AI Video Expander",
+          "reasoning": "The descriptive product identity and category directly match the US task query."
+        }
+      },
+      "productFunction": {
+        "status": "PASS",
+        "reasoning": "This is a video reframing tool with an explicit spatial outcome.",
+        "quote": "Reframing Without Cropping"
+      },
+      "coreRelevance": {
+        "status": "PASS",
+        "reasoning": "Spatial expansion solves the primary SERP task; it is a better headline than concentrating on the edge prompt.",
+        "quote": "Reframing Without Cropping"
+      },
+      "combinationFit": {
+        "status": "PASS",
+        "reasoning": "This field makes a single core capability claim. The fit-without-crop scope relies on the planned explicit centered contain placement.",
+        "evidence": [
+          {
+            "source": "website-plan",
+            "quote": "| 目标画幅扩框 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ | official-live | key-feature | development-commitment | Generate new video around the original frame to fit a new aspect ratio；source clips up to 10 seconds；up to 720p vertical and 1080p landscape or square；5 or 10 seconds of output video；9:16 vertical, 3:4 portrait, 1:1 square, 4:3 landscape, 16:9 widescreen, or 21:9 ultrawide。提交时显式设置适配矩形；选档随目标比例约束。 | 任务词采用已发布扩框模式，满足原片复用和尺寸转换 | 型号=Ray 3.2；模式=视频扩框；档位=不分档 |"
+          }
+        ],
+        "quote": "AI Video Expander for Reframing Without Cropping"
+      }
+    },
+    "subtitle": {
+      "status": "PASS",
+      "reasoning": "The field keeps the selected spatial outpainting job in focus.",
+      "evidence": [
+        {
+          "source": "website-plan",
+          "quote": "| Subtitle | 理解生成区、输入时长和画质上限 | 目标画幅扩框；目标画幅扩框；目标画幅扩框 | capability；numeric-spec；numeric-spec | Generate new video around the original frame to fit a new aspect ratio；source clips up to 10 seconds；up to 720p vertical and 1080p landscape or square | 新比例的扩框视频 | 适用素材及输出范围 | joint | Ray 3.2 视频扩框模式。同一请求中的源片上限和按目标比例区分的画质上限。https://docs.agents.lumalabs.ai/guides/videos/reframing/ |"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+        },
+        {
+          "source": "document",
+          "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+        }
+      ],
+      "specificationFit": {
+        "status": "PASS",
+        "reasoning": "Input is capped at ten seconds. The portrait ceiling is 720p and landscape or square can reach 1080p. These are separate input and output parameters of the same workflow.",
+        "capabilityEvidence": [
+          {
+            "anchor": "目标画幅扩框",
+            "fact": "Generate new video around the original frame to fit a new aspect ratio",
+            "quote": "Fill the space around your original video to fit a new aspect ratio.",
+            "reasoning": "The excerpt describes changing frame geometry by keeping the original shot within the new frame."
+          }
+        ]
+      },
+      "naturalEnglish": {
+        "status": "PASS",
+        "reasoning": "The first sentence is a complete action and result. The second uses compact orientation shorthand, and 'source clips' identifies what the duration limit modifies.",
+        "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+      },
+      "productFunction": {
+        "status": "PASS",
+        "reasoning": "This is a video reframing tool with an explicit spatial outcome.",
+        "quote": "Fill the space around your original video to fit a new aspect ratio."
+      },
+      "coreRelevance": {
+        "status": "PASS",
+        "reasoning": "Spatial expansion solves the primary SERP task; it is a better headline than concentrating on the edge prompt.",
+        "quote": "Fill the space around your original video to fit a new aspect ratio."
+      },
+      "combinationFit": {
+        "status": "PASS",
+        "reasoning": "Input is capped at ten seconds. The portrait ceiling is 720p and landscape or square can reach 1080p. These are separate input and output parameters of the same workflow.",
+        "evidence": [
+          {
+            "source": "website-plan",
+            "quote": "| 目标画幅扩框 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ | official-live | key-feature | development-commitment | Generate new video around the original frame to fit a new aspect ratio；source clips up to 10 seconds；up to 720p vertical and 1080p landscape or square；5 or 10 seconds of output video；9:16 vertical, 3:4 portrait, 1:1 square, 4:3 landscape, 16:9 widescreen, or 21:9 ultrawide。提交时显式设置适配矩形；选档随目标比例约束。 | 任务词采用已发布扩框模式，满足原片复用和尺寸转换 | 型号=Ray 3.2；模式=视频扩框；档位=不分档 |"
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 目标画幅扩框 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ | official-live | key-feature | development-commitment | Generate new video around the original frame to fit a new aspect ratio；source clips up to 10 seconds；up to 720p vertical and 1080p landscape or square；5 or 10 seconds of output video；9:16 vertical, 3:4 portrait, 1:1 square, 4:3 landscape, 16:9 widescreen, or 21:9 ultrawide。提交时显式设置适配矩形；选档随目标比例约束。 | 任务词采用已发布扩框模式，满足原片复用和尺寸转换 | 型号=Ray 3.2；模式=视频扩框；档位=不分档 |"
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 目标画幅扩框 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ | official-live | key-feature | development-commitment | Generate new video around the original frame to fit a new aspect ratio；source clips up to 10 seconds；up to 720p vertical and 1080p landscape or square；5 or 10 seconds of output video；9:16 vertical, 3:4 portrait, 1:1 square, 4:3 landscape, 16:9 widescreen, or 21:9 ultrawide。提交时显式设置适配矩形；选档随目标比例约束。 | 任务词采用已发布扩框模式，满足原片复用和尺寸转换 | 型号=Ray 3.2；模式=视频扩框；档位=不分档 |"
+          }
+        ],
+        "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+      }
+    },
+    "description": {
+      "status": "PASS",
+      "reasoning": "The field keeps the selected spatial outpainting job in focus.",
+      "evidence": [
+        {
+          "source": "website-plan",
+          "quote": "| Description | 在搜索结果明白可处理的素材和输出 | 目标画幅扩框；目标画幅扩框；目标画幅扩框 | capability；numeric-spec；numeric-spec | Generate new video around the original frame to fit a new aspect ratio；source clips up to 10 seconds；up to 720p vertical and 1080p landscape or square | 新比例的扩框视频 | 与副标题覆盖同一组事实 | joint | Ray 3.2 视频扩框模式。同一请求中的源片上限和按目标比例区分的画质上限。https://docs.agents.lumalabs.ai/guides/videos/reframing/ |"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+        },
+        {
+          "source": "document",
+          "quote": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square."
+        }
+      ],
+      "specificationFit": {
+        "status": "PASS",
+        "reasoning": "Input is capped at ten seconds. The portrait ceiling is 720p and landscape or square can reach 1080p. These are separate input and output parameters of the same workflow.",
+        "capabilityEvidence": [
+          {
+            "anchor": "目标画幅扩框",
+            "fact": "Generate new video around the original frame to fit a new aspect ratio",
+            "quote": "fills the edges of source clips up to 10 seconds for a new aspect ratio",
+            "reasoning": "The excerpt describes changing frame geometry by keeping the original shot within the new frame."
+          }
+        ]
+      },
+      "naturalEnglish": {
+        "status": "PASS",
+        "reasoning": "The search description is understandable outside the page. 'Fills the edges' is slightly less precise than the Hero's 'around your original video', but the clause 'for a new aspect ratio' signals expansion.",
+        "quote": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square."
+      },
+      "productFunction": {
+        "status": "PASS",
+        "reasoning": "This is a video reframing tool with an explicit spatial outcome.",
+        "quote": "fills the edges of source clips up to 10 seconds for a new aspect ratio"
+      },
+      "coreRelevance": {
+        "status": "PASS",
+        "reasoning": "Spatial expansion solves the primary SERP task; it is a better headline than concentrating on the edge prompt.",
+        "quote": "fills the edges of source clips up to 10 seconds for a new aspect ratio"
+      },
+      "combinationFit": {
+        "status": "PASS",
+        "reasoning": "Input is capped at ten seconds. The portrait ceiling is 720p and landscape or square can reach 1080p. These are separate input and output parameters of the same workflow.",
+        "evidence": [
+          {
+            "source": "website-plan",
+            "quote": "| 目标画幅扩框 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ | official-live | key-feature | development-commitment | Generate new video around the original frame to fit a new aspect ratio；source clips up to 10 seconds；up to 720p vertical and 1080p landscape or square；5 or 10 seconds of output video；9:16 vertical, 3:4 portrait, 1:1 square, 4:3 landscape, 16:9 widescreen, or 21:9 ultrawide。提交时显式设置适配矩形；选档随目标比例约束。 | 任务词采用已发布扩框模式，满足原片复用和尺寸转换 | 型号=Ray 3.2；模式=视频扩框；档位=不分档 |"
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 目标画幅扩框 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ | official-live | key-feature | development-commitment | Generate new video around the original frame to fit a new aspect ratio；source clips up to 10 seconds；up to 720p vertical and 1080p landscape or square；5 or 10 seconds of output video；9:16 vertical, 3:4 portrait, 1:1 square, 4:3 landscape, 16:9 widescreen, or 21:9 ultrawide。提交时显式设置适配矩形；选档随目标比例约束。 | 任务词采用已发布扩框模式，满足原片复用和尺寸转换 | 型号=Ray 3.2；模式=视频扩框；档位=不分档 |"
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 目标画幅扩框 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ | official-live | key-feature | development-commitment | Generate new video around the original frame to fit a new aspect ratio；source clips up to 10 seconds；up to 720p vertical and 1080p landscape or square；5 or 10 seconds of output video；9:16 vertical, 3:4 portrait, 1:1 square, 4:3 landscape, 16:9 widescreen, or 21:9 ultrawide。提交时显式设置适配矩形；选档随目标比例约束。 | 任务词采用已发布扩框模式，满足原片复用和尺寸转换 | 型号=Ray 3.2；模式=视频扩框；档位=不分档 |"
+          }
+        ],
+        "quote": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square."
+      }
+    }
+  },
+  "whatIsReview": {
+    "definitionAccuracy": {
+      "status": "PASS",
+      "reasoning": "Names a video editing tool and a source-based editing objective.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "AI Video Expander is a video editing tool that uses AI to make an existing clip fit a different frame."
+        },
+        {
+          "source": "website-plan",
+          "quote": "- **核心定位：** 画幅扩展与背景补边。输入原片、目标比例和用于新区域的描述，输出扩展过的片段。"
+        }
+      ]
+    },
+    "coreFocus": {
+      "status": "PASS",
+      "reasoning": "Defines outpainting in terms of where the new picture area appears.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "It uses video outpainting, a way of creating new picture area beyond the edges of a clip."
+        },
+        {
+          "source": "website-plan",
+          "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+        }
+      ]
+    },
+    "plainUnderstanding": {
+      "status": "PASS",
+      "reasoning": "The explanation converts a technical term into the visible operation beyond a clip edge.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "It uses video outpainting, a way of creating new picture area beyond the edges of a clip."
+        }
+      ]
+    },
+    "informationGain": {
+      "status": "PASS",
+      "reasoning": "The definition provides a vocabulary bridge; the centered-rectangle feature then explains how full composition is retained.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "It uses video outpainting, a way of creating new picture area beyond the edges of a clip."
+        },
+        {
+          "source": "document",
+          "quote": "The tool fits the full source frame inside the new canvas before extending it."
+        }
+      ]
+    },
+    "claimBoundary": {
+      "status": "PASS",
+      "reasoning": "The definition describes a reframe rather than improved image quality or continuation through time.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "AI Video Expander is a video editing tool that uses AI to make an existing clip fit a different frame."
+        },
+        {
+          "source": "website-plan",
+          "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+        }
+      ]
+    }
+  },
+  "faqSetReview": {
+    "coverage": {
+      "status": "PASS",
+      "reasoning": "All five planned decisions appear, from intent to composition fidelity.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "Does expanding a video make it longer?"
+        },
+        {
+          "source": "document",
+          "quote": "Can AI recover what was outside the original shot?"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| faq | 5 | 扩框与续写区别；黑边；可用片长；画质与画幅关系；原框之外能恢复什么 | 说明限制和用户决策，分别放边界 FAQ | SERP §3–5 及 §1.3。现有黑边是否被处理需验证；只说明原片区域与新增区域的区别 |"
+        }
+      ]
+    },
+    "ordering": {
+      "status": "PASS",
+      "reasoning": "Intent comes first, source issues follow, and technical and fidelity decisions round out the set.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "Does expanding a video make it longer?"
+        },
+        {
+          "source": "document",
+          "quote": "Which aspect ratios support 1080p?"
+        },
+        {
+          "source": "website-plan",
+          "quote": "| faq | 5 | 扩框与续写区别；黑边；可用片长；画质与画幅关系；原框之外能恢复什么 | 说明限制和用户决策，分别放边界 FAQ | SERP §3–5 及 §1.3。现有黑边是否被处理需验证；只说明原片区域与新增区域的区别 |"
+        }
+      ]
+    },
+    "nonDuplication": {
+      "status": "PASS",
+      "reasoning": "The resolution FAQ ties 1080p to a user-facing orientation decision; the feature names the actual settings. Other answers cover decisions introduced nowhere else.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "Square and landscape outputs support 1080p. For 9:16 and 3:4 vertical outputs, the highest setting is 720p. Select the ratio first so the quality choices match where you plan to use the clip."
+        },
+        {
+          "source": "document",
+          "quote": "The 360p setting can serve as a draft, while 540p and 720p are available for any supported ratio."
+        }
+      ]
+    }
+  },
+  "faqItemReview": [
+    {
+      "question": "Does expanding a video make it longer?",
+      "questionRelevance": {
+        "status": "PASS",
+        "reasoning": "Deciding between expansion and continuation is the core ambiguity observed in search.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Does expanding a video make it longer?"
+          },
+          {
+            "source": "website-plan",
+            "quote": "| faq | 5 | 扩框与续写区别；黑边；可用片长；画质与画幅关系；原框之外能恢复什么 | 说明限制和用户决策，分别放边界 FAQ | SERP §3–5 及 §1.3。现有黑边是否被处理需验证；只说明原片区域与新增区域的区别 |"
+          }
+        ]
+      },
+      "singleIntent": {
+        "status": "PASS",
+        "reasoning": "The question asks for one independent decision: Deciding between expansion and continuation is the core ambiguity observed in search.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Does expanding a video make it longer?"
+          }
+        ]
+      },
+      "answerUsefulness": {
+        "status": "PASS",
+        "reasoning": "The answer sends someone who needs more action to a continuation workflow.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Frame expansion adds space around the picture. If you need the action to continue after the last frame, look for a tool that generates a video continuation."
+          }
+        ]
+      },
+      "answerNaturalness": {
+        "status": "PASS",
+        "reasoning": "The answer leads with a concrete outcome or practical condition. The answer sends someone who needs more action to a continuation workflow.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Frame expansion adds space around the picture. If you need the action to continue after the last frame, look for a tool that generates a video continuation."
+          }
+        ]
+      },
+      "factualBoundary": {
+        "status": "PASS",
+        "reasoning": "This discusses the purpose of expansion, without claiming identical source and output lengths.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Frame expansion adds space around the picture. If you need the action to continue after the last frame, look for a tool that generates a video continuation."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+          }
+        ]
+      }
+    },
+    {
+      "question": "What happens to black bars in my original clip?",
+      "questionRelevance": {
+        "status": "PASS",
+        "reasoning": "Existing borders are a practical preparation concern in the planning evidence.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "What happens to black bars in my original clip?"
+          },
+          {
+            "source": "website-plan",
+            "quote": "| faq | 5 | 扩框与续写区别；黑边；可用片长；画质与画幅关系；原框之外能恢复什么 | 说明限制和用户决策，分别放边界 FAQ | SERP §3–5 及 §1.3。现有黑边是否被处理需验证；只说明原片区域与新增区域的区别 |"
+          }
+        ]
+      },
+      "singleIntent": {
+        "status": "PASS",
+        "reasoning": "The question asks for one independent decision: Existing borders are a practical preparation concern in the planning evidence.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "What happens to black bars in my original clip?"
+          }
+        ]
+      },
+      "answerUsefulness": {
+        "status": "PASS",
+        "reasoning": "The answer identifies baked-in bars as part of the submitted frame and gives a clean-source option.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Black bars already baked into the source are inside its saved frame. For an expansion that starts at the edge of the actual picture, prepare a source file with the bars removed before uploading."
+          }
+        ]
+      },
+      "answerNaturalness": {
+        "status": "PASS",
+        "reasoning": "The answer leads with a concrete outcome or practical condition. The answer identifies baked-in bars as part of the submitted frame and gives a clean-source option.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Black bars already baked into the source are inside its saved frame. For an expansion that starts at the edge of the actual picture, prepare a source file with the bars removed before uploading."
+          }
+        ]
+      },
+      "factualBoundary": {
+        "status": "PASS",
+        "reasoning": "It does not claim this workflow detects or removes baked-in bars automatically.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Black bars already baked into the source are inside its saved frame. For an expansion that starts at the edge of the actual picture, prepare a source file with the bars removed before uploading."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 源片留在画布里 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ 的 source_position | 使用适配矩形，实测输出中原片边缘、时间和质量 | 避免承诺恢复原先没有拍摄的真实信息 |"
+          }
+        ]
+      }
+    },
+    {
+      "question": "Can I expand a clip longer than 10 seconds?",
+      "questionRelevance": {
+        "status": "PASS",
+        "reasoning": "A source-duration cap affects upload eligibility.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Can I expand a clip longer than 10 seconds?"
+          },
+          {
+            "source": "website-plan",
+            "quote": "| faq | 5 | 扩框与续写区别；黑边；可用片长；画质与画幅关系；原框之外能恢复什么 | 说明限制和用户决策，分别放边界 FAQ | SERP §3–5 及 §1.3。现有黑边是否被处理需验证；只说明原片区域与新增区域的区别 |"
+          }
+        ]
+      },
+      "singleIntent": {
+        "status": "PASS",
+        "reasoning": "The question asks for one independent decision: A source-duration cap affects upload eligibility.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Can I expand a clip longer than 10 seconds?"
+          }
+        ]
+      },
+      "answerUsefulness": {
+        "status": "PASS",
+        "reasoning": "The reader can split a long shot and reassemble the parts in an editor.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Work with segments of 10 seconds or less. Cut a longer shot into sections before uploading, then reassemble the expanded sections in your editor. Use matching ratios and settings for clips you plan to join."
+          }
+        ]
+      },
+      "answerNaturalness": {
+        "status": "PASS",
+        "reasoning": "The answer leads with a concrete outcome or practical condition. The reader can split a long shot and reassemble the parts in an editor.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Work with segments of 10 seconds or less. Cut a longer shot into sections before uploading, then reassemble the expanded sections in your editor. Use matching ratios and settings for clips you plan to join."
+          }
+        ]
+      },
+      "factualBoundary": {
+        "status": "PASS",
+        "reasoning": "Segment editing is external and ten seconds is a source limit.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Work with segments of 10 seconds or less. Cut a longer shot into sections before uploading, then reassemble the expanded sections in your editor. Use matching ratios and settings for clips you plan to join."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+          }
+        ]
+      }
+    },
+    {
+      "question": "Which aspect ratios support 1080p?",
+      "questionRelevance": {
+        "status": "PASS",
+        "reasoning": "Output orientation determines the highest supported export resolution.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Which aspect ratios support 1080p?"
+          },
+          {
+            "source": "website-plan",
+            "quote": "| faq | 5 | 扩框与续写区别；黑边；可用片长；画质与画幅关系；原框之外能恢复什么 | 说明限制和用户决策，分别放边界 FAQ | SERP §3–5 及 §1.3。现有黑边是否被处理需验证；只说明原片区域与新增区域的区别 |"
+          }
+        ]
+      },
+      "singleIntent": {
+        "status": "PASS",
+        "reasoning": "The question asks for one independent decision: Output orientation determines the highest supported export resolution.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Which aspect ratios support 1080p?"
+          }
+        ]
+      },
+      "answerUsefulness": {
+        "status": "PASS",
+        "reasoning": "Both explicit portrait ratios are named and the landscape/square branch is clear.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Square and landscape outputs support 1080p. For 9:16 and 3:4 vertical outputs, the highest setting is 720p. Select the ratio first so the quality choices match where you plan to use the clip."
+          }
+        ]
+      },
+      "answerNaturalness": {
+        "status": "PASS",
+        "reasoning": "The answer leads with a concrete outcome or practical condition. Both explicit portrait ratios are named and the landscape/square branch is clear.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Square and landscape outputs support 1080p. For 9:16 and 3:4 vertical outputs, the highest setting is 720p. Select the ratio first so the quality choices match where you plan to use the clip."
+          }
+        ]
+      },
+      "factualBoundary": {
+        "status": "PASS",
+        "reasoning": "720p vertical and 1080p landscape or square match the adopted launch resolution scope.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Square and landscape outputs support 1080p. For 9:16 and 3:4 vertical outputs, the highest setting is 720p. Select the ratio first so the quality choices match where you plan to use the clip."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+          }
+        ]
+      }
+    },
+    {
+      "question": "Can AI recover what was outside the original shot?",
+      "questionRelevance": {
+        "status": "PASS",
+        "reasoning": "It matters whether generated content serves a design goal or documentary purpose.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Can AI recover what was outside the original shot?"
+          },
+          {
+            "source": "website-plan",
+            "quote": "| faq | 5 | 扩框与续写区别；黑边；可用片长；画质与画幅关系；原框之外能恢复什么 | 说明限制和用户决策，分别放边界 FAQ | SERP §3–5 及 §1.3。现有黑边是否被处理需验证；只说明原片区域与新增区域的区别 |"
+          }
+        ]
+      },
+      "singleIntent": {
+        "status": "PASS",
+        "reasoning": "The question asks for one independent decision: It matters whether generated content serves a design goal or documentary purpose.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Can AI recover what was outside the original shot?"
+          }
+        ]
+      },
+      "answerUsefulness": {
+        "status": "PASS",
+        "reasoning": "Separates plausible new areas from actual recorded visual information.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "The added area is newly generated. It can suggest a plausible continuation of the scene, but use the original footage if you need an accurate record of what was actually there."
+          }
+        ]
+      },
+      "answerNaturalness": {
+        "status": "PASS",
+        "reasoning": "The answer leads with a concrete outcome or practical condition. Separates plausible new areas from actual recorded visual information.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "The added area is newly generated. It can suggest a plausible continuation of the scene, but use the original footage if you need an accurate record of what was actually there."
+          }
+        ]
+      },
+      "factualBoundary": {
+        "status": "PASS",
+        "reasoning": "It does not claim to reconstruct real unseen content.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "The added area is newly generated. It can suggest a plausible continuation of the scene, but use the original footage if you need an accurate record of what was actually there."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 源片留在画布里 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ 的 source_position | 使用适配矩形，实测输出中原片边缘、时间和质量 | 避免承诺恢复原先没有拍摄的真实信息 |"
+          }
+        ]
+      }
+    }
+  ],
+  "featureLanguageReview": [
+    {
+      "feature": "Choose the Shape of Your Video",
+      "role": "primary",
+      "titleClarity": {
+        "status": "PASS",
+        "reasoning": "The imperative names the editing choice without internal terms. This card owns the target canvas shape and enumerates the six planned choices.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Choose the Shape of Your Video"
+          }
+        ]
+      },
+      "bodyNaturalness": {
+        "status": "PASS",
+        "reasoning": "The paragraph moves from the setting to an observable editing consequence. This card owns the target canvas shape and enumerates the six planned choices.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Give the same footage a shape that fits where it will play. Choose 9:16 or 3:4 for a vertical layout, 1:1 for a square frame, or 4:3, 16:9, or 21:9 for a horizontal layout. The tool generates scenery in the uncovered area of the new frame."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+          }
+        ]
+      }
+    },
+    {
+      "feature": "Keep the Whole Source Frame",
+      "role": "primary",
+      "titleClarity": {
+        "status": "PASS",
+        "reasoning": "The imperative names the editing choice without internal terms. This is about retaining the input composition within the selected canvas; the first card instead helps choose the canvas shape.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Keep the Whole Source Frame"
+          }
+        ]
+      },
+      "bodyNaturalness": {
+        "status": "PASS",
+        "reasoning": "The paragraph moves from the setting to an observable editing consequence. This is about retaining the input composition within the selected canvas; the first card instead helps choose the canvas shape.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "The tool fits the full source frame inside the new canvas before extending it. If a landscape shot includes two people standing far apart, the full image stays in the layout when you make a tall version. This can make the original footage occupy a smaller share of the new frame."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 原片完整构图 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ | official-live | key-feature | development-commitment | 把原画作为完整矩形适配目标画布；不把裁切框默认当作全画面。 | 采用 source_position 明确居中适配 | 型号=Ray 3.2；模式=视频扩框；档位=不分档 |"
+          }
+        ]
+      }
+    },
+    {
+      "feature": "Describe What Belongs at the Edges",
+      "role": "support",
+      "titleClarity": {
+        "status": "PASS",
+        "reasoning": "The imperative names the editing choice without internal terms. The prompt directs look and placement opportunities in added areas, separate from geometry.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Describe What Belongs at the Edges"
+          }
+        ]
+      },
+      "bodyNaturalness": {
+        "status": "PASS",
+        "reasoning": "The paragraph moves from the setting to an observable editing consequence. The prompt directs look and placement opportunities in added areas, separate from geometry.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Use the prompt to describe what should appear outside the clip. Name a surface, the direction of the light, or an area to leave visually quiet. When you plan to add a headline later, ask for a plain backdrop in the part of the frame where the headline will sit."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 备选 | 新区域画面指引 | capability | Describe what to generate in the new frame area | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 描述留白或延续的背景以引导新增区域 | SERP §5：第 2 条强调改比例与为字幕留出空间 | 文字能影响新增背景，用户必须先理解工具可以改变画幅 |"
+          }
+        ]
+      }
+    },
+    {
+      "feature": "Set the Output Resolution",
+      "role": "support",
+      "titleClarity": {
+        "status": "PASS",
+        "reasoning": "The imperative names the editing choice without internal terms. The resolution determines output detail and is conditioned by ratio, distinct from choosing that ratio.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Set the Output Resolution"
+          }
+        ]
+      },
+      "bodyNaturalness": {
+        "status": "PASS",
+        "reasoning": "The paragraph moves from the setting to an observable editing consequence. The resolution determines output detail and is conditioned by ratio, distinct from choosing that ratio.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Choose the resolution after you pick a ratio. The 360p setting can serve as a draft, while 540p and 720p are available for any supported ratio. Choose 1080p for a supported landscape or square frame when the placement calls for a higher-resolution file."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 按画幅选择输出质量 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ | official-live | key-feature | development-commitment | 竖版最高 720p，横版与方形最高 1080p，选项按比例变化。 | 采用第一方文档中可组合的画幅和质量 | 型号=Ray 3.2；模式=视频扩框；档位=不分档 |"
+          }
+        ]
+      }
+    }
+  ],
+  "featureCapabilityReview": [
+    {
+      "feature": "Choose the Shape of Your Video",
+      "role": "primary",
+      "capabilityInformation": {
+        "status": "PASS",
+        "reasoning": "Source-supported product information appears in this paragraph. This card owns the target canvas shape and enumerates the six planned choices.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Give the same footage a shape that fits where it will play. Choose 9:16 or 3:4 for a vertical layout, 1:1 for a square frame, or 4:3, 16:9, or 21:9 for a horizontal layout. The tool generates scenery in the uncovered area of the new frame."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+          }
+        ],
+        "requiredInformation": [
+          "9:16 and 3:4 portrait",
+          "1:1 square",
+          "4:3, 16:9, and 21:9 landscape"
+        ]
+      },
+      "distinctBoundary": {
+        "status": "PASS",
+        "reasoning": "This card owns the target canvas shape and enumerates the six planned choices.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Give the same footage a shape that fits where it will play. Choose 9:16 or 3:4 for a vertical layout, 1:1 for a square frame, or 4:3, 16:9, or 21:9 for a horizontal layout. The tool generates scenery in the uncovered area of the new frame."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+          }
+        ]
+      }
+    },
+    {
+      "feature": "Keep the Whole Source Frame",
+      "role": "primary",
+      "capabilityInformation": {
+        "status": "PASS",
+        "reasoning": "Source-supported product information appears in this paragraph. This is about retaining the input composition within the selected canvas; the first card instead helps choose the canvas shape.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "The tool fits the full source frame inside the new canvas before extending it. If a landscape shot includes two people standing far apart, the full image stays in the layout when you make a tall version. This can make the original footage occupy a smaller share of the new frame."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 原片完整构图 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ | official-live | key-feature | development-commitment | 把原画作为完整矩形适配目标画布；不把裁切框默认当作全画面。 | 采用 source_position 明确居中适配 | 型号=Ray 3.2；模式=视频扩框；档位=不分档 |"
+          }
+        ],
+        "requiredInformation": [
+          "The source is fitted fully within the output canvas",
+          "An extreme ratio change may make the source occupy less of the output"
+        ]
+      },
+      "distinctBoundary": {
+        "status": "PASS",
+        "reasoning": "This is about retaining the input composition within the selected canvas; the first card instead helps choose the canvas shape.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "The tool fits the full source frame inside the new canvas before extending it. If a landscape shot includes two people standing far apart, the full image stays in the layout when you make a tall version. This can make the original footage occupy a smaller share of the new frame."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 原片完整构图 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ | official-live | key-feature | development-commitment | 把原画作为完整矩形适配目标画布；不把裁切框默认当作全画面。 | 采用 source_position 明确居中适配 | 型号=Ray 3.2；模式=视频扩框；档位=不分档 |"
+          }
+        ]
+      }
+    },
+    {
+      "feature": "Describe What Belongs at the Edges",
+      "role": "support",
+      "capabilityInformation": {
+        "status": "PASS",
+        "reasoning": "Source-supported product information appears in this paragraph. The prompt directs look and placement opportunities in added areas, separate from geometry.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Use the prompt to describe what should appear outside the clip. Name a surface, the direction of the light, or an area to leave visually quiet. When you plan to add a headline later, ask for a plain backdrop in the part of the frame where the headline will sit."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 备选 | 新区域画面指引 | capability | Describe what to generate in the new frame area | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 描述留白或延续的背景以引导新增区域 | SERP §5：第 2 条强调改比例与为字幕留出空间 | 文字能影响新增背景，用户必须先理解工具可以改变画幅 |"
+          }
+        ],
+        "requiredInformation": [
+          "The prompt scopes what appears outside the source",
+          "The prompt can specify what the new area should look like"
+        ]
+      },
+      "distinctBoundary": {
+        "status": "PASS",
+        "reasoning": "The prompt directs look and placement opportunities in added areas, separate from geometry.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Use the prompt to describe what should appear outside the clip. Name a surface, the direction of the light, or an area to leave visually quiet. When you plan to add a headline later, ask for a plain backdrop in the part of the frame where the headline will sit."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 备选 | 新区域画面指引 | capability | Describe what to generate in the new frame area | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 描述留白或延续的背景以引导新增区域 | SERP §5：第 2 条强调改比例与为字幕留出空间 | 文字能影响新增背景，用户必须先理解工具可以改变画幅 |"
+          }
+        ]
+      }
+    },
+    {
+      "feature": "Set the Output Resolution",
+      "role": "support",
+      "capabilityInformation": {
+        "status": "PASS",
+        "reasoning": "Source-supported product information appears in this paragraph. The resolution determines output detail and is conditioned by ratio, distinct from choosing that ratio.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Choose the resolution after you pick a ratio. The 360p setting can serve as a draft, while 540p and 720p are available for any supported ratio. Choose 1080p for a supported landscape or square frame when the placement calls for a higher-resolution file."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 按画幅选择输出质量 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ | official-live | key-feature | development-commitment | 竖版最高 720p，横版与方形最高 1080p，选项按比例变化。 | 采用第一方文档中可组合的画幅和质量 | 型号=Ray 3.2；模式=视频扩框；档位=不分档 |"
+          }
+        ],
+        "requiredInformation": [
+          "360p, 540p and 720p are shared choices",
+          "1080p applies only to square and landscape output"
+        ]
+      },
+      "distinctBoundary": {
+        "status": "PASS",
+        "reasoning": "The resolution determines output detail and is conditioned by ratio, distinct from choosing that ratio.",
+        "evidence": [
+          {
+            "source": "document",
+            "quote": "Choose the resolution after you pick a ratio. The 360p setting can serve as a draft, while 540p and 720p are available for any supported ratio. Choose 1080p for a supported landscape or square frame when the placement calls for a higher-resolution file."
+          },
+          {
+            "source": "website-plan",
+            "quote": "| 按画幅选择输出质量 | https://docs.agents.lumalabs.ai/guides/videos/reframing/ | official-live | key-feature | development-commitment | 竖版最高 720p，横版与方形最高 1080p，选项按比例变化。 | 采用第一方文档中可组合的画幅和质量 | 型号=Ray 3.2；模式=视频扩框；档位=不分档 |"
+          }
+        ]
+      }
+    }
+  ],
+  "featureScorecard": [
+    {
+      "feature": "Choose the Shape of Your Video",
+      "role": "primary",
+      "capabilityValueClarity": 1,
+      "sourceBackedSpecificity": 1,
+      "concreteConsequence": 1,
+      "distinctRole": 1,
+      "moduleSeparation": 1,
+      "score": 5
+    },
+    {
+      "feature": "Keep the Whole Source Frame",
+      "role": "primary",
+      "capabilityValueClarity": 1,
+      "sourceBackedSpecificity": 1,
+      "concreteConsequence": 1,
+      "distinctRole": 1,
+      "moduleSeparation": 1,
+      "score": 5
+    },
+    {
+      "feature": "Describe What Belongs at the Edges",
+      "role": "support",
+      "capabilityValueClarity": 1,
+      "sourceBackedSpecificity": 1,
+      "concreteConsequence": 1,
+      "distinctRole": 1,
+      "moduleSeparation": 1,
+      "score": 5
+    },
+    {
+      "feature": "Set the Output Resolution",
+      "role": "support",
+      "capabilityValueClarity": 1,
+      "sourceBackedSpecificity": 1,
+      "concreteConsequence": 1,
+      "distinctRole": 1,
+      "moduleSeparation": 1,
+      "score": 5
+    }
+  ],
+  "pricingReview": {
+    "dataAccuracy": {
+      "status": "PASS",
+      "reasoning": "All three amounts and credit counts match the USD configuration and package order.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "| US$9.90 | 200 | One-time | Never expire |"
+        },
+        {
+          "source": "document",
+          "quote": "| US$29.90 | 650 | One-time | Never expire |"
+        },
+        {
+          "source": "document",
+          "quote": "| US$49.90 | 1,200 | One-time | Never expire |"
+        },
+        {
+          "source": "pricing-config",
+          "quote": "\"score\": 200,"
+        },
+        {
+          "source": "pricing-config",
+          "quote": "\"score\": 650,"
+        },
+        {
+          "source": "pricing-config",
+          "quote": "\"score\": 1200,"
+        },
+        {
+          "source": "pricing-config",
+          "quote": "\"price\": 9.9,"
+        },
+        {
+          "source": "pricing-config",
+          "quote": "\"price\": 29.9,"
+        },
+        {
+          "source": "pricing-config",
+          "quote": "\"price\": 49.9,"
+        }
+      ]
+    },
+    "userClarity": {
+      "status": "PASS",
+      "reasoning": "The billing model and credit validity are readable in the deck, and each row contains both quantity and price.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "Buy credits in a one-time purchase. Your credits never expire."
+        },
+        {
+          "source": "pricing-config",
+          "quote": "\"purchase_type\": \"one-time\""
+        },
+        {
+          "source": "pricing-config",
+          "quote": "\"credits_expire\": false"
+        }
+      ]
+    },
+    "claimBoundary": {
+      "status": "PASS",
+      "reasoning": "The deck sticks to one-time purchase and validity and leaves credit deductions and payment methods unstated.",
+      "evidence": [
+        {
+          "source": "document",
+          "quote": "Buy credits in a one-time purchase. Your credits never expire."
+        },
+        {
+          "source": "pricing-config",
+          "quote": "\"generation_credit_cost\""
+        },
+        {
+          "source": "pricing-config",
+          "quote": "\"payment_methods\""
+        }
+      ]
+    }
+  },
+  "semanticReview": {
+    "contractVersion": "1.0.0",
+    "status": "PASS",
+    "reasoning": "The Home addresses the adopted spatial task with a well-allocated explanation of source fit, target shape, new-edge prompts and output choices. Editing tradeoffs are useful and clearly separated from frozen commercial terms.",
+    "fourFields": {
+      "status": "PASS",
+      "score": 95,
+      "dimensions": {
+        "intentAndCategory": {
+          "score": 25,
+          "reasoning": "The full keyword plus spatial reframing clearly match the core tool task.",
+          "evidence": [
+            {
+              "source": "document",
+              "quote": "AI Video Expander for Reframing Without Cropping"
+            },
+            {
+              "source": "document",
+              "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+            }
+          ],
+          "deductions": []
+        },
+        "coreValue": {
+          "score": 24,
+          "reasoning": "The titles foreground source retention; the supporting copy makes the target ratio concrete.",
+          "evidence": [
+            {
+              "source": "document",
+              "quote": "AI Video Expander for Reframing Without Cropping"
+            },
+            {
+              "source": "document",
+              "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+            }
+          ],
+          "deductions": [
+            {
+              "points": 1,
+              "reasoning": "The search description defines keeping original content via the ratio task less directly than the Hero wording.",
+              "evidence": [
+                {
+                  "source": "document",
+                  "quote": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square."
+                }
+              ]
+            }
+          ]
+        },
+        "factualScope": {
+          "score": 20,
+          "reasoning": "Both supporting fields give evidence-backed source and orientation constraints.",
+          "evidence": [
+            {
+              "source": "document",
+              "quote": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square."
+            },
+            {
+              "source": "website-plan",
+              "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+            }
+          ],
+          "deductions": []
+        },
+        "naturalEnglish": {
+          "score": 17,
+          "reasoning": "The first Hero sentence is easy to visualize. Supporting copy carries both bounds compactly.",
+          "evidence": [
+            {
+              "source": "document",
+              "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+            },
+            {
+              "source": "document",
+              "quote": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square."
+            }
+          ],
+          "deductions": [
+            {
+              "points": 2,
+              "reasoning": "The resolution endings read as compressed labels, especially in a full sentence.",
+              "evidence": [
+                {
+                  "source": "document",
+                  "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+                }
+              ]
+            },
+            {
+              "points": 1,
+              "reasoning": "'Fills the edges' is less direct than describing new space around the source.",
+              "evidence": [
+                {
+                  "source": "document",
+                  "quote": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square."
+                }
+              ]
+            }
+          ]
+        },
+        "fieldCooperation": {
+          "score": 9,
+          "reasoning": "Each pair can stand alone and uses the same capability and limits.",
+          "evidence": [
+            {
+              "source": "document",
+              "quote": "AI Video Expander for Reframing Without Cropping"
+            },
+            {
+              "source": "document",
+              "quote": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square."
+            },
+            {
+              "source": "document",
+              "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+            }
+          ],
+          "deductions": [
+            {
+              "points": 1,
+              "reasoning": "Title and H1 are identical, leaving modest room to tailor the latter to the interface.",
+              "evidence": [
+                {
+                  "source": "document",
+                  "quote": "AI Video Expander for Reframing Without Cropping"
+                }
+              ]
+            }
+          ]
+        }
+      }
+    },
+    "homepage": {
+      "status": "PASS",
+      "score": 95,
+      "dimensions": {
+        "intentFit": {
+          "score": 25,
+          "reasoning": "The page addresses conversion to a new frame and explains how to submit a short source clip.",
+          "evidence": [
+            {
+              "source": "document",
+              "quote": "Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square."
+            },
+            {
+              "source": "document",
+              "quote": "Add the short clip you want to reframe. To use one shot from a longer edit, export that shot on its own before uploading."
+            }
+          ],
+          "deductions": []
+        },
+        "usefulCoverage": {
+          "score": 23,
+          "reasoning": "The four planned controls and five practical questions cover shape, content and upload eligibility.",
+          "evidence": [
+            {
+              "source": "document",
+              "quote": "Use the prompt to describe what should appear outside the clip."
+            },
+            {
+              "source": "document",
+              "quote": "Work with segments of 10 seconds or less. Cut a longer shot into sections before uploading, then reassemble the expanded sections in your editor. Use matching ratios and settings for clips you plan to join."
+            },
+            {
+              "source": "website-plan",
+              "quote": "| key-features | 4 | 改目标比例；原片完整适配；指导新增区域；选择输出清晰度 | 画布比例决定输出形状，矩形位置决定原片边界，提示词决定新增区域方向，实际比例决定画质档位 | SERP §4 的同一模式支持四种独立的用户决策，按操作分工避免重复 |"
+            },
+            {
+              "source": "website-plan",
+              "quote": "| use-cases | 3 | 转竖版社媒；商品广告留出标题空间；把窄画幅改成横版 | 横向人物原片适配竖屏；中心主体旁留白；竖拍素材补出左右环境 | §1 人群和 SERP §5 的不同任务，按可见输出差异组织 |"
+            },
+            {
+              "source": "website-plan",
+              "quote": "| faq | 5 | 扩框与续写区别；黑边；可用片长；画质与画幅关系；原框之外能恢复什么 | 说明限制和用户决策，分别放边界 FAQ | SERP §3–5 及 §1.3。现有黑边是否被处理需验证；只说明原片区域与新增区域的区别 |"
+            }
+          ],
+          "deductions": [
+            {
+              "points": 2,
+              "reasoning": "The copy names output length as a setting without telling readers here what options are offered. That choice is assigned to the form and Guide.",
+              "evidence": [
+                {
+                  "source": "document",
+                  "quote": "Set the target ratio, resolution and output length."
+                }
+              ]
+            }
+          ]
+        },
+        "informationGain": {
+          "score": 18,
+          "reasoning": "Current crop and letterbox preparations, graphics room, and ratio-dependent output turn generic expansion into real editing decisions.",
+          "evidence": [
+            {
+              "source": "document",
+              "quote": "Black bars already baked into the source are inside its saved frame. For an expansion that starts at the edge of the actual picture, prepare a source file with the bars removed before uploading."
+            },
+            {
+              "source": "document",
+              "quote": "The added space gives you a place for a headline or call to action in your editor without putting text across the product."
+            },
+            {
+              "source": "document",
+              "quote": "The 360p setting can serve as a draft, while 540p and 720p are available for any supported ratio."
+            }
+          ],
+          "deductions": [
+            {
+              "points": 2,
+              "reasoning": "The quality FAQ repeats the same two quality branches described earlier and adds only the portrait-ratio association.",
+              "evidence": [
+                {
+                  "source": "document",
+                  "quote": "Square and landscape outputs support 1080p. For 9:16 and 3:4 vertical outputs, the highest setting is 720p. Select the ratio first so the quality choices match where you plan to use the clip."
+                },
+                {
+                  "source": "document",
+                  "quote": "The 360p setting can serve as a draft, while 540p and 720p are available for any supported ratio."
+                }
+              ]
+            }
+          ]
+        },
+        "readability": {
+          "score": 14,
+          "reasoning": "Feature and FAQ titles are concrete and short enough to scan, while the longer scene headings are descriptive.",
+          "evidence": [
+            {
+              "source": "document",
+              "quote": "It uses video outpainting, a way of creating new picture area beyond the edges of a clip."
+            },
+            {
+              "source": "document",
+              "quote": "What happens to black bars in my original clip?"
+            }
+          ],
+          "deductions": [
+            {
+              "points": 1,
+              "reasoning": "The repeated full product name in the section headings is serviceable but slightly formulaic.",
+              "evidence": [
+                {
+                  "source": "document",
+                  "quote": "How to Use AI Video Expander"
+                },
+                {
+                  "source": "document",
+                  "quote": "Where to Use AI Video Expander"
+                }
+              ]
+            }
+          ]
+        },
+        "factualConsistency": {
+          "score": 15,
+          "reasoning": "Visible FAQ answers match included structured data, frozen pricing matches the copy, and the spatial generation claim stays scoped.",
+          "evidence": [
+            {
+              "source": "document",
+              "quote": "Buy credits in a one-time purchase. Your credits never expire."
+            },
+            {
+              "source": "document",
+              "quote": "The added area is newly generated. It can suggest a plausible continuation of the scene, but use the original footage if you need an accurate record of what was actually there."
+            },
+            {
+              "source": "website-plan",
+              "quote": "| 主选 | 目标画幅扩框 | capability | Generate new video around the original frame to fit a new aspect ratio | 型号=Ray 3.2；模式=视频扩框；档位=不分档 | 保留已有片段并生成额外画幅 | SERP §5：第 1–4 条标题或摘要集中于画幅、改比例或补背景 | 改变画面空间直接解决跨平台复用和留白任务 |"
+            }
+          ],
+          "deductions": []
+        }
+      }
+    }
+  },
+  "diagnostics": {
+    "inspectionTerms": 0,
+    "planningTerms": {
+      "brief": 0,
+      "intended": 0,
+      "direction": 1,
+      "priorities": 0,
+      "placement": 2
+    },
+    "presentationLengths": {
+      "titleCharacters": 48,
+      "descriptionCharacters": 148,
+      "h1Words": 7,
+      "outsideWritingTargets": [
+        "Title"
+      ]
+    },
+    "contentCoverage": {
+      "customerVisibleWords": 952,
+      "wordTarget": [
+        1500,
+        2200
+      ],
+      "outsideWordTarget": true,
+      "plannedCounts": {
+        "key-features": 4,
+        "use-cases": 3,
+        "faq": 5
+      },
+      "actualCounts": {
+        "key-features": 4,
+        "use-cases": 3,
+        "faq": 5
+      },
+      "itemWords": {
+        "key-features": [
+          {
+            "heading": "Choose the Shape of Your Video",
+            "headingWords": 6,
+            "words": 52,
+            "outsideWritingTargets": []
+          },
+          {
+            "heading": "Keep the Whole Source Frame",
+            "headingWords": 5,
+            "words": 51,
+            "outsideWritingTargets": []
+          },
+          {
+            "heading": "Describe What Belongs at the Edges",
+            "headingWords": 6,
+            "words": 50,
+            "outsideWritingTargets": []
+          },
+          {
+            "heading": "Set the Output Resolution",
+            "headingWords": 4,
+            "words": 43,
+            "outsideWritingTargets": []
+          }
+        ],
+        "use-cases": [
+          {
+            "heading": "Turn a Wide Shot into a Vertical Post",
+            "headingWords": 8,
+            "words": 40,
+            "outsideWritingTargets": [
+              "headingWords"
+            ]
+          },
+          {
+            "heading": "Make Room for a Product Headline",
+            "headingWords": 6,
+            "words": 46,
+            "outsideWritingTargets": []
+          },
+          {
+            "heading": "Give Portrait Footage a Landscape Frame",
+            "headingWords": 6,
+            "words": 40,
+            "outsideWritingTargets": []
+          }
+        ],
+        "faq": [
+          {
+            "heading": "Does expanding a video make it longer?",
+            "headingWords": 7,
+            "words": 27,
+            "outsideWritingTargets": []
+          },
+          {
+            "heading": "What happens to black bars in my original clip?",
+            "headingWords": 9,
+            "words": 34,
+            "outsideWritingTargets": []
+          },
+          {
+            "heading": "Can I expand a clip longer than 10 seconds?",
+            "headingWords": 9,
+            "words": 35,
+            "outsideWritingTargets": []
+          },
+          {
+            "heading": "Which aspect ratios support 1080p?",
+            "headingWords": 5,
+            "words": 35,
+            "outsideWritingTargets": []
+          },
+          {
+            "heading": "Can AI recover what was outside the original shot?",
+            "headingWords": 9,
+            "words": 31,
+            "outsideWritingTargets": []
+          }
+        ]
+      }
+    },
+    "key-featuresInspectionEndings": 0,
+    "use-casesInspectionEndings": 0
+  }
+}

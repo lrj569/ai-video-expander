@@ -1,0 +1,468 @@
+.ave-hero,
+.ave-home-content {
+  --ave-display: 'Instrument Serif', Georgia, serif;
+  --ave-gutter: clamp(1rem, 3.4vw, 2.75rem);
+  --ave-measure: 1216px;
+  --ave-space: clamp(3.75rem, 7.6vw, 7.25rem);
+  --ave-line: color-mix(in srgb, var(--foreground) 18%, transparent);
+  --ave-secondary-surface: color-mix(in srgb, var(--muted) 60%, var(--background));
+  color: var(--foreground);
+}
+
+.ave-shell {
+  inline-size: min(var(--ave-measure), calc(100% - 2 * var(--ave-gutter)));
+  margin-inline: auto;
+}
+
+.ave-title-phrase {
+  white-space: nowrap;
+}
+
+.ave-hero {
+  padding-block: clamp(2.1rem, 4.75vw, 4.6rem) clamp(3rem, 5.6vw, 5rem);
+}
+
+.ave-hero-heading {
+  margin: 0 auto clamp(1.75rem, 3vw, 2.5rem);
+  text-align: center;
+  animation: ave-hero-enter .55s cubic-bezier(.22, .61, .36, 1) both;
+}
+
+.ave-hero-heading h1 {
+  max-inline-size: min(1120px, 100%);
+  margin-inline: auto;
+  color: var(--foreground);
+  font: 650 clamp(2.27rem, 5vw, 4.125rem)/1.01 var(--font-sans);
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .ave-hero-heading h1 {
+    background-image: linear-gradient(117deg, var(--foreground) 5%, var(--primary-hover, var(--primary)) 94%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+}
+
+@media (forced-colors: active) {
+  .ave-hero-heading h1 {
+    background-image: none;
+    -webkit-text-fill-color: CanvasText;
+    color: CanvasText;
+  }
+}
+
+.ave-hero-heading p {
+  max-inline-size: 61ch;
+  margin: clamp(.85rem, 2vw, 1.25rem) auto 0;
+  color: var(--muted-foreground);
+  font-size: clamp(1.02rem, 1.35vw, 1.15rem);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+@keyframes ave-hero-enter {
+  from { opacity: .45; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.ave-section {
+  padding-block: var(--ave-space);
+}
+
+.ave-section--tinted {
+  background: var(--ave-secondary-surface);
+  border-block: 1px solid var(--ave-line);
+}
+
+.ave-section h2 {
+  max-inline-size: 26ch;
+  font: 400 clamp(2.4rem, 5vw, 4.125rem)/.99 var(--ave-display);
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+
+.ave-section h3 {
+  font: 400 clamp(1.8rem, 3.1vw, 2.7rem)/1.03 var(--ave-display);
+  letter-spacing: -.016em;
+  text-wrap: balance;
+}
+
+.ave-section p {
+  color: var(--muted-foreground);
+  font-size: 1.025rem;
+  line-height: 1.63;
+  text-wrap: pretty;
+}
+
+.ave-section-head {
+  margin-block-end: clamp(2rem, 4.5vw, 3.5rem);
+}
+
+.ave-section-head > p {
+  max-inline-size: 61ch;
+  margin-block-start: .9rem;
+}
+
+.ave-definition {
+  display: grid;
+  grid-template-columns: minmax(0, .79fr) minmax(0, 1.21fr);
+  align-items: center;
+  column-gap: clamp(2rem, 7vw, 7rem);
+}
+
+.ave-definition-copy > p {
+  margin-block-start: 1.05rem;
+}
+
+.ave-definition-copy .ave-definition-lead {
+  color: var(--foreground);
+  font-weight: 580;
+  font-size: 1.15rem;
+}
+
+.ave-film-edge,
+.ave-step-visual {
+  inline-size: 100%;
+  min-inline-size: 0;
+  overflow: clip;
+  border: 1px solid var(--ave-line);
+  border-radius: var(--radius);
+  background: var(--card);
+  transition: border-color 180ms ease, box-shadow 230ms ease;
+}
+
+.ave-film-edge:focus-within {
+  border-color: var(--ring);
+}
+
+@media (hover: hover) {
+  .ave-film-edge:hover {
+    border-color: var(--ring);
+    box-shadow: 0 13px 32px color-mix(in srgb, var(--foreground) 15%, transparent);
+  }
+}
+
+.ave-features {
+  border-block-start: 1px solid var(--ave-line);
+}
+
+.ave-feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(1.75rem, 5.8vw, 5.75rem);
+  padding-block: clamp(1.65rem, 4vw, 3.45rem);
+  border-block-end: 1px solid var(--ave-line);
+}
+
+.ave-feature--primary {
+  grid-template-columns: minmax(0, .76fr) minmax(0, 1.24fr);
+}
+
+.ave-feature-copy p {
+  max-inline-size: 48ch;
+  margin-block-start: .8rem;
+}
+
+.ave-text-link,
+.ave-primary-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .65rem;
+  min-block-size: 2.75rem;
+  font-weight: 650;
+  cursor: pointer;
+  transition: color 170ms ease, background-color 170ms ease, border-color 170ms ease;
+}
+
+.ave-text-link {
+  color: var(--primary);
+  text-decoration: none;
+  border-block-end: 1px solid currentColor;
+}
+
+.ave-feature-copy .ave-text-link {
+  margin-block-start: .65rem;
+}
+
+.ave-inline-link {
+  color: var(--primary);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: .22em;
+  transition: color 170ms ease;
+}
+
+.ave-inline-link:hover,
+.ave-text-link:hover {
+  color: var(--primary-hover, var(--foreground));
+}
+
+.ave-arrow::after {
+  content: '';
+  display: block;
+  flex: 0 0 auto;
+  inline-size: .52rem;
+  block-size: .52rem;
+  margin-inline-end: .14rem;
+  border-block-start: 1px solid currentColor;
+  border-inline-end: 1px solid currentColor;
+  transform: rotate(45deg);
+  transition: transform 170ms ease;
+}
+
+.ave-arrow:hover::after,
+.ave-arrow:focus-visible::after {
+  transform: translateX(.2rem) rotate(45deg);
+}
+
+.ave-section :is(a, summary):focus-visible,
+.ave-home-pricing a:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 4px;
+  border-radius: 3px;
+}
+
+.ave-steps {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(.9rem, 2vw, 1.75rem);
+  padding: 0;
+  list-style: none;
+}
+
+.ave-step {
+  display: flex;
+  flex-direction: column;
+  border-block-start: 1px solid var(--ave-line);
+  padding-block-start: 1.1rem;
+}
+
+.ave-step h3 {
+  font-size: clamp(1.65rem, 2.65vw, 2.35rem);
+}
+
+.ave-step p,
+.ave-case p {
+  margin-block: .72rem 1.1rem;
+}
+
+.ave-step-visual {
+  margin-block-start: auto;
+}
+
+.ave-step-visual img {
+  display: block;
+  inline-size: 100%;
+  block-size: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: contain;
+}
+
+.ave-cases {
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.08fr) minmax(0, 1.15fr);
+  gap: clamp(1rem, 2.7vw, 2.75rem);
+}
+
+.ave-case {
+  min-inline-size: 0;
+  padding-block-start: 1.05rem;
+  border-block-start: 1px solid var(--ave-line);
+}
+
+.ave-case h3 {
+  font-size: clamp(1.75rem, 2.85vw, 2.5rem);
+}
+
+.ave-film-edge--portrait {
+  max-inline-size: min(100%, 16.25rem);
+}
+
+.ave-home-pricing {
+  padding-block-end: clamp(3rem, 6vw, 4.7rem);
+}
+
+.ave-home-pricing #pricing {
+  padding-block: var(--ave-space) clamp(1.45rem, 3vw, 2.25rem);
+  padding-inline: 0;
+}
+
+.ave-home-pricing #pricing > div {
+  inline-size: min(var(--ave-measure), calc(100% - 2 * var(--ave-gutter)));
+  margin-inline: auto;
+}
+
+.ave-home-pricing #pricing h2 {
+  font: 400 clamp(2.4rem, 5vw, 4.125rem)/.99 var(--ave-display);
+  letter-spacing: -.025em;
+}
+
+.ave-faq {
+  display: grid;
+  grid-template-columns: minmax(0, .88fr) minmax(0, 1.12fr);
+  column-gap: clamp(2rem, 7vw, 7rem);
+}
+
+.ave-faq .ave-section-head {
+  margin-block-end: 0;
+}
+
+.ave-questions {
+  border-block-start: 1px solid var(--ave-line);
+}
+
+.ave-questions details {
+  border-block-end: 1px solid var(--ave-line);
+}
+
+.ave-questions summary {
+  position: relative;
+  display: block;
+  min-block-size: 3.5rem;
+  padding: .85rem 2rem .85rem 0;
+  color: var(--foreground);
+  cursor: pointer;
+  list-style: none;
+  transition: color 170ms ease;
+}
+
+.ave-questions summary::-webkit-details-marker {
+  display: none;
+}
+
+.ave-questions summary h3 {
+  font-size: clamp(1.4rem, 2.9vw, 1.85rem);
+  line-height: 1.13;
+  text-wrap: pretty;
+}
+
+.ave-questions summary::before,
+.ave-questions summary::after {
+  content: '';
+  position: absolute;
+  inset-block-start: 50%;
+  inset-inline-end: .2rem;
+  block-size: 1px;
+  inline-size: .95rem;
+  background: currentColor;
+  transform: translateY(-50%);
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+.ave-questions summary::after {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.ave-questions details[open] summary::after {
+  opacity: 0;
+  transform: translateY(-50%);
+}
+
+.ave-questions summary:hover,
+.ave-questions details[open] summary {
+  color: var(--primary);
+}
+
+.ave-questions details p {
+  max-inline-size: 56ch;
+  margin: 0 1.9rem 1.2rem 0;
+}
+
+.ave-final {
+  display: grid;
+  justify-items: center;
+  text-align: center;
+  padding: clamp(2.5rem, 7vw, 5.25rem) 1rem;
+  border: 1px solid var(--ave-line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(133deg, transparent 63%, color-mix(in srgb, var(--accent) 52%, transparent)),
+    var(--card);
+}
+
+.ave-final > p {
+  margin: 1rem 0 1.4rem;
+}
+
+.ave-primary-link {
+  min-block-size: 3rem;
+  padding: .45rem 1.05rem;
+  color: var(--primary-foreground);
+  border-radius: .55rem;
+  background: var(--primary);
+  text-decoration: none;
+}
+
+.ave-primary-link:hover,
+.ave-primary-link:active {
+  background: var(--primary-hover, var(--foreground));
+}
+
+@supports (animation-timeline: view()) {
+  .ave-enter {
+    animation: ave-section-enter auto ease-out both;
+    animation-timeline: view();
+    animation-range: entry 0% entry 35%;
+  }
+
+  @keyframes ave-section-enter {
+    from { transform: translateY(12px); }
+    to { transform: translateY(0); }
+  }
+}
+
+@media (max-width: 820px) {
+  .ave-definition,
+  .ave-feature,
+  .ave-feature--primary,
+  .ave-faq {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.65rem;
+  }
+
+  .ave-steps,
+  .ave-cases {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.55rem;
+  }
+
+  .ave-film-edge--portrait {
+    max-inline-size: min(100%, 14.75rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ave-hero-heading,
+  .ave-enter {
+    animation: none;
+  }
+
+  .ave-home-content :is(.ave-film-edge, a, summary),
+  .ave-home-content :is(a, summary)::before,
+  .ave-home-content :is(a, summary)::after {
+    transition: none;
+  }
+
+  .ave-arrow:is(:hover, :focus-visible)::after {
+    transform: rotate(45deg);
+  }
+}
+
+.ave-hero {
+  background:
+    radial-gradient(ellipse at 50% -10%, #23537c56, transparent 62%),
+    repeating-linear-gradient(90deg, transparent 0 63px, #98c7ff0a 63px 64px),
+    var(--background);
+}
+@media (max-width: 430px) {
+  .ave-hero-heading h1 { font-size: clamp(1.97rem, 9.2vw, 2.6rem); }
+}
+@media (min-width: 1100px) {
+  .ave-hero-heading h1 > span:first-of-type { display: block; }
+}

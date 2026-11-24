@@ -4,10 +4,98 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import PricingSection from '@/components/PricingSection';
 import PricingFAQ from '../components/page-views/pricing/PricingFAQ';
 import { Footer } from '@/components/Footer';
-import { faqSchemaData, metadata, pricingSchemaData } from '../components/page-views/pricing/PricingView';
+import { metadata, pricingSchemaData } from '../components/page-views/pricing/PricingView';
 ---
-<BaseLayout metadata={metadata} path="/pricing" structuredData={[pricingSchemaData, faqSchemaData]}>
-  <PricingSection client:load />
-  <PricingFAQ />
+<BaseLayout metadata={metadata} path="/pricing" structuredData={[pricingSchemaData]}>
+  <div class="pricing-page">
+    <header class="pricing-header">
+      <h1><span>AI Video Expander</span> Pricing</h1>
+      <p>Compare pack prices, included credits, and purchase terms.</p>
+    </header>
+    <PricingSection client:load hideHeading />
+    <PricingFAQ />
+  </div>
   <Footer />
 </BaseLayout>
+
+<style>
+  .pricing-header {
+    width: min(100% - 2rem, 1216px);
+    margin-inline: auto;
+    padding-block: clamp(3.5rem, 8vw, 7rem) clamp(1.75rem, 4vw, 3rem);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pricing-header h1,
+  .pricing-page :global(#pricing-faq-title) {
+    font-family: var(--font-sans);
+    font-weight: 650;
+    line-height: 1;
+  }
+
+  .pricing-header h1 {
+    margin: 0 0 0.75rem;
+    font-size: clamp(2.625rem, 6vw, 5.125rem);
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  .pricing-header p {
+    max-width: 34rem;
+    margin: 0;
+    color: var(--muted-foreground);
+    font-size: clamp(1rem, 1.8vw, 1.1875rem);
+    line-height: 1.55;
+  }
+
+  .pricing-page :global(#pricing) {
+    padding-block: clamp(2.5rem, 4vw, 4rem) clamp(3rem, 6vw, 5rem);
+  }
+
+  .pricing-page :global(#pricing > div),
+  .pricing-page :global(.pricing-faq > div) {
+    max-width: 1216px;
+  }
+
+  .pricing-page :global(.pricing-faq) {
+    border-top: 1px solid var(--border);
+    padding-block: clamp(3rem, 6vw, 5rem) clamp(4rem, 8vw, 7rem);
+  }
+
+  .pricing-page :global(.pricing-faq details) {
+    border-color: var(--border);
+  }
+
+  @media (min-width: 20rem) {
+    .pricing-header h1 span {
+      white-space: nowrap;
+    }
+  }
+
+  @media (max-width: 63.999rem) {
+    .pricing-page :global(.pricing-faq-grid) {
+      gap: 2rem;
+    }
+
+    .pricing-page :global(.pricing-faq-intro > p:last-of-type) {
+      margin-bottom: 0;
+    }
+  }
+
+  @media (min-width: 64rem) {
+    .pricing-page :global(.pricing-faq-intro) {
+      top: 5.5rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .pricing-header {
+      animation: pricing-header-enter 360ms ease-out;
+    }
+
+    @keyframes pricing-header-enter {
+      from { transform: translateY(6px); }
+      to { transform: translateY(0); }
+    }
+  }
+</style>

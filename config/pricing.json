@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0.0",
+  "source": "user-confirmed-commercial-contract",
+  "currency": "USD",
+  "purchase_type": "one-time",
+  "credits_expire": false,
+  "package_list": [
+    {
+      "code": "PRD26K9ENRLEGHT8F",
+      "product_id": "PL268S776YXSUQOJ",
+      "product_code": "PL268S776YXSUQOJ",
+      "price": 9.9,
+      "score": 200,
+      "price_per_score": 0.05
+    },
+    {
+      "code": "PRD268A1OS6MYWDHY",
+      "product_id": "PL26UEUS1XSQXFTJ",
+      "product_code": "PL26UEUS1XSQXFTJ",
+      "price": 29.9,
+      "score": 650,
+      "price_per_score": 0.046
+    },
+    {
+      "code": "PRD26WTWXCD0TUOJ3",
+      "product_id": "PL26V2ZGW8DQEUZJ",
+      "product_code": "PL26V2ZGW8DQEUZJ",
+      "price": 49.9,
+      "score": 1200,
+      "price_per_score": 0.042
+    }
+  ],
+  "price_per_score_semantics": "Rounded user record; not an exact unit price or settlement multiplier.",
+  "id_mapping": "oneTimePlans.priceId = package_list.code; backend resolves code before using product_id with Anyway",
+  "unconfirmed": [
+    "generation_credit_cost",
+    "refund_policy",
+    "tax",
+    "payment_methods",
+    "free_allowance",
+    "commercial_use_rights"
+  ],
+  "site_slug": "ai-video-expander",
+  "implementation_status": "not-integrated"
+}

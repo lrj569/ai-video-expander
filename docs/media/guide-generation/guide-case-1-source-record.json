@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "Ten-second landscape source video at a low fixed wheel-height angle. A rider in a teal jacket pops the front wheel of a cream BMX over a low red clay bank and rolls down the ramp. Show the full rider and bike with an edge of muted evening sky. Tight landscape composition across the action, natural movement, no graphics. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "16:9",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:18:19.9210067Z",
+    "taskId":  "91412bb1f98e46b9ae5267446bb23574",
+    "checkedAt":  "2026-11-24T03:20:43.6216100Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/4791c98e-0157-47d0-ad33-c5448d52eb11.mp4",
+    "polls":  62,
+    "waitedSeconds":  139.1,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/a911f8d6-5c48-4d66-851e-3693a8cde98d.mp4",
+    "asset":  {
+                  "bytes":  3957349,
+                  "sha256":  "8c0b8560d3ff14aa1dfb92b01c590c022c7100bb7395cfd038d74815ae5307e5",
+                  "width":  1344,
+                  "height":  768,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/guide-generation/guide-case-1-source.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:20:49.3550183Z"
+}

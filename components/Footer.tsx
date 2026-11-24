@@ -1,7 +1,7 @@
 import Link from '@/src/compat/link';
 import { Mail } from 'lucide-react';
 import { FriendLink } from '../lib/server-api';
-import { siteConfig, contactConfig } from '@/website-config';
+import { siteConfig, contactConfig, publicNavigation, brandConfig } from '@/website-config';
 
 interface FooterProps {
   friendlyLinks?: FriendLink[];
@@ -33,26 +33,27 @@ export function Footer({ friendlyLinks = [] }: FooterProps) {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-5">
           <div className="md:col-span-2">
             <Link href="/" className="mb-4 inline-flex items-center gap-2 text-foreground">
-              <span className="h-8 w-8 rounded-full bg-primary text-center text-sm font-semibold leading-8 text-primary-foreground">F</span>
+              <img src={brandConfig.logoRaster.src} width="32" height="32" alt="" className="rounded-[7px]" />
               <span className="text-[15px] font-medium">{siteConfig.name}</span>
             </Link>
             <p className="max-w-sm text-[13px] leading-5">
-              A dark-canvas website template with pricing, auth, SEO defaults, and Framer-inspired marketing surfaces.
+              {siteConfig.description}
             </p>
-            <a
+            {contactConfig.supportEmail && <a
               href={`mailto:${contactConfig.supportEmail}`}
               className="mt-5 inline-flex items-center gap-2 rounded-full bg-secondary px-4 py-2 text-sm text-foreground hover:bg-accent"
             >
               <Mail className="h-4 w-4" />
               {contactConfig.supportEmail}
-            </a>
+            </a>}
           </div>
 
           <div>
             <div className="mb-3 text-[13px] font-medium text-foreground">Navigation</div>
             <ul className="space-y-2">
-              <li><Link href="/" className="text-[13px] hover:text-foreground">Home</Link></li>
-              <li><Link href="/pricing" className="text-[13px] hover:text-foreground">Pricing</Link></li>
+              {publicNavigation.map(({ href, label }) => (
+                <li key={href}><Link href={href} className="text-[13px] hover:text-foreground">{label}</Link></li>
+              ))}
             </ul>
           </div>
 

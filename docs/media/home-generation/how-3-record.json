@@ -1,0 +1,85 @@
+﻿{
+    "status":  "downloaded",
+    "request":  {
+                    "prompt":  "Editorial instruction illustration in off-white, clay red and coal. A video monitor on the left visibly previews the completed tall clip of a white skateboard on a terracotta bank. Immediately beside it is a large clear downward arrow pointing into a folder on the right, and a distinct file tile marked MP4 lies visibly inside the folder. Show preview, active download and saved file together at a glance. Orthographic studio diagram, uncluttered shapes, precise spacing. No text beyond MP4. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "4:3",
+                    "resolution":  "1k",
+                    "quality":  "high",
+                    "output_format":  "png",
+                    "num_images":  1
+                },
+    "imagePlan":  {
+                      "userNeed":  "预览并保存成品",
+                      "subject":  "白色滑板和陶红坡道的连续步骤",
+                      "style":  "编辑式摄影与图解，暖白台面。",
+                      "palette":  "暖白、陶红、炭黑",
+                      "composition":  "工作动作与素材在相邻位置，保留配对线索。",
+                      "aspectRatio":  "4:3",
+                      "demonstrates":  "预览并保存成品",
+                      "doesNotProve":  "只解释操作或品牌身份，未验证部署及运行效果。",
+                      "groupId":  "upload-expand-save",
+                      "groupKind":  "sequence",
+                      "coherenceReason":  "相同白色滑板及陶红坡面，展示三个连续操作。",
+                      "moduleIds":  [
+                                        "how-to-use"
+                                    ],
+                      "role":  "process",
+                      "artDirection":  {
+                                           "purpose":  "预览并保存成品",
+                                           "firstGlanceMessage":  "Step 3: Download and Save the Video 能一眼辨认",
+                                           "visualHook":  "同一片段从原始文件转换为按需扩框并下载的素材。",
+                                           "subjectHierarchy":  "动作标识和临近素材的轮廓清楚。",
+                                           "colorRelationship":  "陶红作为编辑动作，炭黑图标配暖白台面。",
+                                           "lightingAndMaterial":  "窗边散射光，磨砂纸面和滑板质感。",
+                                           "displayScaleCheck":  "手机端保留主要动作与短标签，展示全图。"
+                                       },
+                      "referenceEvidence":  [
+                                                {
+                                                    "path":  "design-system/ai-video-expander/pages/home.md",
+                                                    "sha256":  "d699ee7e1d4a624575d4f28ff411e900e17c7b80e4190b2a4ad38205186998d3"
+                                                }
+                                            ],
+                      "rejectionCriteria":  [
+                                                "主要动作不清楚",
+                                                "信息性文字错误或不清楚",
+                                                "主体缺失或主要动作被裁切"
+                                            ],
+                      "exclusions":  {
+                                         "chineseText":  true,
+                                         "chineseTraditionalElements":  true
+                                     },
+                      "exclusionInstruction":  "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                      "generationPrompt":  "Editorial instruction illustration in off-white, clay red and coal. A video monitor on the left visibly previews the completed tall clip of a white skateboard on a terracotta bank. Immediately beside it is a large clear downward arrow pointing into a folder on the right, and a distinct file tile marked MP4 lies visibly inside the folder. Show preview, active download and saved file together at a glance. Orthographic studio diagram, uncluttered shapes, precise spacing. No text beyond MP4. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text."
+                  },
+    "generationPolicy":  {
+                             "version":  1,
+                             "receiptId":  "b374ebf6-2757-4ee6-80e7-c0c4bf08d3f9",
+                             "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+                             "provider":  "wavespeedai/gpt-image-2.5-flare/text-to-image",
+                             "policyHashes":  {
+                                                  ".agents/skills/image-art-direction/SKILL.md":  "d0ae6de12b22e2aaa5b9c38798279c19bfb2de0ee637f67229a4268f5aa6d17b",
+                                                  ".agents/skills/image-art-direction/references/art-brief.md":  "6c85145aa74cdced1d3d3a656a81f5b7fd21280201dd134ded284e0409eb3802",
+                                                  ".agents/skills/image-art-direction/references/usage-standards.md":  "9cc3fa0e572c99d21e08c9288061ec4099cb2d47a6172dc131563df393271a6c",
+                                                  ".agents/skills/image-art-direction/references/quality-review.md":  "9c0d4660311372e0df85627bfc0fd0c32c8fb26763a74ea96f7a813e7f4d4833",
+                                                  ".agents/skills/image-art-direction/references/project-image-api.md":  "f05051cdf9063d2a1dda65deff8713f1951cc32b2ca70008a3cda0806444881c",
+                                                  ".agents/skills/image-art-direction/references/photographic-comparison-workflow.md":  "33de3eaebe54b50e705cb2336b83c41eeab200c8e05ae0bb1ed12dcbfcb37100",
+                                                  ".agents/skills/image-art-direction/references/generation-gate-contract.md":  "41045e19c948219ca51cd186b7e3347e05f8898e33f9b931565561c1b557c228"
+                                              },
+                             "planSha256":  "7ee93d325cf453b9cd3abbb6680485312f70b31c276b725d6a2d8051fe709b06",
+                             "requestSha256":  "a9918d9656d60f3f11e782dec4bb6e6794c18e1ee3383935f588c46b7f1f1a9a"
+                         },
+    "submittedAt":  "2026-11-24T03:21:50.4731128Z",
+    "taskId":  "c69a0184da2e41f0a47cc7bd79fa153c",
+    "checkedAt":  "2026-11-24T03:22:32.9508139Z",
+    "upstreamStatus":  1,
+    "imageUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/eb794276-7184-4ff5-9b72-2b588d06988b.png",
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/94ab03ed-734a-434a-98b3-4e87877335f6.png",
+    "asset":  {
+                  "path":  "docs/media/home-generation/how-3.png",
+                  "sha256":  "c52ec16c6f68a1905bed64ed1ed0f3cdb1a35b240dcd0966e99be4da9a51a87e",
+                  "width":  1184,
+                  "height":  880,
+                  "format":  "PNG",
+                  "bytes":  940700
+              }
+}

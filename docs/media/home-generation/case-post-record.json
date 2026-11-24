@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "A ten-second vertical independent magazine interview. Two adults in adjacent chairs, one in a pale blue shirt and one in a black jacket, exchange a glance and share a brief laugh. Keep both faces and both bodies within the same tall composition, with an unpatterned buff wall above and a clear dark rug below for future captions. Window light washes the side of the small theatre lounge. Film at seated eye height with a fixed camera. No letters or captions; quiet room sound. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "9:16",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:18:20.0377911Z",
+    "taskId":  "927f914dbbf84595b41164aac5a29a10",
+    "checkedAt":  "2026-11-24T03:20:32.0176431Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/6012b1bf-314f-4211-8fda-43fb31fdab73.mp4",
+    "polls":  57,
+    "waitedSeconds":  128.1,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/d63d1751-ab55-4ff3-b5cd-2a405873e66b.mp4",
+    "asset":  {
+                  "bytes":  3415777,
+                  "sha256":  "284a57ddfe1925d96f5db936bd30a456c69ce483d83b56cd7b165299de9736b1",
+                  "width":  768,
+                  "height":  1344,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/home-generation/case-post.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:20:37.3722407Z"
+}

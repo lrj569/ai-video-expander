@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "Ten seconds in a tall portrait shot. A climber in a rust jacket catches a ledge on pale sandstone, then takes one measured step upward as a cobalt rope tightens below. Film from a stationary side angle. Show the entire climber and the rock around them, with quiet sunlit sandstone extending above the handhold. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "3:4",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:20:51.4927327Z",
+    "taskId":  "60982573364a4349b7fbc7a9f505678a",
+    "checkedAt":  "2026-11-24T03:22:18.9867710Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/7dcbb003-e004-42d4-9e41-8dc06aab8e02.mp4",
+    "polls":  38,
+    "waitedSeconds":  84.6,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/7c861320-054d-4a34-b25b-f665d970ccdf.mp4",
+    "asset":  {
+                  "bytes":  4353300,
+                  "sha256":  "99a4c0f7ee0e25e1a053e208172f60918892dd646df46a5b2577a3f73b5a1925",
+                  "width":  768,
+                  "height":  1024,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/guide-generation/guide-case-4.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:22:24.8548511Z"
+}

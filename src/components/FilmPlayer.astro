@@ -1,0 +1,200 @@
+---
+interface Props {
+  src: string;
+  poster: string;
+  label: string;
+  ratio?: string;
+  fitRatio?: string;
+  autoplay?: boolean;
+}
+
+const { src, poster, label, ratio = '16 / 9', fitRatio, autoplay = false } = Astro.props;
+const decimalRatio = (value: string) => {
+  const [width, height = 1] = value.split(/[:/]/).map(Number);
+  return width > 0 && height > 0 ? width / height : 16 / 9;
+};
+const fit = (fitRatio ? decimalRatio(fitRatio) : decimalRatio(ratio)) / decimalRatio(ratio);
+const mediaWidth = Math.min(1, fit) * 100;
+const mediaHeight = Math.min(1, 1 / fit) * 100;
+const aspectRatio = /^\s*\d+(?:\s*[:/]\s*\d+)?\s*$/.test(ratio)
+  ? ratio.replace(':', '/')
+  : '16 / 9';
+---
+<expander-film class="film-player" style={`--film-ratio: ${aspectRatio}; --film-media-width: ${mediaWidth}%; --film-media-height: ${mediaHeight}%`} data-start={autoplay ? 'muted' : undefined}>
+  <video
+    src={src}
+    poster={poster}
+    aria-label={label}
+    playsinline controls
+    preload="none"
+    muted={autoplay}
+  ></video>
+  <button type="button" class="film-play" hidden aria-label={`Play ${label}`}>
+    <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" aria-hidden="true">
+      <path d="M8 4.8a.9.9 0 0 0-1.36.77v12.86a.9.9 0 0 0 1.36.77l10.56-6.43a.9.9 0 0 0 0-1.54L8 4.8Z" />
+    </svg>
+  </button>
+  <span class="film-message" role="status"></span>
+</expander-film>
+
+<script>
+  let currentPlayer: HTMLVideoElement | undefined;
+
+  class ExpanderFilm extends HTMLElement {
+    private lifecycle?: AbortController;
+    private observer?: IntersectionObserver;
+
+    connectedCallback() {
+      if (this.lifecycle) return;
+      const video = this.querySelector('video');
+      const button = this.querySelector<HTMLButtonElement>('.film-play');
+      const message = this.querySelector('.film-message');
+      if (!video || !button || !message) return;
+
+      this.lifecycle = new AbortController();
+      const { signal } = this.lifecycle;
+      let hovering = false;
+      let autoStarted = false;
+      let autoEnabled = this.dataset.start === 'muted' && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const useNativeControls = (show: boolean) => {
+        video.controls = show;
+        button.hidden = show;
+      };
+      const settle = (force = false) => {
+        if ((video.paused || video.ended) && (force || (!hovering && !this.contains(document.activeElement)))) {
+          useNativeControls(false);
+        }
+      };
+      const play = async (automatic = false) => {
+        message.textContent = '';
+        try {
+          await video.play();
+        } catch (error) {
+          if (error instanceof DOMException && error.name === 'AbortError') return;
+          useNativeControls(false);
+          if (!automatic) message.textContent = 'This clip could not play. Try again.';
+        }
+      };
+
+      useNativeControls(false);
+      button.addEventListener('click', () => {
+        autoEnabled = false;
+        void play();
+      }, { signal });
+      video.addEventListener('play', () => {
+        if (currentPlayer && currentPlayer !== video) currentPlayer.pause();
+        currentPlayer = video;
+      }, { signal });
+      video.addEventListener('playing', () => {
+        const playButtonFocused = button === document.activeElement;
+        useNativeControls(true);
+        if (playButtonFocused) video.focus({ preventScroll: true });
+        this.dataset.playing = 'true';
+      }, { signal });
+      const stop = () => {
+        delete this.dataset.playing;
+        if (currentPlayer === video) currentPlayer = undefined;
+        settle();
+      };
+      video.addEventListener('pause', stop, { signal });
+      video.addEventListener('ended', stop, { signal });
+      video.addEventListener('error', () => {
+        if (video.controls || button === document.activeElement) {
+          useNativeControls(false);
+          message.textContent = 'This clip could not load.';
+        }
+      }, { signal });
+      this.addEventListener('pointerenter', event => { hovering = event.pointerType === 'mouse'; }, { signal });
+      this.addEventListener('pointerleave', () => { hovering = false; settle(); }, { signal });
+      this.addEventListener('focusout', () => queueMicrotask(() => { if (!signal.aborted) settle(); }), { signal });
+      this.addEventListener('film-source-change', () => {
+        autoEnabled = false;
+        useNativeControls(false);
+        delete this.dataset.playing;
+        message.textContent = '';
+      }, { signal });
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) video.pause();
+      }, { signal });
+      this.observer = new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting || entry.intersectionRatio < 0.1) {
+          video.pause();
+          settle(true);
+        } else if (autoEnabled && !autoStarted && entry.intersectionRatio >= 0.35 && !document.hidden) {
+          autoStarted = true;
+          video.muted = true;
+          void play(true);
+        }
+      }, { threshold: [0, 0.1, 0.35] });
+      this.observer.observe(this);
+    }
+
+    disconnectedCallback() {
+      this.querySelector('video')?.pause();
+      this.observer?.disconnect();
+      this.lifecycle?.abort();
+      this.lifecycle = undefined;
+    }
+  }
+
+  if (!customElements.get('expander-film')) customElements.define('expander-film', ExpanderFilm);
+</script>
+
+<style>
+  .film-player {
+    position: relative;
+    display: block;
+    isolation: isolate;
+    aspect-ratio: var(--film-ratio, 16 / 9);
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--film-radius, 10px);
+    background: #070d18;
+  }
+  video {
+    display: block;
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    width: var(--film-media-width, 100%);
+    height: var(--film-media-height, 100%);
+    object-fit: contain;
+  }
+  .film-play {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    z-index: 1;
+    display: grid;
+    place-items: center;
+    width: var(--film-play-size, 58px);
+    height: var(--film-play-size, 58px);
+    padding: 0;
+    border: 1px solid #fff6;
+    border-radius: 50%;
+    background: #081421d9;
+    color: #eaf5ff;
+    cursor: pointer;
+    transition: background-color 180ms ease-out, scale 180ms ease-out;
+  }
+  .film-play[hidden] { display: none; }
+  .film-play svg { translate: 1px 0; }
+  .film-play:focus-visible { outline: 2px solid #d9f9ff; outline-offset: 3px; }
+  @media (hover: hover) {
+    .film-play:hover { background-color: var(--accent, #17353d); scale: 1.07; }
+  }
+  .film-play:active { scale: .95; }
+  .film-message:not(:empty) {
+    position: absolute;
+    z-index: 1;
+    inset: auto 10px 10px;
+    padding: 7px 10px;
+    color: #eaf5ff;
+    border-radius: 5px;
+    background: #070d18ed;
+    font-size: .875rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .film-play { transition: none; scale: 1; }
+  }
+</style>

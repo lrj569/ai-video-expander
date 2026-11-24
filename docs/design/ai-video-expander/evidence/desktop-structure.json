@@ -1,0 +1,344 @@
+{
+  "headings": [
+    {
+      "tag": "h1",
+      "text": "Seedream 5.5 AI Image Generator Transform Your Imagination into Reality",
+      "rect": {
+        "x": 144,
+        "y": 113,
+        "width": 1152,
+        "height": 166
+      }
+    },
+    {
+      "tag": "h2",
+      "text": "Image inspiration",
+      "rect": {
+        "x": 632,
+        "y": 414,
+        "width": 1,
+        "height": 1
+      }
+    },
+    {
+      "tag": "h2",
+      "text": "Overview Seedream 5.5 AI Image Generator",
+      "rect": {
+        "x": 112,
+        "y": 1463,
+        "width": 1216,
+        "height": 48
+      }
+    },
+    {
+      "tag": "h3",
+      "text": "What is Seedream 5.5 AI Image Generator?",
+      "rect": {
+        "x": 744,
+        "y": 1750,
+        "width": 584,
+        "height": 32
+      }
+    }
+  ],
+  "actions": [
+    {
+      "tag": "a",
+      "text": "Seedream 5.5",
+      "rect": {
+        "x": 96,
+        "y": 16,
+        "width": 176,
+        "height": 32
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Login",
+      "rect": {
+        "x": 1259,
+        "y": 12,
+        "width": 85,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Text to Image",
+      "rect": {
+        "x": 141,
+        "y": 444,
+        "width": 215,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Image Reference",
+      "rect": {
+        "x": 364,
+        "y": 444,
+        "width": 215,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "1.5K",
+      "rect": {
+        "x": 141,
+        "y": 724,
+        "width": 215,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "2K",
+      "rect": {
+        "x": 364,
+        "y": 724,
+        "width": 215,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Intelligent",
+      "rect": {
+        "x": 141,
+        "y": 820,
+        "width": 141,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Fixed ratio",
+      "rect": {
+        "x": 290,
+        "y": 820,
+        "width": 141,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Custom size",
+      "rect": {
+        "x": 439,
+        "y": 820,
+        "width": 141,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Auto",
+      "rect": {
+        "x": 141,
+        "y": 916,
+        "width": 141,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Opaque",
+      "rect": {
+        "x": 290,
+        "y": 916,
+        "width": 141,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Transparent",
+      "rect": {
+        "x": 439,
+        "y": 916,
+        "width": 141,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "1",
+      "rect": {
+        "x": 141,
+        "y": 1012,
+        "width": 104,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "2",
+      "rect": {
+        "x": 253,
+        "y": 1012,
+        "width": 104,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "3",
+      "rect": {
+        "x": 364,
+        "y": 1012,
+        "width": 104,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "4",
+      "rect": {
+        "x": 476,
+        "y": 1012,
+        "width": 104,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "5",
+      "rect": {
+        "x": 141,
+        "y": 1060,
+        "width": 104,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "6",
+      "rect": {
+        "x": 253,
+        "y": 1060,
+        "width": 104,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "7",
+      "rect": {
+        "x": 364,
+        "y": 1060,
+        "width": 104,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "8",
+      "rect": {
+        "x": 476,
+        "y": 1060,
+        "width": 104,
+        "height": 40
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Generate Images 1 credit",
+      "rect": {
+        "x": 137,
+        "y": 1198,
+        "width": 447,
+        "height": 44
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Life inside a honeycomb",
+      "rect": {
+        "x": 633,
+        "y": 822,
+        "width": 144,
+        "height": 118
+      }
+    },
+    {
+      "tag": "button",
+      "text": "A pantry product portrait",
+      "rect": {
+        "x": 785,
+        "y": 822,
+        "width": 144,
+        "height": 118
+      }
+    },
+    {
+      "tag": "button",
+      "text": "An empty pink pool",
+      "rect": {
+        "x": 937,
+        "y": 822,
+        "width": 144,
+        "height": 118
+      }
+    },
+    {
+      "tag": "button",
+      "text": "Use prompt",
+      "rect": {
+        "x": 633,
+        "y": 1077,
+        "width": 125,
+        "height": 36
+      }
+    }
+  ],
+  "formFields": [
+    {
+      "tag": "textarea",
+      "type": "",
+      "label": "Prompt *",
+      "rect": {
+        "x": 137,
+        "y": 530,
+        "width": 447,
+        "height": 112
+      }
+    },
+    {
+      "tag": "textarea",
+      "type": "",
+      "label": "Negative prompt Optional",
+      "rect": {
+        "x": 158,
+        "y": 1279,
+        "width": 405,
+        "height": 64
+      }
+    }
+  ],
+  "videos": [],
+  "images": [
+    {
+      "tag": "img",
+      "alt": "Honeybees crawling over golden hexagonal cells",
+      "rect": {
+        "x": 634,
+        "y": 416,
+        "width": 693,
+        "height": 389
+      }
+    },
+    {
+      "tag": "img",
+      "alt": "Seedream 5.5 AI Image Generator Overview",
+      "rect": {
+        "x": 112,
+        "y": 1627,
+        "width": 584,
+        "height": 726
+      }
+    }
+  ],
+  "documentHeight": 13756
+}

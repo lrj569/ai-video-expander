@@ -4,8 +4,8 @@
   "creditsExpire": false,
   "oneTimePlans": [
     {
-      "key": "PL268S776YXSUQOJ",
-      "priceId": "PL268S776YXSUQOJ",
+      "key": "PRD26K9ENRLEGHT8F",
+      "priceId": "PRD26K9ENRLEGHT8F",
       "title": "200 Credits",
       "price": "$9.90",
       "priceAmount": 9.9,
@@ -19,8 +19,8 @@
       ]
     },
     {
-      "key": "PL26UEUS1XSQXFTJ",
-      "priceId": "PL26UEUS1XSQXFTJ",
+      "key": "PRD268A1OS6MYWDHY",
+      "priceId": "PRD268A1OS6MYWDHY",
       "title": "650 Credits",
       "price": "$29.90",
       "priceAmount": 29.9,
@@ -34,8 +34,8 @@
       ]
     },
     {
-      "key": "PL26V2ZGW8DQEUZJ",
-      "priceId": "PL26V2ZGW8DQEUZJ",
+      "key": "PRD26WTWXCD0TUOJ3",
+      "priceId": "PRD26WTWXCD0TUOJ3",
       "title": "1,200 Credits",
       "price": "$49.90",
       "priceAmount": 49.9,
@@ -51,9 +51,10 @@
   ],
   "provenance": {
     "schema_version": "1.0.0",
-    "project_slug": "website-template",
+    "project_slug": "ai-video-expander",
     "source": "configs/pricing/default.json",
-    "source_sha256": "4852423dcc857ec4dce502f27777b59456abbeaa6e38fe97d11acf4c4e20f73b",
-    "resolution": "shared-default"
+    "source_sha256": "840275a23affdb6f57ced150c10e345512d063c380e0b7a190fd3f8015ee2bee",
+    "resolution": "shared-default",
+    "snapshot_sha256": "3c160fea5ffe7114ca85be7056c51c61f9d1ae9af7d8a050ebd302b849d13417"
   }
 }

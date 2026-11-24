@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "Ten-second landscape source clip from sidewalk elevation. A silver delivery bicycle with a red crate moves across a wet paving reflection and stops at the curb. One amber shop window behind the bike, brick surroundings, fixed side shot, realistic rain after dusk. No lettering. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "16:9",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:20:52.2463047Z",
+    "taskId":  "f97050f11b124721973304aa4c2bc23f",
+    "checkedAt":  "2026-11-24T03:22:54.3351496Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/eae97d8e-bd4e-4fb8-862f-8b16b44a406d.mp4",
+    "polls":  53,
+    "waitedSeconds":  119.3,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/205082ff-0c7c-4b16-b9b1-796ee178b8bb.mp4",
+    "asset":  {
+                  "bytes":  4325603,
+                  "sha256":  "f37a79a7bd8936cf2f6182b077db502b051c0af4d3623694cac1dde7438ac82c",
+                  "width":  1344,
+                  "height":  768,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/guide-generation/guide-case-5-source.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:22:59.4337122Z"
+}

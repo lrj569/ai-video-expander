@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "Ten-second portrait source clip of a potter in an ochre apron shaping a pale blue bowl on a spinning wheel. Tight vertical framing from waist height with just narrow pieces of teal shelving beyond the elbows, and sunlight from the left. The hands are cleanly defined and the wheel continues to turn. No text. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "9:16",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:18:19.9410069Z",
+    "taskId":  "bf5d0c3a7fa9435ca8e388f7a5459828",
+    "checkedAt":  "2026-11-24T03:20:29.2664892Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/abfb0c74-be64-4987-8caa-05b072475450.mp4",
+    "polls":  56,
+    "waitedSeconds":  125.5,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/54b9b4e6-214a-479b-b976-d0a254376327.mp4",
+    "asset":  {
+                  "bytes":  5605702,
+                  "sha256":  "d7f0bfde2bd1b8bdffde65c5af39f65b720b4b2f31d4fc1caa824532504d6c1a",
+                  "width":  768,
+                  "height":  1344,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/guide-generation/guide-case-2-source.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:20:34.7200029Z"
+}

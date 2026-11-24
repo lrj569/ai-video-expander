@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "Ten seconds in a square tabletop shot. A tan scoop tips a few coffee beans beside a matte plum coffee bag and settles on the table. The camera holds at a low three-quarter angle. Continue the warm oat-colored tabletop below the bag and the softly lit plaster backdrop above it, leaving clear space around the packaging. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text. The plum coffee bag is a plain solid plum pouch with an entirely blank front and blank back, no paper label, marks, graphics, numbers, writing or type anywhere in the shot.",
+                    "aspect_ratio":  "1:1",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:24:24.0781225Z",
+    "taskId":  "3996c8a0851f4ef5940218d3f91d7a97",
+    "checkedAt":  "2026-11-24T03:27:02.6905858Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/de4d96dc-1772-4e92-9d67-baef9997b86f.mp4",
+    "polls":  38,
+    "waitedSeconds":  155.2,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/ca2629ea-e5bc-4315-b04f-0a59c49198ec.mp4",
+    "asset":  {
+                  "bytes":  859631,
+                  "sha256":  "290fcadd5f48d9e2ef2d1c62c6016897f5fe312f71ed52d9eec709c1b8f7e38e",
+                  "width":  768,
+                  "height":  768,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/guide-generation/guide-case-3.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:28:50.1243498Z"
+}

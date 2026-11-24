@@ -1,0 +1,84 @@
+﻿{
+    "status":  "downloaded",
+    "request":  {
+                    "prompt":  "Landscape editorial social-card background. Left side stays clear and readable with matte warm off-white paper, no words or lettering. On the right is a dramatic charcoal frame with an original small still of a skater on a clay bank set inside it. Successive terracotta crop marks suggest the picture extending outward, with additional quiet landscape within the outer frame. Use a believable photographic still with tactile paper margins and no digital glow. Place visual weight on the right and preserve the center reading area. No copy, mark, logo or watermark. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                    "aspect_ratio":  "16:9",
+                    "resolution":  "1k",
+                    "quality":  "high",
+                    "output_format":  "png",
+                    "num_images":  1
+                },
+    "imagePlan":  {
+                      "userNeed":  "分享卡传达扩展画框",
+                      "subject":  "摄影框架与滑板动作",
+                      "style":  "编辑式摄影与图解，暖白台面。",
+                      "palette":  "暖白、陶红、炭黑",
+                      "composition":  "左侧暖白区域，右侧延伸取景边界。",
+                      "aspectRatio":  "16:9",
+                      "demonstrates":  "分享卡传达扩展画框",
+                      "doesNotProve":  "只解释操作或品牌身份，未验证部署及运行效果。",
+                      "groupId":  "social-source",
+                      "groupKind":  "independent",
+                      "moduleIds":  [
+                                        "brand"
+                                    ],
+                      "role":  "decoration",
+                      "artDirection":  {
+                                           "purpose":  "分享卡传达扩展画框",
+                                           "firstGlanceMessage":  "Brand social image 能一眼辨认",
+                                           "visualHook":  "陶红框逐层承接实景。",
+                                           "subjectHierarchy":  "动作标识和临近素材的轮廓清楚。",
+                                           "colorRelationship":  "陶红作为编辑动作，炭黑图标配暖白台面。",
+                                           "lightingAndMaterial":  "窗边散射光，磨砂纸面和滑板质感。",
+                                           "displayScaleCheck":  "手机端保留主要动作与短标签，展示全图。"
+                                       },
+                      "referenceEvidence":  [
+                                                {
+                                                    "path":  "design-system/ai-video-expander/pages/home.md",
+                                                    "sha256":  "d699ee7e1d4a624575d4f28ff411e900e17c7b80e4190b2a4ad38205186998d3"
+                                                }
+                                            ],
+                      "rejectionCriteria":  [
+                                                "主要动作不清楚",
+                                                "信息性文字错误或不清楚",
+                                                "主体缺失或主要动作被裁切"
+                                            ],
+                      "exclusions":  {
+                                         "chineseText":  true,
+                                         "chineseTraditionalElements":  true
+                                     },
+                      "exclusionInstruction":  "Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text.",
+                      "generationPrompt":  "Landscape editorial social-card background. Left side stays clear and readable with matte warm off-white paper, no words or lettering. On the right is a dramatic charcoal frame with an original small still of a skater on a clay bank set inside it. Successive terracotta crop marks suggest the picture extending outward, with additional quiet landscape within the outer frame. Use a believable photographic still with tactile paper margins and no digital glow. Place visual weight on the right and preserve the center reading area. No copy, mark, logo or watermark. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text."
+                  },
+    "generationPolicy":  {
+                             "version":  1,
+                             "receiptId":  "bb77ac55-517c-41e7-b34e-a7e030e32a40",
+                             "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+                             "provider":  "wavespeedai/gpt-image-2.5-flare/text-to-image",
+                             "policyHashes":  {
+                                                  ".agents/skills/image-art-direction/SKILL.md":  "d0ae6de12b22e2aaa5b9c38798279c19bfb2de0ee637f67229a4268f5aa6d17b",
+                                                  ".agents/skills/image-art-direction/references/art-brief.md":  "6c85145aa74cdced1d3d3a656a81f5b7fd21280201dd134ded284e0409eb3802",
+                                                  ".agents/skills/image-art-direction/references/usage-standards.md":  "9cc3fa0e572c99d21e08c9288061ec4099cb2d47a6172dc131563df393271a6c",
+                                                  ".agents/skills/image-art-direction/references/quality-review.md":  "9c0d4660311372e0df85627bfc0fd0c32c8fb26763a74ea96f7a813e7f4d4833",
+                                                  ".agents/skills/image-art-direction/references/project-image-api.md":  "f05051cdf9063d2a1dda65deff8713f1951cc32b2ca70008a3cda0806444881c",
+                                                  ".agents/skills/image-art-direction/references/photographic-comparison-workflow.md":  "33de3eaebe54b50e705cb2336b83c41eeab200c8e05ae0bb1ed12dcbfcb37100",
+                                                  ".agents/skills/image-art-direction/references/generation-gate-contract.md":  "41045e19c948219ca51cd186b7e3347e05f8898e33f9b931565561c1b557c228"
+                                              },
+                             "planSha256":  "da494c9f2790021403d73fcbf78287dbe2565c73c54c3fda8d361a6188d07c34",
+                             "requestSha256":  "5547f73bc67c0ac14575c4126161ae245a6eef822710b1e827522fc7581a472c"
+                         },
+    "submittedAt":  "2026-11-24T03:21:50.6135007Z",
+    "taskId":  "8c46320d2acf402b811e2b2531d1c863",
+    "checkedAt":  "2026-11-24T03:22:32.9736041Z",
+    "upstreamStatus":  1,
+    "imageUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/650b164c-4722-461a-8057-eaa898ed963c.png",
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/604bf85b-0897-4a50-8f71-e44958fb228f.png",
+    "asset":  {
+                  "path":  "docs/media/home-generation/social-source.png",
+                  "sha256":  "f8eea643fb528739a9ce519a899ed89631a3c7527bd571b95b80c0373164ef3a",
+                  "width":  1360,
+                  "height":  768,
+                  "format":  "PNG",
+                  "bytes":  1810514
+              }
+}

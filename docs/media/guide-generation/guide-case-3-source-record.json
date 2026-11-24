@@ -1,0 +1,31 @@
+﻿{
+    "targetRoot":  "D:\\项目\\webSite\\ai-video-expander",
+    "request":  {
+                    "prompt":  "Ten-second landscape tabletop source clip. A tan scoop tips a few beans beside a matte plum coffee bag on an oat-colored tabletop. Locked low three-quarter camera, close enough that the bag occupies most of the composition and the background is matte plaster. The scoop settles by the bag. No branding. Exclude Chinese text and traditional Chinese visual elements. Avoid logos, watermarks, broken geometry and extra text. The plum coffee bag is a plain solid plum pouch with an entirely blank front and blank back, no paper label, marks, graphics, numbers, writing or type anywhere in the shot.",
+                    "aspect_ratio":  "16:9",
+                    "resolution":  "768p",
+                    "duration":  10
+                },
+    "submittedAt":  "2026-11-24T03:24:23.9982310Z",
+    "taskId":  "c1a3e6d0804344a6b76fcc80f31c8098",
+    "checkedAt":  "2026-11-24T03:28:05.1518355Z",
+    "upstreamStatus":  1,
+    "statusHistory":  [
+                          0,
+                          1
+                      ],
+    "videoUrl":  "https://cysource.wanstudio.net/cy_auo/2611/24/7bf077ae-4288-40d1-a9b0-d1968abb2250.mp4",
+    "polls":  76,
+    "waitedSeconds":  217.2,
+    "r2Url":  "https://cysource.wanstudio.net/cy_auo/2611/24/df8aae96-3f17-489e-96e8-bd610d95593b.mp4",
+    "asset":  {
+                  "bytes":  2003469,
+                  "sha256":  "0cb279af003eb7561f9f48b9526be520e35089a33ee11a6f82b6d7aef8bfa491",
+                  "width":  1344,
+                  "height":  768,
+                  "durationSeconds":  10.125,
+                  "path":  "docs/media/guide-generation/guide-case-3-source.mp4"
+              },
+    "status":  "downloaded",
+    "downloadedAt":  "2026-11-24T03:28:50.1858496Z"
+}

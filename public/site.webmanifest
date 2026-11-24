@@ -1,11 +1,11 @@
 {
-  "name": "LTX AI",
-  "short_name": "LTX AI",
-  "description": "Ltx 2.3 AI Video Generator creates sharp AI videos with cleaner audio, native portrait mode, stronger motion, and fast production-ready workflows.",
+  "name": "AI Video Expander",
+  "short_name": "AI Video Expander",
+  "description": "Expand the frame of an existing video to fit a new aspect ratio.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0a0a0a",
-  "theme_color": "#0a0a0a",
+  "background_color": "#080F1B",
+  "theme_color": "#72EADB",
   "icons": [
     {
       "src": "/icon-192.png",
@@ -20,7 +20,7 @@
       "purpose": "any"
     },
     {
-      "src": "/icon-512.png",
+      "src": "/brand/icon-maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"

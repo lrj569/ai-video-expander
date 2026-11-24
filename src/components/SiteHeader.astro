@@ -1,24 +1,21 @@
 ---
 import HeaderControls from './HeaderControls';
-import { siteConfig } from '@/website-config';
+import { siteConfig, publicNavigation, brandConfig } from '@/website-config';
 
 const currentPath = Astro.url.pathname;
-const navLinks = [
-  { href: '/', label: 'Home', activePath: '/' },
-  { href: '/#pricing', label: 'Pricing', activePath: '/pricing' },
-];
+
 ---
 <header class="fixed inset-x-0 top-0 z-50 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/80">
   <div class="mx-auto flex h-14 max-w-7xl items-center px-5">
     <a href="/" class="mr-6 flex flex-shrink-0 items-center gap-2">
-      <span class="h-7 w-7 rounded-full bg-primary text-center text-sm font-semibold leading-7 text-primary-foreground">F</span>
+      <img src={brandConfig.logoRaster.src} width="28" height="28" alt="" class="rounded-[6px]" />
       <span class="font-poppins text-[15px] font-medium tracking-[-0.15px] text-foreground">
         {siteConfig.name}
       </span>
     </a>
 
     <nav class="hidden flex-1 items-center gap-6 lg:flex" aria-label="Primary navigation">
-      {navLinks.map((link) => (
+      {publicNavigation.map((link) => (
         <a
           href={link.href}
           aria-current={currentPath === link.activePath ? 'page' : undefined}

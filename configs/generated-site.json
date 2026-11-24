@@ -1,8 +1,12 @@
 {
-  "name": "Website Template",
-  "description": "A configurable website template.",
-  "slug": "website-template",
+  "name": "AI Video Expander",
+  "description": "Expand the frame of an existing video to fit a new aspect ratio.",
+  "slug": "ai-video-expander",
   "canonicalUrl": "",
   "toolPath": "/#tool",
-  "implementationStatus": "template-unconfigured"
+  "implementationStatus": "target-state-development",
+  "legalEffectiveDate": {
+    "iso": "2026-11-24",
+    "label": "November 24, 2026"
+  }
 }
