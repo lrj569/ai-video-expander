@@ -24,7 +24,7 @@ export const websiteConfig = {
   },
   // Contact Information
   contact: {
-    supportEmail: '',
+    supportEmail: 'support@aivideoexpander.io',
   },
 
   // Canonical / site URL - single source for all public URLs (canonical, OG, sitemap, share images)
@@ -33,8 +33,8 @@ export const websiteConfig = {
   },
   // API Configuration
   api: {
-    baseUrl: 'https://api.example.com',
-    appId: 'template-app',
+    baseUrl: 'https://svc.aivideoexpander.io',
+    appId: 'aivideoexpander_app',
   },
 
   // Page TDK (Title ≤60, Description ≤160, Keywords total <100) – import in routes/components via getPageTdk(path)

@@ -2,7 +2,7 @@
   "name": "AI Video Expander",
   "description": "Expand the frame of an existing video to fit a new aspect ratio.",
   "slug": "ai-video-expander",
-  "canonicalUrl": "",
+  "canonicalUrl": "http://www.aivideoexpander.io",
   "toolPath": "/#tool",
   "implementationStatus": "target-state-development",
   "legalEffectiveDate": {
