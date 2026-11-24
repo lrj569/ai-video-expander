@@ -8,11 +8,11 @@
     "resolution": "shared-default",
     "snapshot_sha256": "3c160fea5ffe7114ca85be7056c51c61f9d1ae9af7d8a050ebd302b849d13417"
   },
-  "siteProfileSha256": "da882b762217c98e2bec6e419490e06be3c96978228203610337726c7d3aa294",
+  "siteProfileSha256": "ffbf0783fc34ceb48dd0d8d42be49570328cac7ce7aa9a40ba532e3c5dde1143",
   "files": {
     "configs/generated-pricing.json": "61f4e5a2b8dbd8a7f5c29aab3c7821dc12930eb00cef82b1b06dbb0a283ee95f",
-    "configs/generated-site.json": "1c76de0588e5ccac10b8ebb8e079819eedacd1140ed7a89601403480ef5dd655",
-    "configs/generated-public-profile.json": "8f0f6c959bc4ada75fbfb591ed021391f555835bdca53f2c5433f6fbdfb9f670",
+    "configs/generated-site.json": "4291acbdd1d8d0b120fc4f77745d841431462ec236bb5005c10003dab509729a",
+    "configs/generated-public-profile.json": "15b88e3da558e3b8fdb0aa23770e0c7b205540bce01d3302eb44c5a016b0ef4b",
     "src/lib/llms.ts": "03b32d06f34c2ceb2ec0095a452e90aa5636bdd670df21e4f4b1d6e5fdd1b431",
     "configs/generated-brand.json": "d89ab29f5772e58351476f5b319c8c738a557bdad069ab196acb1ea1e3a00e81",
     "public/site.webmanifest": "9866421fd27ba9128897f37e92e99913d57a74dba9186fdbd42fc2dd5cb62282"
