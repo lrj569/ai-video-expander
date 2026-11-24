@@ -92,6 +92,30 @@ const twitterImage = socialImageValues(twitter.images?.[0] ?? defaultShare, imag
     <link rel="icon" href={brandConfig.favicon48.src} sizes="48x48" />
     <link rel="apple-touch-icon" href={brandConfig.appleTouchIcon.src} />
     <link rel="manifest" href="/site.webmanifest" />
+    <script is:inline>
+      if (!window.headerHydrationRecoveryInstalled) {
+        window.headerHydrationRecoveryInstalled = true;
+        document.addEventListener('astro:hydration-error', async (event) => {
+          if (!(event.target instanceof Element) || !event.target.closest('header')) return;
+          const componentUrl = event.detail?.componentUrl;
+          if (typeof componentUrl !== 'string' || !(event.detail.error instanceof TypeError)) return;
+
+          const asset = new URL(componentUrl, document.baseURI);
+          if (asset.origin !== location.origin || !/^\/_astro\/HeaderControls\.[\w-]+\.js$/.test(asset.pathname)) return;
+
+          try {
+            const response = await fetch(asset, { method: 'HEAD', cache: 'no-store' });
+            if (response.status !== 404 && response.status !== 410) return;
+            const recoveryKey = 'astro:header-recovery';
+            if (sessionStorage.getItem(recoveryKey) === asset.pathname) return;
+            sessionStorage.setItem(recoveryKey, asset.pathname);
+            location.reload();
+          } catch {
+            // Preserve the current page if the network or session storage is unavailable.
+          }
+        });
+      }
+    </script>
     <ClientRouter />
     {[...sharedStructuredData, ...structuredData].map(data => (
       <script type="application/ld+json" set:html={serializeStructuredData(data)} />

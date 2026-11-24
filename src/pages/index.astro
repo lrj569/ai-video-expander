@@ -3,7 +3,6 @@ export const prerender = true;
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PricingSection from '@/components/PricingSection';
 import { Footer } from '@/components/Footer';
-import GoogleOneTapAuth from '@/components/auth/google-one-tap';
 import VideoWorkspace from '@/src/components/VideoWorkspace.astro';
 import FilmPlayer from '@/src/components/FilmPlayer.astro';
 import ProductHeading from '@/src/components/page-views/home/ProductHeading.astro';
@@ -29,15 +28,6 @@ const film = (id: string, label: string, ratio?: string) => ({
 });
 ---
 <BaseLayout metadata={metadata} path="/" structuredData={structuredData}>
-  {import.meta.env.PROD && (
-    <GoogleOneTapAuth
-      client:idle
-      cancelOnTapOutside={true}
-      fedCmSupport={false}
-      signInForceRedirectUrl="/"
-      signUpForceRedirectUrl="/"
-    />
-  )}
   <section id="hero" class="ave-hero" aria-labelledby="home-title">
     <div class="ave-shell">
       <div class="ave-hero-heading">

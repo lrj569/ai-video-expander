@@ -33,8 +33,8 @@ export const websiteConfig = {
   },
   // API Configuration
   api: {
-    baseUrl: 'https://svc.aivideoexpander.io',
-    appId: 'aivideoexpander_app',
+    baseUrl: 'https://art.aivideoexpander.io',
+    appId: 'aivideoexpander',
   },
 
   // Page TDK (Title ≤60, Description ≤160, Keywords total <100) – import in routes/components via getPageTdk(path)
