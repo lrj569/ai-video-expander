@@ -38,6 +38,7 @@ function Controls() {
               <Link
                 key={link.href}
                 href={link.href}
+                title={link.title}
                 onClick={() => setOpen(false)}
                 className="block py-2 text-left text-sm font-medium tracking-[-0.14px] text-muted-foreground transition-colors hover:text-foreground"
               >

@@ -74,7 +74,7 @@ const film = (id: string, label: string, ratio?: string) => ({
               <div class="ave-feature-copy">
                 <h3>{item.title}</h3>
                 <p>{item.body}</p>
-                {item.action && <a class="ave-text-link ave-arrow" href={item.action.href}>{item.action.text}</a>}
+                {item.action && <a class="ave-text-link ave-arrow" href={item.action.href} title={`Open the video expander to ${item.action.text.toLowerCase()}`}>{item.action.text}</a>}
               </div>
               <div class="ave-film-edge">
                 <FilmPlayer {...film(featureFilms[index], item.title, '16:9')} />
@@ -89,7 +89,7 @@ const film = (id: string, label: string, ratio?: string) => ({
       <div class="ave-section-head ave-enter">
         <ProductHeading tag="h2" id="how-to-use-heading" text={homeCopy.tutorial.title} />
         <p>
-          {homeCopy.tutorial.description.before}<a class="ave-inline-link" href={homeCopy.tutorial.description.href}>{homeCopy.tutorial.description.linkText}</a>{homeCopy.tutorial.description.after}
+          {homeCopy.tutorial.description.before}<a class="ave-inline-link" href={homeCopy.tutorial.description.href} title="Read the step-by-step video expansion guide">{homeCopy.tutorial.description.linkText}</a>{homeCopy.tutorial.description.after}
         </p>
       </div>
       <ol class="ave-steps">
@@ -128,7 +128,7 @@ const film = (id: string, label: string, ratio?: string) => ({
     <div class="ave-home-pricing">
       <PricingSection client:visible heading={homeCopy.pricing.title} description={homeCopy.pricing.description} />
       <div class="ave-shell">
-        <a class="ave-text-link ave-arrow" href={homeCopy.pricing.link.href}>{homeCopy.pricing.link.linkText}</a>
+        <a class="ave-text-link ave-arrow" href={homeCopy.pricing.link.href} title="Compare AI Video Expander credit packs and prices">{homeCopy.pricing.link.linkText}</a>
       </div>
     </div>
 
@@ -153,7 +153,7 @@ const film = (id: string, label: string, ratio?: string) => ({
       <div class="ave-final ave-enter">
         <ProductHeading tag="h2" id="final-cta-heading" text={homeCopy.final.title} />
         <p>{homeCopy.final.body}</p>
-        <a class="ave-primary-link ave-arrow" href={homeCopy.final.action.href}>{homeCopy.final.action.text}</a>
+        <a class="ave-primary-link ave-arrow" href={homeCopy.final.action.href} title="Open the workspace to expand your video">{homeCopy.final.action.text}</a>
       </div>
     </section>
   </div>

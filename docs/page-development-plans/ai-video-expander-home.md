@@ -37,7 +37,7 @@ last_updated: "2026-11-24"
 <!-- tdk:start -->
 ## SEO Metadata (TDK)
 
-**Title:** AI Video Expander for Reframing Without Cropping
+**Title:** AI Video Expander | Change Aspect Ratios Without Cropping
 
 **Description:** AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square.
 
@@ -49,7 +49,7 @@ last_updated: "2026-11-24"
 
 | Field | Exact copy | Role and source basis | Claim boundary |
 |---|---|---|---|
-| Title | AI Video Expander for Reframing Without Cropping | plan §1.2 and §2 identify spatial reframing with contained source composition | The original clip fits inside the target canvas |
+| Title | AI Video Expander | Change Aspect Ratios Without Cropping | plan §1.2 and §2 identify spatial reframing with contained source composition | The original clip fits inside the target canvas |
 | H1 | AI Video Expander for Reframing Without Cropping | plan §1.2 and §2, same tool and core result | Expanded picture area and source fit |
 | Subtitle | Fill the space around your original video to fit a new aspect ratio. Expand source clips up to 10 seconds and export up to 720p vertical and 1080p landscape or square. | plan §1.2 and SERP §4 bind the reframe mode to source duration and orientation-specific limits | Clip limit refers to input; resolution differs by orientation |
 | Description | AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square. | plan §1.2 and SERP §4 use the same scope in search | The vertical ceiling and landscape/square ceiling remain separate |
@@ -268,7 +268,7 @@ Bring a clip that needs more room and choose the format you want to fill.
     "WebPage",
     "FAQPage"
   ],
-  "name": "AI Video Expander for Reframing Without Cropping",
+  "name": "AI Video Expander | Change Aspect Ratios Without Cropping",
   "description": "AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square.",
   "inLanguage": "en-US",
   "keywords": [

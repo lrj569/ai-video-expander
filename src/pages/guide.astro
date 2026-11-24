@@ -15,11 +15,11 @@ import '../components/page-views/guide/guide.css';
       <h1>{guideHero.title.split(/(Step-by-Step)/).map(piece => piece === "Step-by-Step" ? <span class="guide-title-phrase">{piece}</span> : piece)}</h1>
       <p>{guideHero.subtitle}</p>
       <div class="guide-controls">
-        <a class="guide-action guide-action-primary" href={guideHero.primary.href}>
+        <a class="guide-action guide-action-primary" href={guideHero.primary.href} title="Open the video expansion workspace">
           {guideHero.primary.label}
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
         </a>
-        <a class="guide-action" href={guideHero.secondary.href}>
+        <a class="guide-action" href={guideHero.secondary.href} title="Jump to the video expansion quick start">
           {guideHero.secondary.label}
           <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 5v14m-5-5 5 5 5-5"/></svg>
         </a>
@@ -31,7 +31,7 @@ import '../components/page-views/guide/guide.css';
         <nav aria-label="On this page">
           <p class="guide-toc-title">On this page</p>
           <ol>
-            {guideSections.map(({ id, title }) => <li><a href={`#${id}`}>{title}</a></li>)}
+            {guideSections.map(({ id, title }) => <li><a href={`#${id}`} title={`Jump to ${title}`}>{title}</a></li>)}
           </ol>
         </nav>
       </aside>
@@ -39,7 +39,7 @@ import '../components/page-views/guide/guide.css';
         <summary>On this page</summary>
         <nav aria-label="On this page">
           <ol>
-            {guideSections.map(({ id, title }) => <li><a href={`#${id}`}>{title}</a></li>)}
+            {guideSections.map(({ id, title }) => <li><a href={`#${id}`} title={`Jump to ${title}`}>{title}</a></li>)}
           </ol>
         </nav>
       </details>
@@ -61,7 +61,7 @@ import '../components/page-views/guide/guide.css';
                     <p class="guide-prompt-text" data-prompt-text set:text={example.prompt} />
                     <div class="guide-controls">
                       <button class="guide-action" type="button" data-copy-prompt hidden>Copy prompt</button>
-                      <a class="guide-action" href={`/?case=${example.id}#tool`} aria-label={`Try it: ${example.title}`}>
+                      <a class="guide-action" href={`/?case=${example.id}#tool`} aria-label={`Try it: ${example.title}`} title={`Load the source video and settings for: ${example.title}`}>
                         Try it
                         <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
                       </a>
@@ -111,7 +111,7 @@ import '../components/page-views/guide/guide.css';
         <section class="guide-section guide-final" id="final-cta" aria-labelledby="guide-final-heading">
           <h2 id="guide-final-heading">{guideFinal.title}</h2>
           <p>{guideFinal.body}</p>
-          <a class="guide-action guide-action-primary" href={guideFinal.action.href}>
+          <a class="guide-action guide-action-primary" href={guideFinal.action.href} title="Return to the workspace to expand a video">
             {guideFinal.action.label}
             <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 12h14m-5-5 5 5-5 5"/></svg>
           </a>

@@ -61,6 +61,7 @@ export default function PricingFAQ() {
               {hasSupportEmail && (
                 <a
                   href={`mailto:${supportEmail}`}
+                  title="Email support about credit packs and purchases"
                   className="inline-flex items-center text-primary hover:text-primary/80 transition-colors duration-200 font-medium min-h-11 underline decoration-current/40 underline-offset-4 hover:decoration-current active:text-foreground focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ring"
                 >
                   <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">

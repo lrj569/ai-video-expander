@@ -32,7 +32,7 @@ export function Footer({ friendlyLinks = [] }: FooterProps) {
 
         <div className="grid grid-cols-1 gap-10 md:grid-cols-5">
           <div className="md:col-span-2">
-            <Link href="/" className="mb-4 inline-flex items-center gap-2 text-foreground">
+            <Link href="/" title={`Return to the ${siteConfig.name} homepage`} className="mb-4 inline-flex items-center gap-2 text-foreground">
               <img src={brandConfig.logoRaster.src} width="32" height="32" alt="" className="rounded-[7px]" />
               <span className="text-[15px] font-medium">{siteConfig.name}</span>
             </Link>
@@ -41,6 +41,7 @@ export function Footer({ friendlyLinks = [] }: FooterProps) {
             </p>
             {contactConfig.supportEmail && <a
               href={`mailto:${contactConfig.supportEmail}`}
+              title="Email AI Video Expander support"
               className="mt-5 inline-flex items-center gap-2 rounded-full bg-secondary px-4 py-2 text-sm text-foreground hover:bg-accent"
             >
               <Mail className="h-4 w-4" />
@@ -51,8 +52,8 @@ export function Footer({ friendlyLinks = [] }: FooterProps) {
           <div>
             <div className="mb-3 text-[13px] font-medium text-foreground">Navigation</div>
             <ul className="space-y-2">
-              {publicNavigation.map(({ href, label }) => (
-                <li key={href}><Link href={href} className="text-[13px] hover:text-foreground">{label}</Link></li>
+              {publicNavigation.map(({ href, label, title }) => (
+                <li key={href}><Link href={href} title={title} className="text-[13px] hover:text-foreground">{label}</Link></li>
               ))}
             </ul>
           </div>

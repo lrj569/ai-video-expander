@@ -39,7 +39,7 @@ export const websiteConfig = {
 
   // Page TDK (Title ≤60, Description ≤160, Keywords total <100) – import in routes/components via getPageTdk(path)
   pageTdk: {
-    '/': {"title":"AI Video Expander for Reframing Without Cropping","description":"AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square.","keywords":["AI Video Expander","AI video outpainting","expand video without cropping","change video aspect ratio"]},
+    '/': {"title":"AI Video Expander | Change Aspect Ratios Without Cropping","description":"AI Video Expander fills the edges of source clips up to 10 seconds for a new aspect ratio. Export up to 720p vertical and 1080p landscape or square.","keywords":["AI Video Expander","AI video outpainting","expand video without cropping","change video aspect ratio"]},
     '/payment-failed': {
       title: 'Payment Failed',
       description: 'Your payment could not be completed. Please try again or contact support.',
@@ -113,9 +113,9 @@ export function getPageTdk(path) {
 export const featuredPricingPlanKey = 'PRD268A1OS6MYWDHY';
 
 export const publicNavigation = [
-  { href: '/', label: 'Home', activePath: '/' },
-  { href: '/#tool', label: 'Expand', activePath: '' },
-  { href: '/#use-cases', label: 'Use Cases', activePath: '' },
-  { href: '/guide', label: 'Guide', activePath: '/guide' },
-  { href: '/pricing', label: 'Pricing', activePath: '/pricing' },
+  { href: '/', label: 'Home', title: 'Go to the AI Video Expander homepage', activePath: '/' },
+  { href: '/#tool', label: 'Expand', title: 'Open the video expansion workspace', activePath: '' },
+  { href: '/#use-cases', label: 'Use Cases', title: 'See how expanded videos can be used', activePath: '' },
+  { href: '/guide', label: 'Guide', title: 'Learn how to expand a video step by step', activePath: '/guide' },
+  { href: '/pricing', label: 'Pricing', title: 'Compare one-time video expansion credit packs', activePath: '/pricing' },
 ];
