@@ -2,7 +2,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import vercel from '@astrojs/vercel';
 import clerk from '@clerk/astro';
-import { siteUrl } from './website-config.js';
+import { apiConfig, siteUrl } from './website-config.js';
 import { publicStructuredDataOrigin } from './src/lib/site-structured-data.mjs';
 
 try {
@@ -39,6 +39,19 @@ export default defineConfig({
   adapter: vercel({ middlewareMode: 'server' }),
   integrations: [authIntegration, react()],
   vite: {
+    server: {
+      proxy: {
+        '^/api/': {
+          target: apiConfig.baseUrl,
+          changeOrigin: true,
+          configure(proxy) {
+            // Match the credentials behavior of the production cross-origin fetch.
+            proxy.on('proxyReq', (request) => request.removeHeader('cookie'));
+            proxy.on('proxyRes', (response) => { delete response.headers['set-cookie']; });
+          },
+        },
+      },
+    },
     ssr: {
       noExternal: ['@ffmpeg/ffmpeg', '@ffmpeg/util'],
     },

@@ -2,7 +2,7 @@
 import { apiConfig } from '@/website-config';
 
 const API_CONFIG = {
-  VIDOR_AI_BASE: apiConfig.baseUrl,
+  VIDOR_AI_BASE: import.meta.env.DEV && !import.meta.env.SSR ? '' : apiConfig.baseUrl,
   APP_ID: apiConfig.appId,
 };
 
@@ -54,13 +54,24 @@ export const authApi = {
     from_login: string;
     ivcode?: string;
   }) => {
-    const isDevelopment = process.env.NODE_ENV === 'development';
-    const endpoint = isDevelopment ? 'loginAuthCyTest' : 'loginAuth';
+    const form = new FormData();
+    form.set('uuid', userData.uuid);
+    form.set('email', userData.email);
+    form.set('from_login', userData.from_login);
+    form.set('avatar', userData.avatar ?? '');
+    form.set('nickname', userData.nickname ?? '');
+    form.set('from_type', '0');
+    form.set('token', userData.token);
+    form.set('ivcode', userData.ivcode ?? '');
 
-    const response = await fetch(`${API_CONFIG.VIDOR_AI_BASE}/api/user/${endpoint}`, {
+    if (import.meta.env.DEV && import.meta.env.PUBLIC_CLERK_PUBLISHABLE_KEY?.startsWith('pk_test_')) {
+      form.set('is_test', '1');
+    }
+
+    const response = await fetch(`${API_CONFIG.VIDOR_AI_BASE}/api/user/login_auth`, {
       method: 'POST',
-      headers: getHeaders(false), // 登录接口不需要Authorization
-      body: JSON.stringify(userData),
+      headers: { 'x-appid': API_CONFIG.APP_ID },
+      body: form,
     });
 
     const result = await handleApiError(response);
