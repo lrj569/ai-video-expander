@@ -30,6 +30,15 @@ authIntegration.hooks['astro:config:setup'] = options => authSetup({
   },
 });
 
+const googleAnalytics = {
+  name: 'google-analytics',
+  hooks: {
+    'astro:config:setup': ({ injectScript }) => {
+      injectScript('page', "import '/src/scripts/google-analytics.js';");
+    },
+  },
+};
+
 export default defineConfig({
   site: siteUrl || undefined,
   output: 'server',
@@ -37,7 +46,7 @@ export default defineConfig({
   server: { port: 3000 },
   devToolbar: { enabled: false },
   adapter: vercel({ middlewareMode: 'server' }),
-  integrations: [authIntegration, react()],
+  integrations: [authIntegration, react(), googleAnalytics],
   vite: {
     server: {
       proxy: {
