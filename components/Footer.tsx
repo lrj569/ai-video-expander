@@ -1,5 +1,6 @@
 import Link from '@/src/compat/link';
 import { Mail } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { FriendLink } from '../lib/server-api';
 import { siteConfig, contactConfig, publicNavigation, brandConfig } from '@/website-config';
 
@@ -8,6 +9,9 @@ interface FooterProps {
 }
 
 export function Footer({ friendlyLinks = [] }: FooterProps) {
+  const [year, setYear] = useState('');
+  useEffect(() => { setYear(String(new Date().getFullYear())); }, []);
+
   return (
     <footer className="bg-background px-6 py-16 text-muted-foreground sm:px-8">
       <div className="mx-auto max-w-7xl">
@@ -69,7 +73,7 @@ export function Footer({ friendlyLinks = [] }: FooterProps) {
         </div>
 
         <div className="mt-12 border-t border-border pt-6 text-[12px]">
-          © <span data-current-year suppressHydrationWarning></span> {siteConfig.name}. All rights reserved.
+          © <span data-current-year>{year}</span> {siteConfig.name}. All rights reserved.
         </div>
       </div>
     </footer>

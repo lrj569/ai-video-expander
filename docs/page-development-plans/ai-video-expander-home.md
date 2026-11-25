@@ -17,7 +17,7 @@ document_version: "1.18.0"
 authoring_engine: "codex-current-window"
 pricing: "include"
 pricing_config: "config/pricing.json"
-pricing_config_sha256: "3c160fea5ffe7114ca85be7056c51c61f9d1ae9af7d8a050ebd302b849d13417"
+pricing_config_sha256: "65c2aa8bdceec9bec602044d1a35b79de5e613f915a4ea073469b78e86f73bd1"
 pricing_contract: "1.0.0"
 word_count_contract: "1.0.0"
 application_name: "AI Video Expander"
@@ -211,9 +211,9 @@ A portrait clip with a main subject in the center can be hard to place between w
 
 | Price | Credits | Billing | Validity |
 |---|---|---|---|
-| US$9.90 | 200 | One-time | Never expire |
-| US$29.90 | 650 | One-time | Never expire |
-| US$49.90 | 1,200 | One-time | Never expire |
+| US$9.90 | 280 | One-time | Never expire |
+| US$29.90 | 1,000 | One-time | Never expire |
+| US$49.90 | 2,000 | One-time | Never expire |
 
 [View pricing](/pricing)
 <!-- module:pricing:end -->

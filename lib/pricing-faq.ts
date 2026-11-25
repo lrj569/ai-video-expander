@@ -6,7 +6,7 @@ export const pricingFaqItems = [
   },
   {
     question: 'How many credits come with each pack?',
-    answer: 'The packs include 200, 650, or 1,200 credits. The price on each card covers the full pack.',
+    answer: 'The packs include 280, 1,000, or 2,000 credits. The price on each card covers the full pack.',
   },
   {
     question: 'Do purchased credits expire?',
@@ -14,7 +14,7 @@ export const pricingFaqItems = [
   },
   {
     question: 'Which credit pack should I choose?',
-    answer: 'The 200-credit pack has the lowest upfront price. To buy more credits at once, compare the 650- and 1,200-credit packs by total price and credits included.',
+    answer: 'The 280-credit pack has the lowest upfront price. To buy more credits at once, compare the 1,000- and 2,000-credit packs by total price and credits included.',
   },
   {
     question: 'Who can I contact about a credit purchase?',

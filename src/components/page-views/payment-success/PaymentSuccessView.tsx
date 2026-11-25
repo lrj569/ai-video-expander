@@ -3,7 +3,7 @@
 import Link from '@/src/compat/link';
 import { Button } from '@/components/ui/button';
 import { useEffect, useState } from 'react';
-import { Clock3, CreditCard, Gift, Mail } from 'lucide-react';
+import { Check, Clock3, CreditCard, Gift, Mail } from 'lucide-react';
 import { contactConfig } from '@/website-config';
 import { useUserInfo } from '@/lib/providers';
 
@@ -15,10 +15,11 @@ interface PaymentInfo {
   timestamp: string;
 }
 
-export default function PaymentSuccessPage() {
+export default function PaymentSuccessPage({ isSuccessReturn }: { isSuccessReturn: boolean }) {
   const { refreshUserInfo } = useUserInfo();
   const [paymentInfo, setPaymentInfo] = useState<PaymentInfo | null>(null);
   const [orderToken, setOrderToken] = useState<string>('');
+  const StatusIcon = isSuccessReturn ? Check : Clock3;
 
   useEffect(() => {
     // 浠?URL 鍙傛暟涓幏鍙?token
@@ -52,13 +53,15 @@ export default function PaymentSuccessPage() {
         {/* Success Header */}
         <div className="text-center mb-12">
           <div className="w-20 h-20 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-            <Clock3 className="w-12 h-12 text-primary" />
+            <StatusIcon className="w-12 h-12 text-primary" aria-hidden="true" />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-            Payment Return Received
+            {isSuccessReturn ? 'Payment Successful' : 'Payment Status'}
           </h1>
           <p className="text-xl text-muted-foreground">
-            We received the checkout return and refreshed your account. The backend order status remains the source of truth for credits.
+            {isSuccessReturn
+              ? 'Your checkout reported a successful payment. View your profile for the latest credit balance.'
+              : 'Check your profile for the latest payment and credit information.'}
           </p>
         </div>
 
@@ -82,7 +85,7 @@ export default function PaymentSuccessPage() {
                   <div className="flex items-center gap-3 rounded bg-secondary p-4">
                     <CreditCard className="w-5 h-5 text-primary" />
                     <div>
-                      <div className="text-sm text-muted-foreground">Amount Paid</div>
+                      <div className="text-sm text-muted-foreground">Checkout Amount</div>
                       <div className="text-foreground font-semibold text-xl">{paymentInfo.price}</div>
                     </div>
                   </div>
@@ -90,7 +93,7 @@ export default function PaymentSuccessPage() {
                   <div className="flex items-center gap-3 rounded bg-secondary p-4">
                     <Gift className="w-5 h-5 text-primary" />
                     <div>
-                      <div className="text-sm text-muted-foreground">Credits Received</div>
+                      <div className="text-sm text-muted-foreground">Pack Credits</div>
                       <div className="text-foreground font-semibold text-xl">{paymentInfo.credits} Credits</div>
                     </div>
                   </div>

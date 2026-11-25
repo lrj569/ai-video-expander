@@ -1,23 +1,19 @@
 ---
 import FilmPlayer from './FilmPlayer.astro';
+import ReframeAccount from './ReframeAccount';
 import { guideCases } from './page-views/guide/guide-content';
+import { maxReframePromptLength, reframeCredits, reframeRatios, reframeResolutions } from '@/lib/reframe-config';
 import '@/src/styles/video-workspace.css';
 
-const ratios = [
-  { label: '16:9', name: 'Widescreen', width: 16, height: 9 },
-  { label: '9:16', name: 'Vertical', width: 9, height: 16 },
-  { label: '1:1', name: 'Square', width: 1, height: 1 },
-  { label: '4:3', name: 'Classic landscape', width: 4, height: 3 },
-  { label: '3:4', name: 'Portrait', width: 3, height: 4 },
-  { label: '21:9', name: 'Ultrawide', width: 21, height: 9 },
-];
 const visibleCases = guideCases.slice(0, 3);
 const first = visibleCases[0];
+const defaultResolution = '768p';
+const initialRate = reframeCredits(defaultResolution, 1);
 ---
 <expander-workspace class="expander-workspace" data-cases={JSON.stringify(guideCases)}>
   <form class="expander-form" id="tool" aria-label="Expand a video" novalidate>
     <div class="expander-field">
-      <label class="expander-label" for="expand-source">Source video</label>
+      <label class="expander-label" for="expand-source">Input video <span class="expander-required" aria-hidden="true">*</span></label>
       <input
         class="expander-file"
         id="expand-source"
@@ -27,32 +23,35 @@ const first = visibleCases[0];
         required
         aria-describedby="expand-source-help expand-source-error"
       />
-      <button type="button" class="expander-drop" data-upload>
+      <button type="button" class="expander-drop" data-upload aria-describedby="expand-source-help expand-source-error">
         <svg width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
           <path d="M12 16V4m-5 5 5-5 5 5M4 15v4a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-4" />
         </svg>
-        <strong data-source-name>Choose a video</strong>
-        <span id="expand-source-help">MP4 · Up to 10 seconds</span>
+        <span class="expander-upload-copy">
+          <strong data-source-name>Select or drop an MP4</strong>
+          <span id="expand-source-help">200 MB max · Up to 5 min</span>
+        </span>
       </button>
-      <button type="button" class="expander-clear" data-clear hidden>Remove video</button>
+      <div class="expander-source-preview" data-source-preview hidden>
+        <FilmPlayer label="uploaded video" />
+      </div>
+      <div class="expander-source-actions" data-source-actions hidden>
+        <button type="button" data-clear>Remove video</button>
+      </div>
       <p class="expander-error" id="expand-source-error" aria-live="polite"></p>
     </div>
 
     <div class="expander-field">
-      <div class="expander-field-line">
-        <label class="expander-label" for="expand-prompt">Fill prompt</label>
-        <span data-count aria-hidden="true">0 / 6,000</span>
-      </div>
-      <textarea name="prompt" id="expand-prompt" required maxlength="6000" rows="3"
-        placeholder="Describe what should fill the new space."
-        aria-describedby="expand-prompt-error"></textarea>
+      <label class="expander-label" for="expand-prompt">Expansion prompt <span class="expander-required" aria-hidden="true">*</span></label>
+      <textarea name="prompt" id="expand-prompt" maxlength={maxReframePromptLength} rows="3" required aria-describedby="expand-prompt-error"
+        placeholder="Extend the studio wall with soft, even lighting."></textarea>
       <p class="expander-error" id="expand-prompt-error" aria-live="polite"></p>
     </div>
 
     <fieldset class="expander-field">
-      <legend class="expander-label">Target aspect ratio</legend>
+      <legend class="expander-label">Output aspect ratio</legend>
       <div class="expander-options expander-options-ratio">
-        {ratios.map((ratio, index) => (
+        {reframeRatios.map((ratio, index) => (
           <label class="expander-choice" title={ratio.name}>
             <input type="radio" name="ratio" value={ratio.label} checked={index === 0} />
             <span>
@@ -74,33 +73,30 @@ const first = visibleCases[0];
     </fieldset>
 
     <fieldset class="expander-field">
-      <legend class="expander-label">Resolution</legend>
+      <legend class="expander-label">Output resolution</legend>
       <div class="expander-options expander-options-quality">
-        {['360p', '540p', '720p', '1080p'].map(quality => (
+        {reframeResolutions.map(quality => (
           <label class="expander-choice">
-            <input type="radio" name="quality" value={quality} checked={quality === '720p'} aria-describedby="expand-resolution-help" />
-            <span>{quality}</span>
-          </label>
-        ))}
-      </div>
-      <p id="expand-resolution-help" class="expander-note" aria-live="polite"></p>
-    </fieldset>
-    <fieldset class="expander-field">
-      <legend class="expander-label">Output length</legend>
-      <div class="expander-options expander-options-length">
-        {['5', '10'].map(seconds => (
-          <label class="expander-choice">
-            <input type="radio" name="duration" value={seconds} checked={seconds === '5'} />
-            <span>{seconds} seconds</span>
+            <input type="radio" name="quality" value={quality} checked={quality === defaultResolution} />
+            <span class="expander-quality-face">
+              <strong>{quality}</strong>
+              <small>{reframeCredits(quality, 1)} credits/s</small>
+              <svg class="expander-quality-check" aria-hidden="true" width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m3.75 8 2.6 2.6L12.25 5" /></svg>
+            </span>
           </label>
         ))}
       </div>
     </fieldset>
-    <button class="expander-submit" type="submit">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M14 4h6v6m0-6-7 7M10 20H4v-6m0 6 7-7"/>
-      </svg>
-      Expand
+    <button class="expander-submit" type="submit" aria-labelledby="expand-submit-label" aria-describedby="expand-credit-estimate">
+      <span class="expander-estimate" id="expand-credit-estimate" role="status" aria-atomic="true">
+        <span class="sr-only" data-estimate-label>Rate </span><span data-estimate>{initialRate} credits/s</span>
+      </span>
+      <span class="expander-submit-label" id="expand-submit-label">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M14 4h6v6m0-6-7 7M10 20H4v-6m0 6 7-7"/>
+        </svg>
+        Expand Video with AI
+      </span>
     </button>
     <p class="expander-error" data-submit-error role="alert"></p>
     <noscript><p>Enable JavaScript to choose a video and set its frame.</p></noscript>
@@ -109,7 +105,32 @@ const first = visibleCases[0];
     <div class="expander-monitor" data-monitor>
       <FilmPlayer src={first.result} poster={first.resultPoster} label={first.title} ratio="16 / 9" fitRatio={first.ratio} autoplay />
       <span class="expander-corner" aria-hidden="true"></span>
+      <div class="expander-operation" data-operation hidden>
+        <div class="expander-render-icon" aria-hidden="true"><span></span><span></span><span></span></div>
+        <div class="expander-operation-copy">
+          <p class="expander-operation-title" data-operation-title role="status"></p>
+          <span class="expander-progress-readout" aria-hidden="true"><small data-progress-estimate>Est.</small> <span data-progress-number>0%</span></span>
+        </div>
+        <progress data-progress max="100" value="0" aria-label="Estimated video processing progress"></progress>
+        <p class="expander-operation-detail" data-operation-detail></p>
+        <button type="button" class="expander-try" data-resume hidden>Check task again</button>
+        <button type="button" class="expander-try" data-dismiss hidden>Back to clips</button>
+      </div>
+      <div class="expander-result-toolbar" data-result-toolbar hidden>
+        <div class="expander-result-specs">
+          <span><span class="sr-only">Resolution </span><span data-result-resolution></span></span>
+          <span><span class="sr-only">Aspect ratio </span><span data-result-ratio></span></span>
+        </div>
+        <button class="expander-download" type="button" data-result-download>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v12m-4-4 4 4 4-4M4 16v4h16v-4" />
+          </svg>
+          <span data-download-label>Download</span>
+        </button>
+        <p class="expander-download-error" data-download-error role="alert"></p>
+      </div>
     </div>
+    <div data-examples>
     <div class="expander-caption">
       <div>
         <p class="expander-card-title" data-title>{first.title}</p>
@@ -132,11 +153,19 @@ const first = visibleCases[0];
         </button>
       ))}
     </div>
+    </div>
     <p class="expander-result-message" data-message role="status" aria-live="polite"></p>
   </div>
+  <ReframeAccount client:load />
 </expander-workspace>
 
 <script>
+  import { api, isInsufficientReframeCredits, validateMediaUpload } from '@/lib/api';
+  import { downloadMediaFile } from '@/lib/download-media';
+  import { getReadyAccount, refreshUserInfo } from '@/lib/providers/user-store';
+  import { maxReframeSeconds, reframeCredits, type ReframeRatio, type ReframeResolution } from '@/lib/reframe-config';
+  import { checkReframeCredits, reframeCreditShortfall, type CreditShortfall } from '@/src/lib/reframe-account';
+
   interface CaseClip {
     id: string;
     title: string;
@@ -157,7 +186,7 @@ const first = visibleCases[0];
         const timeout = window.setTimeout(() => reject(new Error('We could not read this video.')), 5000);
         video.onloadedmetadata = () => {
           clearTimeout(timeout);
-          resolve(video.duration);
+          resolve(video.videoWidth > 0 ? video.duration : 0);
         };
         video.onerror = () => {
           clearTimeout(timeout);
@@ -172,6 +201,19 @@ const first = visibleCases[0];
     }
   }
 
+  function waitForDelay(milliseconds: number, signal: AbortSignal) {
+    if (signal.aborted) return Promise.resolve();
+    return new Promise<void>(resolve => {
+      const done = () => {
+        clearTimeout(timer);
+        signal.removeEventListener('abort', done);
+        resolve();
+      };
+      const timer = window.setTimeout(done, milliseconds);
+      signal.addEventListener('abort', done, { once: true });
+    });
+  }
+
   class ExpanderWorkspace extends HTMLElement {
     private lifecycle?: AbortController;
 
@@ -180,28 +222,55 @@ const first = visibleCases[0];
       const form = this.querySelector('form')!;
       const filePicker = this.querySelector<HTMLInputElement>('#expand-source')!;
       const prompt = this.querySelector<HTMLTextAreaElement>('#expand-prompt')!;
-      const fileName = this.querySelector<HTMLElement>('[data-source-name]')!;
-      const count = this.querySelector<HTMLElement>('[data-count]')!;
-      const drop = this.querySelector<HTMLButtonElement>('[data-upload]')!;
-      const clear = this.querySelector<HTMLButtonElement>('[data-clear]')!;
-      const fileError = this.querySelector<HTMLElement>('#expand-source-error')!;
       const promptError = this.querySelector<HTMLElement>('#expand-prompt-error')!;
+      const fileName = this.querySelector<HTMLElement>('[data-source-name]')!;
+      const drop = this.querySelector<HTMLButtonElement>('[data-upload]')!;
+      const uploadHelp = this.querySelector<HTMLElement>('#expand-source-help')!;
+      const clear = this.querySelector<HTMLButtonElement>('[data-clear]')!;
+      const sourcePreview = this.querySelector<HTMLElement>('[data-source-preview]')!;
+      const sourceFilm = sourcePreview.querySelector('expander-film')!;
+      const sourceVideo = sourceFilm.querySelector('video')!;
+      const sourceActions = this.querySelector<HTMLElement>('[data-source-actions]')!;
+      const fileError = this.querySelector<HTMLElement>('#expand-source-error')!;
       const status = this.querySelector<HTMLElement>('[data-message]')!;
       const submitError = this.querySelector<HTMLElement>('[data-submit-error]')!;
-      const qualityLimit = this.querySelector<HTMLInputElement>('[name="quality"][value="1080p"]')!;
-      const help = this.querySelector<HTMLElement>('#expand-resolution-help')!;
-      const preview = this.querySelector<HTMLElement>('expander-film')!;
+      const submit = form.querySelector<HTMLButtonElement>('[type="submit"]')!;
+      const estimate = this.querySelector<HTMLElement>('[data-estimate]')!;
+      const estimateLabel = this.querySelector<HTMLElement>('[data-estimate-label]')!;
+      const preview = this.querySelector<HTMLElement>('[data-monitor] expander-film')!;
       const video = preview.querySelector('video')!;
       const title = this.querySelector<HTMLElement>('[data-title]')!;
       const monitor = this.querySelector<HTMLElement>('[data-monitor]')!;
       const thumbnails = [...this.querySelectorAll<HTMLButtonElement>('[data-clip]')];
       const viewButtons = [...this.querySelectorAll<HTMLButtonElement>('[data-view]')];
       const follow = this.querySelector<HTMLButtonElement>('[data-try]')!;
+      const examples = this.querySelector<HTMLElement>('[data-examples]')!;
+      const operation = this.querySelector<HTMLElement>('[data-operation]')!;
+      const operationTitle = this.querySelector<HTMLElement>('[data-operation-title]')!;
+      const operationDetail = this.querySelector<HTMLElement>('[data-operation-detail]')!;
+      const progress = this.querySelector<HTMLProgressElement>('[data-progress]')!;
+      const progressNumber = this.querySelector<HTMLElement>('[data-progress-number]')!;
+      const progressEstimate = this.querySelector<HTMLElement>('[data-progress-estimate]')!;
+      const resultToolbar = this.querySelector<HTMLElement>('[data-result-toolbar]')!;
+      const resultResolution = this.querySelector<HTMLElement>('[data-result-resolution]')!;
+      const resultRatio = this.querySelector<HTMLElement>('[data-result-ratio]')!;
+      const downloadButton = this.querySelector<HTMLButtonElement>('[data-result-download]')!;
+      const downloadLabel = this.querySelector<HTMLElement>('[data-download-label]')!;
+      const downloadError = this.querySelector<HTMLElement>('[data-download-error]')!;
+      const resume = this.querySelector<HTMLButtonElement>('[data-resume]')!;
+      const dismiss = this.querySelector<HTMLButtonElement>('[data-dismiss]')!;
       const cases = JSON.parse(this.dataset.cases || '[]') as CaseClip[];
       let active = cases[0];
       let view = 'target';
-      let chosenFile: File | undefined;
+      let source: { file: File; durationSeconds: number; url: string } | undefined;
+      let panel: 'clips' | 'operation' | 'result' = 'clips';
+      let busy = false;
+      let pending: { taskId: string; accountId: string; ratio: ReframeRatio; resolution: ReframeResolution; duration: number } | undefined;
       let fileIntent = 0;
+      let progressTimer: number | undefined;
+      let reportedProgress = 0;
+      let resultDownload: { url: string; filename: string } | undefined;
+      let downloadRequest: AbortController | undefined;
 
       this.lifecycle = new AbortController();
       const { signal } = this.lifecycle;
@@ -210,32 +279,46 @@ const first = visibleCases[0];
         radios(key).forEach(option => { option.checked = option.value === value; });
       };
       const chosen = (key: string) => radios(key).find(option => option.checked)?.value;
-      const reflectPrompt = () => {
-        submitError.textContent = '';
-        count.textContent = `${prompt.value.length.toLocaleString('en-US')} / 6,000`;
-        promptError.textContent = '';
-        prompt.removeAttribute('aria-invalid');
-      };
-      const reflectQuality = () => {
-        const vertical = ['9:16','3:4'].includes(chosen('ratio') ?? '');
-        qualityLimit.disabled = vertical;
-        help.textContent = vertical ? 'Vertical frames support up to 720p.' : '';
-        if (vertical && qualityLimit.checked) select('quality', '720p');
+      const resolution = () => chosen('quality') as ReframeResolution;
+      const creditLabel = (credits: number) => `${credits.toLocaleString('en-US', { maximumFractionDigits: 6 })} credits`;
+      const reflectEstimate = () => {
+        const label = source ? 'Estimated cost ' : 'Rate ';
+        const amount = creditLabel(reframeCredits(resolution(), source?.durationSeconds ?? 1)) + (source ? '' : '/s');
+        if (estimateLabel.textContent !== label) estimateLabel.textContent = label;
+        if (estimate.textContent !== amount) estimate.textContent = amount;
       };
       const reflectFile = () => {
         submitError.textContent = '';
-        fileName.textContent = chosenFile?.name || 'Choose a video';
-        clear.hidden = !chosenFile;
+        fileName.textContent = source?.file.name || 'Select or drop an MP4';
+        uploadHelp.textContent = source ? 'Replace video' : '200 MB max · Up to 5 min';
+        sourcePreview.hidden = !source;
+        sourceActions.hidden = !source;
         drop.removeAttribute('aria-invalid');
         fileError.textContent = '';
       };
+      const clearPromptError = () => {
+        promptError.textContent = '';
+        prompt.removeAttribute('aria-invalid');
+      };
       const validate = async (file: File) => {
-        if (!/\.mp4$/i.test(file.name) || (file.type && file.type !== 'video/mp4')) {
-          throw new Error('Choose an MP4 video.');
-        }
+        validateMediaUpload('video', file);
+        if (!/\.mp4$/i.test(file.name)) throw new Error('Choose an MP4 video.');
         const duration = await readClipDuration(file);
         if (!Number.isFinite(duration) || duration <= 0) throw new Error('Choose a playable MP4 video.');
-        if (duration > 10) throw new Error('Choose a video that is 10 seconds or shorter.');
+        if (duration < 1) throw new Error('Choose a video at least one second long.');
+        if (duration > maxReframeSeconds) throw new Error('Choose a video that is 5 minutes or shorter.');
+        return Math.ceil(duration);
+      };
+      const replaceSource = (file: File, durationSeconds: number) => {
+        const previousUrl = source?.url;
+        source = { file, durationSeconds, url: URL.createObjectURL(file) };
+        sourceVideo.pause();
+        sourceFilm.dispatchEvent(new Event('film-source-change'));
+        sourceVideo.preload = 'auto';
+        sourceVideo.src = source.url;
+        if (previousUrl) URL.revokeObjectURL(previousUrl);
+        reflectEstimate();
+        reflectFile();
       };
       const acceptFile = async (file: File) => {
         const intent = ++fileIntent;
@@ -243,10 +326,9 @@ const first = visibleCases[0];
         drop.setAttribute('aria-busy', 'true');
         fileError.textContent = 'Reading video…';
         try {
-          await validate(file);
+          const durationSeconds = await validate(file);
           if (intent !== fileIntent || signal.aborted) return;
-          chosenFile = file;
-          reflectFile();
+          replaceSource(file, durationSeconds);
         } catch (error) {
           if (intent !== fileIntent || signal.aborted) return;
           drop.setAttribute('aria-invalid', 'true');
@@ -256,20 +338,40 @@ const first = visibleCases[0];
         }
       };
 
-      const show = (clip: CaseClip, nextView: string) => {
-        active = clip;
-        view = nextView;
+      const showPanel = (next: typeof panel) => {
+        panel = next;
+        examples.hidden = next !== 'clips';
+        operation.hidden = next !== 'operation';
+        preview.hidden = next === 'operation';
+        resultToolbar.hidden = next !== 'result';
+        if (next !== 'result') {
+          downloadRequest?.abort();
+          downloadError.textContent = '';
+          resultDownload = undefined;
+        }
+        monitor.dataset.panel = next;
+      };
+      const setPlayer = (url: string, label: string, ratio?: string, poster?: string) => {
         video.pause();
         preview.dispatchEvent(new Event('film-source-change'));
-        const activeRatio = view === 'source' ? clip.sourceRatio : clip.ratio;
-        const [width, height] = activeRatio.split('/').map(Number);
+        const [width, height] = (ratio ?? '16 / 9').split('/').map(Number);
         const fit = (width / height) / (16 / 9);
         preview.style.setProperty('--film-media-width', `${Math.min(1, fit) * 100}%`);
         preview.style.setProperty('--film-media-height', `${Math.min(1, 1 / fit) * 100}%`);
-        video.poster = view === 'source' ? clip.sourcePoster : clip.resultPoster;
-        video.src = view === 'source' ? clip.source : clip.result;
-        video.setAttribute('aria-label', clip.title);
-        preview.querySelector('button')?.setAttribute('aria-label', `Play ${clip.title}`);
+        if (poster) video.poster = poster;
+        else video.removeAttribute('poster');
+        video.src = url;
+        video.preload = 'none';
+        video.muted = false;
+        video.setAttribute('aria-label', label);
+        preview.querySelector('button')?.setAttribute('aria-label', `Play ${label}`);
+      };
+      const show = (clip: CaseClip, nextView: string) => {
+        active = clip;
+        view = nextView;
+        showPanel('clips');
+        if (view === 'source') setPlayer(clip.source, clip.title, clip.sourceRatio, clip.sourcePoster);
+        else setPlayer(clip.result, clip.title, clip.ratio, clip.resultPoster);
         title.textContent = clip.title;
         thumbnails.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.clip === clip.id)));
         viewButtons.forEach(button => button.setAttribute('aria-pressed', String(button.dataset.view === view)));
@@ -287,16 +389,14 @@ const first = visibleCases[0];
           const response = await fetch(clip.source, { signal });
           if (!response.ok) throw new Error('This clip could not load. Try again.');
           const file = new File([await response.blob()], `${clip.id}.mp4`, { type:'video/mp4' });
-          await validate(file);
+          const durationSeconds = await validate(file);
           if (intent !== fileIntent || signal.aborted) return;
-          chosenFile = file;
+          replaceSource(file, durationSeconds);
           prompt.value = clip.prompt;
+          clearPromptError();
           select('ratio', clip.ratio.replace('/', ':'));
-          select('quality','720p');
-          select('duration','10');
-          reflectPrompt();
-          reflectQuality();
-          reflectFile();
+          select('quality','768p');
+          reflectEstimate();
           status.textContent = 'Video and settings loaded.';
           prompt.focus({ preventScroll: true });
           form.scrollIntoView({ block: 'start', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth' });
@@ -304,6 +404,226 @@ const first = visibleCases[0];
           if (intent === fileIntent && !signal.aborted) status.textContent = 'This clip could not load. Try again.';
         } finally {
           follow.removeAttribute('aria-busy');
+        }
+      };
+
+      const revealMedia = () => {
+        if (matchMedia('(max-width: 820px)').matches) {
+          monitor.scrollIntoView({ block: 'nearest', behavior: 'instant' });
+        }
+      };
+      const setBusy = (value: boolean) => {
+        busy = value;
+        submit.setAttribute('aria-disabled', String(value));
+        submit.setAttribute('aria-busy', String(value));
+      };
+      const stopProgress = () => {
+        window.clearInterval(progressTimer);
+        progressTimer = undefined;
+      };
+      const updateProgress = (value: number) => {
+        const digits = value >= 98 && value < 100 ? 2 : value >= 90 && value < 100 ? 1 : 0;
+        const precision = 10 ** digits;
+        const label = `${(Math.floor(value * precision) / precision).toFixed(digits)}%`;
+        progress.value = value;
+        if (progressNumber.textContent !== label) progressNumber.textContent = label;
+      };
+      const startProgress = (duration: number, resumeTask = false) => {
+        stopProgress();
+        if (!resumeTask) reportedProgress = 0;
+        const initial = resumeTask ? Math.min(98.99, progress.value) : 0;
+        const startedAt = performance.now();
+        const pace = Math.min(75, 27 + duration / 3);
+        progressEstimate.hidden = false;
+        progress.setAttribute('aria-label', 'Estimated video processing progress');
+        updateProgress(initial);
+        progressTimer = window.setInterval(() => {
+          const elapsed = (performance.now() - startedAt) / 1000;
+          const remaining = .88 * Math.exp(-elapsed / pace) + .12 * Math.exp(-elapsed / 260);
+          const floor = Math.max(initial, reportedProgress * .9);
+          const target = 99 - (99 - floor) * remaining;
+          updateProgress(Math.max(progress.value, Math.min(target, progress.value + 1)));
+        }, 250);
+      };
+      const finishProgress = async () => {
+        stopProgress();
+        operation.dataset.state = 'finishing';
+        operationTitle.textContent = 'Finishing your video';
+        const initial = progress.value;
+        const remaining = 100 - initial;
+        const duration = Math.min(2400, 650 + remaining * 20);
+        const startedAt = performance.now();
+
+        while (!signal.aborted) {
+          const fraction = Math.min(1, (performance.now() - startedAt) / duration);
+          if (fraction === 1) break;
+          updateProgress(Math.min(99.99, initial + remaining * (1 - (1 - fraction) ** 3)));
+          await waitForDelay(50, signal);
+        }
+        if (signal.aborted) return;
+
+        operation.dataset.state = 'complete';
+        operationTitle.textContent = 'Video ready';
+        progressEstimate.hidden = true;
+        progress.setAttribute('aria-label', 'Video processing progress');
+        updateProgress(100);
+        await waitForDelay(450, signal);
+      };
+      const renderProgress = (label: string, detail: string) => {
+        operation.dataset.state = 'running';
+        if (operationTitle.textContent !== label) operationTitle.textContent = label;
+        if (operationDetail.textContent !== detail) operationDetail.textContent = detail;
+        resume.hidden = true;
+        dismiss.hidden = true;
+        showPanel('operation');
+      };
+      const renderError = (title: string, detail: string) => {
+        stopProgress();
+        showPanel('operation');
+        operation.dataset.state = 'error';
+        operationTitle.textContent = title;
+        operationDetail.textContent = detail;
+        resume.hidden = !pending;
+        dismiss.hidden = Boolean(pending);
+      };
+      const ensureAccount = (accountId: string) => {
+        if (signal.aborted) throw new DOMException('Workspace closed.', 'AbortError');
+        if (getReadyAccount()?.id !== accountId || !api.auth.isTokenValid()) {
+          throw new Error('Sign in with the account that started this task.');
+        }
+      };
+      const poll = async (job: NonNullable<typeof pending>) => {
+        const deadline = Date.now() + 15 * 60_000;
+        try {
+          do {
+            ensureAccount(job.accountId);
+            const check = await api.reframe.check(job.taskId, signal);
+            ensureAccount(job.accountId);
+            if (check.state === 'failed') {
+              pending = undefined;
+              renderError('Video expansion failed', check.message || 'Review your source and settings, then try again.');
+              void refreshUserInfo({ force: true }).catch(() => {});
+              return;
+            }
+            if (check.state === 'complete') {
+              if (!check.url) {
+                renderError('Video is ready, but the link is unavailable', 'Check the same task again to retrieve the result.');
+                return;
+              }
+              setPlayer(check.url, 'expanded video', job.ratio.replace(':', '/'));
+              video.preload = 'metadata';
+              await finishProgress();
+              ensureAccount(job.accountId);
+              pending = undefined;
+              resultResolution.textContent = job.resolution;
+              resultRatio.textContent = job.ratio;
+              resultDownload = { url: check.url, filename: `ai-video-expander-${job.resolution}-${job.ratio.replace(':', 'x')}.mp4` };
+              showPanel('result');
+              void refreshUserInfo({ force: true }).catch(() => {});
+              return;
+            }
+            if (check.progress !== null) reportedProgress = Math.max(reportedProgress, check.progress);
+            renderProgress('Expanding your video', `${job.ratio} · ${job.resolution} · ${job.duration} s source`);
+            await waitForDelay(2500, signal);
+          } while (!signal.aborted && Date.now() < deadline);
+          if (!signal.aborted) renderError('Your video is still processing', 'Check the same task again to see the latest status.');
+        } catch {
+          if (!signal.aborted) {
+            const sameAccount = getReadyAccount()?.id === job.accountId;
+            renderError('Could not check your video', sameAccount
+              ? 'Check the same task again to see the latest status.'
+              : 'Sign in with the account that started this task, then check again.');
+          }
+        }
+      };
+
+      const recheckPending = async () => {
+        const job = pending;
+        if (busy || !job) return;
+        setBusy(true);
+        try {
+          startProgress(job.duration, true);
+          renderProgress('Checking your video', 'Fetching the latest status for this task.');
+          await poll(job);
+        } finally {
+          if (!signal.aborted) setBusy(false);
+        }
+      };
+
+      const generate = async () => {
+        if (busy) return;
+        if (pending) return recheckPending();
+        if (drop.getAttribute('aria-busy') === 'true') return;
+        status.textContent = '';
+        submitError.textContent = '';
+        const selectedSource = source;
+        if (!selectedSource) {
+          fileError.textContent = 'Choose a source video.';
+          drop.setAttribute('aria-invalid', 'true');
+          drop.focus();
+          return;
+        }
+
+        const description = prompt.value.trim();
+        if (!description) {
+          promptError.textContent = 'Enter an expansion prompt.';
+          prompt.setAttribute('aria-invalid', 'true');
+          prompt.focus();
+          return;
+        }
+
+        const quality = resolution();
+        const ratio = chosen('ratio') as ReframeRatio;
+        const duration = selectedSource.durationSeconds;
+        const cost = reframeCredits(quality, duration);
+
+        setBusy(true);
+        let stage: 'credits' | 'upload' | 'create' = 'credits';
+        let accountId: string | null = null;
+        try {
+          accountId = await checkReframeCredits(this, cost, submit);
+          if (!accountId || signal.aborted) return;
+          ensureAccount(accountId);
+          startProgress(duration);
+          video.pause();
+          sourceVideo.pause();
+          stage = 'upload';
+          renderProgress('Uploading your video', `Estimated cost · ${creditLabel(cost)}`);
+          revealMedia();
+          const url = await api.media.upload('video', selectedSource.file, signal);
+          ensureAccount(accountId);
+          stage = 'create';
+          renderProgress('Starting video expansion', `${ratio} · ${quality}`);
+          const taskId = await api.reframe.create({
+            reference_videos: [url], video_duration: duration, resolution: quality, aspect_ratio: ratio,
+            prompt: description,
+          }, signal);
+          if (signal.aborted) return;
+          pending = { taskId, accountId, ratio, resolution: quality, duration };
+          void refreshUserInfo({ force: true }).catch(() => {});
+          await poll(pending);
+        } catch (error) {
+          if (signal.aborted) return;
+          const message = error instanceof Error ? error.message : '';
+          if (stage === 'credits') {
+            submitError.textContent = message || 'We could not verify your credits. Try again.';
+          } else if (accountId && stage === 'create' && isInsufficientReframeCredits(error)) {
+            stopProgress();
+            show(active, view);
+            await refreshUserInfo({ force: true }).catch(() => {});
+            const account = getReadyAccount();
+            if (!signal.aborted && account?.id === accountId) {
+              const currentCredits = account.info?.total_credits;
+              this.dispatchEvent(new CustomEvent<CreditShortfall>(reframeCreditShortfall, {
+                detail: { requiredCredits: currentCredits !== undefined && currentCredits < cost ? cost : undefined, currentCredits, returnFocus: submit },
+              }));
+            }
+          } else {
+            if (stage === 'upload') renderError('Could not upload your video', message || 'Check your connection and try again.');
+            if (stage === 'create') renderError('Could not confirm video expansion', 'Check your account before submitting again.');
+          }
+        } finally {
+          if (!signal.aborted) setBusy(false);
         }
       };
 
@@ -327,32 +647,55 @@ const first = visibleCases[0];
       }, { signal });
       clear.addEventListener('click', () => {
         fileIntent += 1;
-        chosenFile = undefined;
+        sourceVideo.pause();
+        sourceVideo.removeAttribute('src');
+        sourceVideo.preload = 'none';
+        sourceVideo.load();
+        if (source) URL.revokeObjectURL(source.url);
+        source = undefined;
+        reflectEstimate();
         drop.removeAttribute('aria-busy');
         status.textContent = '';
         reflectFile();
         drop.focus();
       }, { signal });
-      form.addEventListener('change', reflectQuality, { signal });
-      prompt.addEventListener('input', reflectPrompt, { signal });
+      form.addEventListener('change', reflectEstimate, { signal });
+      reflectEstimate();
+      prompt.addEventListener('input', () => {
+        submitError.textContent = '';
+        if (prompt.value.trim()) clearPromptError();
+      }, { signal });
       form.addEventListener('submit', event => {
         event.preventDefault();
-        status.textContent = '';
-        if (drop.getAttribute('aria-busy') === 'true') return;
-        if (!chosenFile) {
-          fileError.textContent = 'Choose a source video.';
-          drop.setAttribute('aria-invalid','true');
-          drop.focus();
-          return;
-        }
-        if (!prompt.value.trim()) {
-          promptError.textContent = 'Describe what should fill the new space.';
-          prompt.setAttribute('aria-invalid','true');
-          prompt.focus();
-          return;
-        }
-        submitError.textContent = 'Video expansion is unavailable right now. Your settings are still here.';
+        void generate();
       }, { signal });
+      downloadButton.addEventListener('click', async () => {
+        if (downloadRequest || !resultDownload) return;
+        const request = new AbortController();
+        downloadRequest = request;
+        downloadError.textContent = '';
+        downloadButton.setAttribute('aria-busy', 'true');
+        downloadLabel.textContent = 'Downloading…';
+        try {
+          await downloadMediaFile(resultDownload.url, resultDownload.filename, request.signal);
+        } catch {
+          if (!request.signal.aborted) downloadError.textContent = 'Could not download the video. Try again.';
+        } finally {
+          downloadRequest = undefined;
+          downloadLabel.textContent = 'Download';
+          downloadButton.removeAttribute('aria-busy');
+        }
+      }, { signal });
+      dismiss.addEventListener('click', () => {
+        show(active, view);
+        follow.focus({ preventScroll: true });
+      }, { signal });
+      resume.addEventListener('click', recheckPending, { signal });
+      signal.addEventListener('abort', () => {
+        stopProgress();
+        downloadRequest?.abort();
+        if (source) URL.revokeObjectURL(source.url);
+      }, { once: true });
 
       thumbnails.forEach(button => button.addEventListener('click', () => {
         const clip = cases.find(item => item.id === button.dataset.clip);

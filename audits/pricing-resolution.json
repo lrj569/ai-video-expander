@@ -1,8 +1,8 @@
 {
   "schema_version": "1.0.0",
   "project_slug": "ai-video-expander",
-  "source": "configs/pricing/default.json",
-  "source_sha256": "840275a23affdb6f57ced150c10e345512d063c380e0b7a190fd3f8015ee2bee",
-  "resolution": "shared-default",
-  "snapshot_sha256": "3c160fea5ffe7114ca85be7056c51c61f9d1ae9af7d8a050ebd302b849d13417"
+  "source": "configs/pricing/projects/ai-video-expander.json",
+  "source_sha256": "a925093f0d8f777408baa8fb4fd5dab49072ddb4e79e4b64ed4d5650f855db58",
+  "resolution": "project-override",
+  "snapshot_sha256": "65c2aa8bdceec9bec602044d1a35b79de5e613f915a4ea073469b78e86f73bd1"
 }

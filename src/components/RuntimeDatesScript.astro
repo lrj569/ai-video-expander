@@ -14,7 +14,9 @@
       var iso = year + '-' + String(now.getMonth() + 1).padStart(2, '0') + '-' + String(now.getDate()).padStart(2, '0');
       var text = now.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
       var years = document.querySelectorAll('[data-current-year]');
-      for (var i = 0; i < years.length; i++) years[i].textContent = year;
+      for (var i = 0; i < years.length; i++) {
+        if (!years[i].closest('astro-island')) years[i].textContent = year;
+      }
       var dates = document.querySelectorAll('time[data-legal-effective-date]');
       for (var j = 0; j < dates.length; j++) {
         dates[j].setAttribute('datetime', iso);

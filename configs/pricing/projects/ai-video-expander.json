@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0.0",
+  "source": "user-confirmed-commercial-contract",
+  "currency": "USD",
+  "purchase_type": "one-time",
+  "credits_expire": false,
+  "package_list": [
+    {
+      "code": "PRD263PBJHAJ9W8MC",
+      "product_id": "PL263RYS9KUEYSYB",
+      "product_code": "PL263RYS9KUEYSYB",
+      "price": 9.9,
+      "score": 280,
+      "price_per_score": 0.036
+    },
+    {
+      "code": "PRD26GF2CJB9ZW6LV",
+      "product_id": "PL26S81OWJT6ZI8E",
+      "product_code": "PL26S81OWJT6ZI8E",
+      "price": 29.9,
+      "score": 1000,
+      "price_per_score": 0.030
+    },
+    {
+      "code": "PRD2670X1I27L9ZZW",
+      "product_id": "PL26Y4EXJZWEH8XS",
+      "product_code": "PL26Y4EXJZWEH8XS",
+      "price": 49.9,
+      "score": 2000,
+      "price_per_score": 0.025
+    }
+  ],
+  "price_per_score_semantics": "Rounded user record; not an exact unit price or settlement multiplier.",
+  "id_mapping": "oneTimePlans.priceId = package_list.code; backend resolves code before using product_id with Anyway",
+  "unconfirmed": ["refund_policy", "tax", "payment_methods", "free_allowance", "commercial_use_rights"]
+}

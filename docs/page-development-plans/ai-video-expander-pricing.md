@@ -11,11 +11,11 @@ serp_report_sha256: "88c96549eb33772a91696568ffd2383f3add073e5f4daa8fde761cf60eb
 website_plan: "docs/website-specs/ai-video-expander.md"
 website_plan_sha256: "66aa81e6a8dcfdc53eac31006e0a38a1d18d12cdebae3b10818f9eb8be92e2b1"
 homepage_doc: "docs/page-development-plans/ai-video-expander-home.md"
-homepage_doc_sha256: "2bbf36ed7468f47d0329929e09a17551bf4d08f7f0c774c862e5efe37c744c2a"
+homepage_doc_sha256: "028bff9edb9911b64f7c87fc14fb5253e4376d28cff74549e0a572b7c71628ec"
 template_snapshot: "audits/nest-template-pricing-structure-snapshot.json"
 template_snapshot_sha256: "644d5634e242ecd5491d028926a51ef533334cbd171cabe6e6ff00c5b04580c3"
 pricing_config: "config/pricing.json"
-pricing_config_sha256: "3c160fea5ffe7114ca85be7056c51c61f9d1ae9af7d8a050ebd302b849d13417"
+pricing_config_sha256: "65c2aa8bdceec9bec602044d1a35b79de5e613f915a4ea073469b78e86f73bd1"
 document_version: "1.0.0"
 word_count_contract: "1.0.0"
 last_updated: "2026-11-24"
@@ -82,13 +82,13 @@ The exact purchase query and commercial questions in the Pricing SERP support a 
 Each pack is a one-time purchase. You choose a pack and pay the price shown on its card.
 
 ### Q2: How many credits come with each pack?
-The packs include 200, 650, or 1,200 credits. The price on each card covers the full pack.
+The packs include 280, 1,000, or 2,000 credits. The price on each card covers the full pack.
 
 ### Q3: Do purchased credits expire?
 Purchased credits never expire. You can save unused credits for a future project.
 
 ### Q4: Which credit pack should I choose?
-The 200-credit pack has the lowest upfront price. To buy more credits at once, compare the 650- and 1,200-credit packs by total price and credits included.
+The 280-credit pack has the lowest upfront price. To buy more credits at once, compare the 1,000- and 2,000-credit packs by total price and credits included.
 
 ### Q5: Who can I contact about a credit purchase?
 Use Contact support below. Include the pack you selected and the date of purchase so we can look into it.
@@ -126,7 +126,7 @@ Use Contact support below. Include the pack you selected and the date of purchas
       "name": "How many credits come with each pack?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The packs include 200, 650, or 1,200 credits. The price on each card covers the full pack."
+        "text": "The packs include 280, 1,000, or 2,000 credits. The price on each card covers the full pack."
       }
     },
     {
@@ -142,7 +142,7 @@ Use Contact support below. Include the pack you selected and the date of purchas
       "name": "Which credit pack should I choose?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The 200-credit pack has the lowest upfront price. To buy more credits at once, compare the 650- and 1,200-credit packs by total price and credits included."
+        "text": "The 280-credit pack has the lowest upfront price. To buy more credits at once, compare the 1,000- and 2,000-credit packs by total price and credits included."
       }
     },
     {
@@ -168,9 +168,9 @@ Use Contact support below. Include the pack you selected and the date of purchas
 
 **Status:** pending
 
-Generation credit costs, free access, refunds, taxes, payment methods and commercial rights still require confirmation. Disable stale Product or Offer schema in the implementation. Once price and checkout are verified, produce any Product or Offer representation from a single runtime source. Confirm backend code mapping, displayed currency and amount, and credit delivery before releasing.
+Generation credit costs are 4 credits per second at 480p, 6 at 768p, and 12 at 1080p. Free access, refunds, taxes, payment methods and commercial rights still require confirmation. Disable stale Product or Offer schema in the implementation. Once price and checkout are verified, produce any Product or Offer representation from a single runtime source. Confirm backend code mapping, displayed currency and amount, and credit delivery before releasing.
 
-## Validation handoff
+## Validation handoff for the original pricing snapshot
 
 - Deterministic validation: PASS, 186 document-supplied customer words
 - Template lock validation: PASS, all ten template snapshot files

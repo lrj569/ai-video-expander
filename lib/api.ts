@@ -1,5 +1,6 @@
 // API 基础配置 - 从 website-config 导入
 import { apiConfig } from '@/website-config';
+import type { ReframeRatio, ReframeResolution } from './reframe-config';
 
 const API_CONFIG = {
   VIDOR_AI_BASE: import.meta.env.DEV && !import.meta.env.SSR ? '' : apiConfig.baseUrl,
@@ -291,6 +292,129 @@ export const paymentApi = {
   },
 };
 
+export const mediaUploads = {
+  image: { endpoint: 'upload_canvas', maxMB: 10 },
+  video: { endpoint: 'upload_reel', maxMB: 200 },
+  audio: { endpoint: 'upload_waveform', maxMB: 50 },
+} as const;
+
+export type MediaUploadKind = keyof typeof mediaUploads;
+
+export function validateMediaUpload(kind: MediaUploadKind, file: File) {
+  const { maxMB } = mediaUploads[kind];
+  if (!file.size) throw new Error('Choose a file that is not empty.');
+  if (file.size > maxMB * 1024 * 1024) throw new Error(`Choose a file no larger than ${maxMB} MB.`);
+  if (file.type && file.type !== 'application/octet-stream' && !file.type.startsWith(`${kind}/`)) {
+    throw new Error(`Choose a ${kind} file.`);
+  }
+}
+
+class GenerationApiError extends Error {
+  constructor(message: string, readonly status: number, readonly code?: number | string) {
+    super(message);
+  }
+}
+
+export function isInsufficientReframeCredits(error: unknown) {
+  return error instanceof GenerationApiError && (error.status === 402 || Number(error.code) === 402 ||
+    /not enough (?:credits|points|balance)|insufficient.*(?:credits|points|balance)|(?:积分|余额)不足/i.test(error.message));
+}
+
+async function generationRequest<T>(path: string, options: RequestInit) {
+  const headers = getHeaders();
+  const upload = options.body instanceof FormData;
+  if (upload || !options.body) delete headers['Content-Type'];
+  const controller = new AbortController();
+  const abort = () => controller.abort();
+  if (options.signal?.aborted) abort();
+  options.signal?.addEventListener('abort', abort, { once: true });
+  const timeout = setTimeout(() => controller.abort(new Error('The request timed out.')), upload ? 10 * 60_000 : 30_000);
+  try {
+    const response = await fetch(`${API_CONFIG.VIDOR_AI_BASE}${path}`, { ...options, headers, signal: controller.signal });
+    const result = await response.json().catch(() => null);
+    if (!response.ok || !result || (result.code != null && Number(result.code) !== 200) || result.success === false) {
+      throw new GenerationApiError(
+        result?.msg || result?.message || result?.error || `Request failed (${response.status}).`,
+        response.status, result?.code,
+      );
+    }
+    return result.data as T;
+  } finally {
+    clearTimeout(timeout);
+    options.signal?.removeEventListener('abort', abort);
+  }
+}
+
+function publicMediaUrl(value: unknown) {
+  if (typeof value !== 'string') return null;
+  try {
+    const url = new URL(value);
+    return ['https:', 'http:'].includes(url.protocol) ? url.href : null;
+  } catch {
+    return null;
+  }
+}
+
+export const mediaApi = {
+  async upload(kind: MediaUploadKind, file: File, signal?: AbortSignal) {
+    validateMediaUpload(kind, file);
+    const form = new FormData();
+    form.set('file', file);
+    const data = await generationRequest<string | { url?: string; file_url?: string; video_url?: string; image_url?: string; audio_url?: string }>(
+      `/api/common/${mediaUploads[kind].endpoint}`, { method: 'POST', body: form, signal },
+    );
+    const url = publicMediaUrl(typeof data === 'string' ? data : data?.url ?? data?.file_url ?? data?.video_url ?? data?.image_url ?? data?.audio_url);
+    if (!url) throw new Error('The upload did not return a usable file URL.');
+    return url;
+  },
+};
+
+type ReframeParams = {
+  reference_videos: [string];
+  video_duration: number;
+  resolution: ReframeResolution;
+  aspect_ratio: ReframeRatio;
+  prompt?: string;
+  seed?: number;
+};
+
+export const reframeApi = {
+  async create(params: ReframeParams, signal?: AbortSignal) {
+    const data = await generationRequest<{ task_id?: string | number }>(
+      '/api/task/h3max/create', {
+        method: 'POST', body: JSON.stringify({ ...params, model_name: 'h3maxreframe' }), signal,
+      },
+    );
+    if (!data?.task_id) throw new Error('The service did not return a task ID. Check your account before submitting again.');
+    return String(data.task_id);
+  },
+
+  async check(taskId: string, signal?: AbortSignal) {
+    const data = await generationRequest<{ status: number | string; status_msg?: string; video_url?: string; progress?: string | number }>(
+      `/api/task/h3max/check_task_status?${new URLSearchParams({ task_id: taskId })}`, { signal, cache: 'no-store' },
+    );
+    const status = typeof data?.status === 'string' ? data.status.trim() : data?.status;
+    if (status === 1 || status === '1') {
+      return { state: 'complete', url: publicMediaUrl(data.video_url) } as const;
+    }
+    if (status === -1 || status === '-1') {
+      const message = typeof data.status_msg === 'string' ? data.status_msg.trim() : '';
+      return { state: 'failed', message } as const;
+    }
+    if (status !== 0 && status !== '0') throw new Error('The service returned an unknown task status.');
+
+    const rawProgress = typeof data.progress === 'string' ? data.progress.trim() : data.progress;
+    const percent = typeof rawProgress === 'string' && rawProgress.endsWith('%');
+    const progress = percent ? Number(rawProgress.slice(0, -1)) : Number(rawProgress);
+    return {
+      state: 'processing',
+      progress: rawProgress != null && rawProgress !== '' && Number.isFinite(progress)
+        ? Math.min(99, Math.max(0, !percent && progress <= 1 ? progress * 100 : progress))
+        : null,
+    } as const;
+  },
+};
+
 export const videoApi = {
   // 文生视频接口
   textToVideo: async (params: {
@@ -572,6 +696,8 @@ export const api = {
   website: websiteApi,
   cms: cmsApi,
   video: videoApi,
+  media: mediaApi,
+  reframe: reframeApi,
 
   withRetry: apiWithRetry,
 };

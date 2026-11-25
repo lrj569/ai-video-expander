@@ -4,7 +4,7 @@
 
 ## 技术栈
 
-本模板现承接主工程共享价格桥接：主工程生成 configs/generated-pricing.json、generated-site.json、generated-public-profile.json，website-config.js 统一导出；不要在目标项目手动改套餐。oneTimePlans.priceId 为 product_id，支付路径为 /api/pay/anyway，JSON 参数与认证保持原样。模板未配置 API 时禁用购买按钮。
+本站套餐源为 `configs/pricing/projects/ai-video-expander.json`。价格桥接生成 `config/pricing.json` 快照和 `configs/generated-pricing.json`，由 `website-config.js` 统一提供给首页与价格页。结账使用 `/api/pay/anyway`，请求中的 `price_id` 是套餐 `code`（`PRD` 开头），后端按套餐记录匹配支付 ID（`PL` 开头）。视频制作的每秒积分由 `lib/reframe-config.ts` 按分辨率定义。
 
 首页复用 PricingSection，可传锁定 heading/description；项目有首页 FAQ 时价格区必须紧邻其上方。/pricing 的五项 FAQ 与 schema 使用同一来源。/llms.txt 是 Astro endpoint，不维护 public/llms.txt；只有 verified-public 才输出确认过的公开说明，PagePolicy 过滤不存在/不可索引页面。
 

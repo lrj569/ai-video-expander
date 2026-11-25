@@ -1,3 +1,4 @@
+import { downloadMediaFile } from '@/lib/download-media';
 import { GenerationHistoryItem, GroupedHistoryItem } from './types';
 
 // 按日期分组函数
@@ -104,23 +105,7 @@ export async function downloadMediaWithCors(
 ) {
   setIsDownloading(mediaId);
   try {
-    const response = await fetch(mediaUrl, { mode: 'cors' });
-
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}. Failed to fetch media. Check CORS headers on the server.`);
-    }
-
-    const blob = await response.blob();
-    const objectUrl = URL.createObjectURL(blob);
-
-    const link = document.createElement('a');
-    link.href = objectUrl;
-    link.download = filename || `ideavido-media-${mediaId}.mp4`;
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-
-    URL.revokeObjectURL(objectUrl);
+    await downloadMediaFile(mediaUrl, filename || `ideavido-media-${mediaId}.mp4`);
 
     console.log('Media download initiated!');
     showToast('Video downloaded successfully!', 'success');

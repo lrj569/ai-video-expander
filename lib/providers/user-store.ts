@@ -193,6 +193,10 @@ function subscribe(listener: () => void) {
   return () => listeners.delete(listener);
 }
 
+export function getReadyAccount() {
+  return snapshot.sessionReady ? { id: snapshot.userId, info: snapshot.userInfo } : null;
+}
+
 export function useUserInfo() {
   const current = useSyncExternalStore(subscribe, () => snapshot, () => serverSnapshot);
   return {

@@ -5,6 +5,7 @@ import { Button } from './button';
 import {
   Dialog,
   DialogContent,
+  DialogDescription,
   DialogHeader,
   DialogTitle,
 } from "./dialog";
@@ -12,19 +13,24 @@ import {
 interface InsufficientCreditsModalProps {
   isOpen: boolean;
   onClose: () => void;
-  requiredCredits: number;
+  requiredCredits?: number;
   currentCredits?: number;
+  returnFocus?: HTMLElement;
 }
 
 export function InsufficientCreditsModal({
   isOpen,
   onClose,
   requiredCredits,
-  currentCredits = 0,
+  currentCredits,
+  returnFocus,
 }: InsufficientCreditsModalProps) {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-md mx-auto">
+      <DialogContent className="max-w-md mx-auto" onCloseAutoFocus={returnFocus ? event => {
+        event.preventDefault();
+        returnFocus.focus({ preventScroll: true });
+      } : undefined}>
         <DialogHeader>
           <DialogTitle className="text-center">Insufficient Credits</DialogTitle>
         </DialogHeader>
@@ -35,9 +41,11 @@ export function InsufficientCreditsModal({
           <h3 className="text-lg font-semibold text-foreground mb-2">
             Not enough credits
           </h3>
-          <p className="text-muted-foreground mb-6">
-            You need at least {requiredCredits} credit{requiredCredits > 1 ? 's' : ''} to generate. You currently have {currentCredits} credit{currentCredits !== 1 ? 's' : ''}. Please purchase more credits to continue.
-          </p>
+          <DialogDescription className="text-muted-foreground mb-6">
+            {requiredCredits !== undefined && <>You need at least {requiredCredits.toLocaleString('en-US', { maximumFractionDigits: 6 })} credit{requiredCredits === 1 ? '' : 's'} to generate. </>}
+            {currentCredits !== undefined && <>You currently have {currentCredits.toLocaleString('en-US', { maximumFractionDigits: 6 })} credit{currentCredits === 1 ? '' : 's'}. </>}
+            Purchase more credits to continue.
+          </DialogDescription>
           <div className="flex gap-3 justify-center">
             <Button
               variant="outline"

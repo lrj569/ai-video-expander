@@ -3,9 +3,11 @@ export const prerender = false;
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PaymentSuccessView from '../components/page-views/payment-success/PaymentSuccessView';
 import { buildStaticMetadata } from '../lib/page-metadata/static-pages';
+const isSuccessReturn = Astro.url.searchParams.get('status') === 'success';
 const metadata = buildStaticMetadata('/payment-success');
+if (!isSuccessReturn) metadata.title = 'Payment Status';
 Astro.response.headers.set('Cache-Control', 'private, no-store');
 ---
 <BaseLayout metadata={metadata} path="/payment-success">
-  <PaymentSuccessView client:load />
+  <PaymentSuccessView isSuccessReturn={isSuccessReturn} client:load />
 </BaseLayout>

@@ -47,7 +47,7 @@ export const websiteConfig = {
     },
     '/payment-success': {
       title: 'Payment Successful',
-      description: 'Your payment was successful. Your credits have been added to your account.',
+      description: 'Review your checkout status and see your latest credit balance in your profile.',
       keywords: ['payment success', 'purchase complete'],
     },
     '/guide': {"title":"How to Use AI Video Expander: Reframing Guide","description":"Learn how to use AI Video Expander to fit a clip into a new frame. Choose an aspect ratio and export quality, guide the fill, and save the finished MP4.","keywords":["How to Use AI Video Expander","how to expand a video with AI","video reframing tutorial"]},
@@ -110,7 +110,7 @@ export function getPageTdk(path) {
 }
 
 
-export const featuredPricingPlanKey = 'PRD268A1OS6MYWDHY';
+export const featuredPricingPlanKey = 'PRD26GF2CJB9ZW6LV';
 
 export const publicNavigation = [
   { href: '/', label: 'Home', title: 'Go to the AI Video Expander homepage', activePath: '/' },

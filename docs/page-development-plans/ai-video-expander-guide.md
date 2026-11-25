@@ -10,7 +10,7 @@ serp_report_sha256: "5bda76ac4a905a672d1412dda43a3ca241bbfa3cd3e857c9f818ff4d063
 website_plan: "docs/website-specs/ai-video-expander.md"
 website_plan_sha256: "66aa81e6a8dcfdc53eac31006e0a38a1d18d12cdebae3b10818f9eb8be92e2b1"
 homepage_doc: "docs/page-development-plans/ai-video-expander-home.md"
-homepage_doc_sha256: "2bbf36ed7468f47d0329929e09a17551bf4d08f7f0c774c862e5efe37c744c2a"
+homepage_doc_sha256: "028bff9edb9911b64f7c87fc14fb5253e4376d28cff74549e0a572b7c71628ec"
 authoring_task_id: "01a20b87-0e27-7822-8155-6fbf90f500e8"
 authoring_engine: "codex-current-window"
 authoring_manifest: "audits/codex-seo-guide-authoring-manifest.json"
