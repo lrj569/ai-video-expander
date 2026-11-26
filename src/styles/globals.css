@@ -211,3 +211,8 @@
   --ring: #0099ff;
   --tw-ring-offset-color: #050505;
 }
+/* Keep the sign-up link readable if Clerk's footer gradient cannot render. */
+.cl-modalContent .cl-signIn-root .cl-footer {
+  background-color: #212126;
+  background-color: var(--clerk-color-background, #212126);
+}
